@@ -6,11 +6,30 @@ import type MarkdownIt from 'markdown-it'
 
 /**
  * 更多配置项参考：
- * 
+ *
  * @see app-configs https://vitepress.vuejs.org/config/app-configs.html
  */
 export default defineConfig({
-  title: 'vitepress-template',
+  head: [
+    [
+      "meta",
+      {
+        name: "viewport",
+        content:
+          "width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no",
+      },
+    ],
+    ["meta", { name: "keywords", content: "前端日记,xuzhiming,blog" }],
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+    // 引入 Gitalk
+    [
+      "link",
+      { rel: "stylesheet", href: "https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.css" },
+    ],
+    ["script", { src: "https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.js" }],
+    ["script", { src: "https://lib.baomitu.com/axios/0.21.1/axios.js" }]
+  ],
+  title: '前端日记',
   /**
    * 是否显示最后更新时间
    *
@@ -43,8 +62,14 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/Tyh2001/vitepress-template'
-      }
+        link: 'https://github.com/boby4'
+      },
+      {
+        icon: {
+          svg: '<svg t="1692263449646" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3999" width="200" height="200"><path d="M512 960c-246.4 0-448-201.6-448-448s201.6-448 448-448 448 201.6 448 448-201.6 448-448 448z" fill="#D81E06" p-id="4000"></path><path d="M721.664 467.968h-235.52a22.272 22.272 0 0 0-20.736 20.736v51.776c0 10.368 10.368 20.736 20.736 20.736H628.48c10.368 0 20.736 10.304 20.736 20.672v10.368c0 33.664-28.48 62.08-62.144 62.08H392.896a22.272 22.272 0 0 1-20.672-20.672V436.928c0-33.664 28.48-62.08 62.08-62.08h287.36a22.272 22.272 0 0 0 20.736-20.736v-51.84a22.272 22.272 0 0 0-20.736-20.672h-287.36A152.96 152.96 0 0 0 281.6 434.368v287.36c0 10.304 10.368 20.672 20.736 20.672h302.848c75.072 0 137.216-62.08 137.216-137.216v-116.48a22.272 22.272 0 0 0-20.736-20.736z" fill="#FFFFFF" p-id="4001"></path></svg>'
+        },
+        link: 'https://gitee.com/wx_8f09a3c8d9_admin'
+      },
     ],
     nav,
     sidebar
