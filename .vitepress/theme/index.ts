@@ -4,7 +4,6 @@ import DefaultTheme from 'vitepress/theme'
 import Comment from "./components/Comment.vue";
 import Print from "./components/Print.vue";
 import Friendship from "./components/Friendship.vue";
-import Diary from "./components/Diary.vue";
 import vpSearch from './components/vp-search.vue'
 import './style/index.scss'
 import type { VNode } from 'vue'
@@ -30,6 +29,5 @@ export default {
     app.component('Comment', Comment);
     app.component("Friendship", Friendship);
     app.component("Print", Print);
-    app.component("Diary", Diary);
   }
 }
