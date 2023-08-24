@@ -8,6 +8,24 @@
     </div>
   </div>
   <div class="f-main">
+    <div style="padding:10px 0 25px 0;">
+      <meting-js
+          server="tencent"
+          type="playlist"
+          id="7534581780"
+          fixed="false"
+          autoplay="false"
+          loop="all"
+          order="list"
+          preload="auto"
+          list-folded="true"
+          theme="#1890ff"
+          list-max-height="350px"
+          lrc-type="1"
+          auto="https://y.qq.com/n/ryqq/playlist/7534581780"
+          >
+      </meting-js>
+    </div>
     <a :href="withBase(article.regularPath)" v-for="(article, index) in posts" :key="index" class="article">
       <div class="article-header">
         <div class="title">
