@@ -7,7 +7,7 @@
       </h1>
     </div>
   </div>
-  <f-main>
+  <div class="f-main">
     <a :href="withBase(article.regularPath)" v-for="(article, index) in posts" :key="index" class="article">
       <div class="article-header">
         <div class="title">
@@ -34,7 +34,7 @@
         >{{ i }}</a
       >
     </div>
-  </f-main>
+  </div>
 </template>
 
 <script lang="ts" setup>

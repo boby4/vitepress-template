@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 import { nav } from './config/nav';
 import { PluginTable } from './plugin';
 import type MarkdownIt from 'markdown-it';
-import { getPosts } from './utils/serverUtils'
+import { getPosts } from './utils/serverUtils.js'
 
 //每页的文章数量
 const pageSize = 10
