@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="f-main">
-    <div style="padding:10px 0 25px 0;">
+    <div style="padding:10px 10px 25px 10px;">
       <meting-js
           server="tencent"
           type="playlist"
@@ -178,7 +178,7 @@ const props = defineProps({
 }
 @media screen and (max-width: 700px) {
   .title {
-    font-size: 1.1rem;
+    font-size: .9rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
