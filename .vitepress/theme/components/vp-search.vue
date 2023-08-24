@@ -10,7 +10,8 @@ const onEnter = (): void => {
 </script>
 
 <template>
-  <f-input v-model="value1" type="text" placeholder="请输入...." :on-enter="onEnter" />
+  <f-input v-model="value1" type="text" placeholder="搜索" :on-enter="onEnter">
+  </f-input>
 </template>
 
 <style lang="scss" scoped>

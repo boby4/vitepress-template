@@ -30,7 +30,6 @@ export default {
         .catch( (error) =>{
             console.log(error);
         });
-       axios.post('http://42.193.173.48:3000/api/log',{url:document.title})
     }
 };
 </script>

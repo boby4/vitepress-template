@@ -1,7 +1,10 @@
 :root {
   --vp-c-green: #5d80f4;
   --vp-c-brand-dark: #5d80f4;
+  --date-color: var(--vp-c-text-2);
+  --date-font-family: Georgia, sans-serif;
   --vp-c-bg-alt: #fff; // 侧边栏
+  --li-dot-color: var(--vp-c-brand);
 }
 
 .dark {
@@ -100,6 +103,48 @@
   p.f-text {
     line-height: 1;
   }
+  a {
+    list-style: disc;
+    color: var(--vp-c-text-1);
+    font-weight: 500;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+/*tags and archives page style*/
+.posts {
+  padding: 4px 0 4px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-dot {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--li-dot-color);
+}
+
+.post-container {
+  color: var(--vp-c-text-2);
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+.post-container:hover {
+  color: var(--vp-c-brand);
+}
+
+.date {
+  color: var(--date-color);
+  font-family: var(--date-font-family);
 }
 
 // 顶部 logo

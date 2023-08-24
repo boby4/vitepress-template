@@ -1,32 +1,36 @@
+<script lang="ts" setup>
+import { onMounted, ref, watch, nextTick } from 'vue'
+import { useData } from 'vitepress'
+const utterancesRef = ref()
+const { theme, isDark } = useData()
+onMounted(() => {
+    nextTick(() => {
+        let { repo, issueTerm = 'pathname' } = theme.value.comment
+        if (repo) {
+            let utterances = document.createElement('script')
+            utterances.async = true
+            utterances.setAttribute('src', 'https://utteranc.es/client.js')
+            utterances.setAttribute('repo', repo)
+            utterances.setAttribute('issue-term', issueTerm)
+            utterances.setAttribute('theme', isDark.value ? 'github-dark' : 'github-light')
+            utterances.setAttribute('crossorigin', 'anonymous')
+            utterancesRef.value.appendChild(utterances)
+        }
+        //hack method to change utterances theme when change site theme
+        watch(isDark, (newVal, oldVal) => {
+            if (newVal !== oldVal) location.replace(location.href)
+        })
+    })
+})
+</script>
+
 <template>
-  <div id="gitalk-container"></div>
+    <div ref="utterancesRef"></div>
 </template>
 
-<script>
-  export default {
-    name: "blog-comments",
-    mounted() {
-      const commentConfig = {
-        // 是否开启
-        enable: true,
-        // 是否自动展开评论框
-        autoExpand: true,
-        // clientID
-        clientID: "44f5d100c2b83c1884e4",
-        // clientSecret
-        clientSecret: "0649098ad586acc04d130fdfefe2dc2d94b22949",
-        // 评论项目名
-        repo: 'blog-comments',
-        owner: 'boby4',
-        admin: ['boby4'],
-        githubID:'42525401',
-        id: decodeURI(window.location.pathname),
-        recentComment: true,
-        language:'zh-CN',
-        distractionFreeMode: true
-      };
-      const gitalk = new Gitalk(commentConfig);
-      gitalk.render("gitalk-container");
-    },
-  };
-</script>
+<style>
+/*global  style*/
+.utterances {
+    max-width: inherit !important;
+}
+</style>
