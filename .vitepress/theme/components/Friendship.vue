@@ -69,6 +69,7 @@ export default {
     margin-top: 20px;
 }
 .Friendship a{
+    box-shadow: rgb(0 0 0 / 20%) 0 0 4px 0;
     text-decoration:none;
     display: block;
     background: var(--header-color);

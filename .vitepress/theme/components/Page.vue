@@ -161,7 +161,7 @@ const props = defineProps({
 .title {
   color: var(--vp-c-text-2);
   display: block;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin: 0.5rem 0;
 }
@@ -178,7 +178,7 @@ const props = defineProps({
 }
 @media screen and (max-width: 700px) {
   .title {
-    font-size: .9rem;
+    font-size: .8rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
