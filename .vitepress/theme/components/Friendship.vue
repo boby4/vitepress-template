@@ -21,15 +21,44 @@ export default {
         }
     },
     mounted(){
-        axios.post('http://42.193.173.48:3000/api/friendship/list',{
-                "type":'pass'
-        })
-        .then( (response)=> {
-           this.FriendshipData = response.data.data;
-        })
-        .catch( (error) =>{
-            console.log(error);
-        });
+        this.FriendshipData = [
+            {
+                link: 'https://xzmhome.onrender.com/',
+                imgUrl: 'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
+                nickName: '小徐',
+                introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
+            },
+            {
+                link: 'https://xzmhome.onrender.com/',
+                imgUrl: 'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
+                nickName: '小徐',
+                introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
+            },
+            {
+                link: 'https://xzmhome.onrender.com/',
+                imgUrl: 'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
+                nickName: '小徐',
+                introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
+            },
+            {
+                link: 'https://xzmhome.onrender.com/',
+                imgUrl: 'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
+                nickName: '小徐',
+                introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
+            },
+            {
+                link: 'https://xzmhome.onrender.com/',
+                imgUrl: 'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
+                nickName: '小徐',
+                introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
+            },
+            {
+                link: 'https://xzmhome.onrender.com/',
+                imgUrl: 'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
+                nickName: '小徐',
+                introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
+            },
+        ]
     }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="tags">
         <span @click="toggleTag(key)" v-for="(item, key) in data" :class="key == selectTag ? 'tag_select' : 'tag'">
-            {{ key }} <strong>{{ data[key].length }}</strong>
+            # {{ key }} <strong>{{ data[key].length }}</strong>
         </span>
     </div>
     <div class="tag-header">{{ selectTag }}</div>
@@ -54,7 +54,7 @@ const toggleTag = (tag: string) => {
     border-radius: 2px;
     font-size: 0.875rem;
     line-height: 25px;
-    background-color: rgb(239, 181, 66);
+    background-color: var(--vp-c-brand);
     transition: 0.4s;
     border-radius: 2px;
     color: rgb(255, 255, 255);
@@ -64,18 +64,18 @@ const toggleTag = (tag: string) => {
     color: var(--vp-c-brand);
 }
 .tag-header {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 600;
     margin: 1rem 0;
     text-align: left;
 }
 
 @media screen and (max-width: 768px) {
     .tag-header {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .date {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
 }
 </style>

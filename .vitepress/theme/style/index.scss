@@ -14,6 +14,10 @@
 .sidebar-link-item.active {
   background: rgba(82, 179, 94, 0.1);
 }
+.VPNav{
+  box-shadow: 0 0.5rem 1rem rgba(18,38,63,.05);
+  border: 1px solid rgba(17,24,39,.1);
+}
 
 .VPHome{
   padding-bottom: 10px !important;
@@ -138,7 +142,7 @@
 
 .post-container {
   color: var(--vp-c-text-2);
-  font-size: 0.9375rem;
+  font-size: 0.9rem;
   font-weight: 400;
 }
 
