@@ -9,6 +9,7 @@
           </div>
       </a>
   </div>
+  <Comment />
 </template>
 
 <script>

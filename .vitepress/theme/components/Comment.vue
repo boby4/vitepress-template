@@ -26,12 +26,32 @@ onMounted(() => {
 </script>
 
 <template>
+<div class="post_comments">
+    <div class="line">
+        <div class="line_name">评论</div>
+    </div>
     <div ref="utterancesRef"></div>
+</div>
 </template>
 
 <style>
 /*global  style*/
 .utterances {
     max-width: inherit !important;
+}
+.post_comments {
+    background-color: #FFF;
+    padding: 1.25rem;
+    margin-top: 1.4rem;
+}
+.post_comments .line {
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #eaecef;
+    position: relative;
+    margin-bottom: 1.2rem;
+}
+.post_comments .line_name {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
 }
 </style>
