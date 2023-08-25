@@ -23,13 +23,13 @@ const asyncConfig = async () => {
 			['link', { rel: 'icon', href: '/favicon.ico' }],
 			//播放器插件
 			['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css' }],
+			['script', { src: 'https://v1.hitokoto.cn/?encode=js&select=%23hitokoto', defer: true}], // 今日一言
 			['script', { src: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js' }],
 			['script', { src: 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js' }],
 			['script', { src: 'https://lib.baomitu.com/axios/0.21.1/axios.js' }], // axios
 			['script', { src: 'https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js' }], // live2d动漫人物
 			['script', { src: 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js' }], // 网站统计
-			['script', { src: 'https://v1.hitokoto.cn/?encode=js&select=%23hitokoto' }], // 今日一言
-			['script', { src: 'https://sdk.jinrishici.com/v2/browser/jinrishici.js' }], // 今日一言
+			['script', { src: 'https://sdk.jinrishici.com/v2/browser/jinrishici.js' }], // 今日诗词
 			// ['script', { src: '/js/flower.js' }], // 花瓣特效
 			['script', { src: '/js/clickText.js' }], // 点击文字特效
 			// ['script', { src: '/js/firework.js' }], // 点击烟花特效
