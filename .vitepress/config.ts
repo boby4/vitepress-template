@@ -29,7 +29,7 @@ const asyncConfig = async () => {
 			['script', { src: 'https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js' }], // live2d动漫人物
 			['script', { src: '/js/flower.js' }], // 花瓣特效
 			['script', { src: '/js/clickText.js' }], // 点击文字特效
-			['script', { src: 'https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.8/js/maodian.js' }],
+			// ['script', { src: '/js/firework.js' }], // 点击烟花特效
 		],
 		// 主题配置
 		themeConfig: {
