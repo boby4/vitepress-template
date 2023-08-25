@@ -194,7 +194,7 @@ const props = defineProps({
     padding: 0 0.5em;
   }
   .time {
-    font-size: 14px;
+    font-size: 12px;
   }
   .line {
     border-top: 0.15rem solid #353535;
