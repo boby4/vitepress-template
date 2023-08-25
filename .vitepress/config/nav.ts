@@ -3,7 +3,7 @@
  */
 export const nav = [
   { text: "🏠 首页", link: "/" },
-  { text: "📂 归档", link: "/pages/archives" },
-  { text: '📅 标签', link: '/pages/tags' },
+  { text: "📅 时间线", link: "/pages/archives" },
+  { text: '📂 标签', link: '/pages/tags' },
   { text: '🔨 关于', link: '/pages/about' }
 ]
