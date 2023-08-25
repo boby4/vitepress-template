@@ -1,7 +1,7 @@
 <template>
     <div class="tags">
         <span @click="toggleTag(key)" v-for="(item, key) in data" :class="key == selectTag ? 'tag_select' : 'tag'">
-            # {{ key }} <strong>{{ data[key].length }}</strong>
+            # {{ key }} {{ data[key].length }}
         </span>
     </div>
     <div class="tag-header">{{ selectTag }}</div>
@@ -38,35 +38,43 @@ const toggleTag = (tag: string) => {
     display: inline-block;
     padding: 4px 16px;
     margin: 6px 8px;
-    font-size: 0.875rem;
+    font-size: 0.7rem;
     line-height: 25px;
+    font-weight: 600;
     border-radius: 2px;
-    background-color: #f6f6f7;
+    background-color: #EFEFEF;
     transition: 0.4s;
-    border-radius: 2px;
+    border-radius: 4px;
     color: var(--vp-c-text-1);
     cursor: pointer;
+}
+.tag:hover{
+    background-color: var(--vp-c-brand);
+    transition: 0.4s;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
 }
 .tag_select {
     display: inline-block;
     padding: 4px 16px;
     margin: 6px 8px;
     border-radius: 2px;
-    font-size: 0.875rem;
+    font-size: 0.7rem;
+    font-weight: 600;
     line-height: 25px;
     background-color: var(--vp-c-brand);
     transition: 0.4s;
-    border-radius: 2px;
-    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    color: white;
     cursor: pointer;
 }
 .tag strong {
     color: var(--vp-c-brand);
 }
 .tag-header {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin: 1rem 0;
+    margin: 2rem 0 1rem 0;
     text-align: left;
 }
 

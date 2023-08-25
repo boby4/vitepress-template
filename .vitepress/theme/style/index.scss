@@ -144,6 +144,12 @@
 }
 
 .post-container {
+  // max-width: 30em;
+  width: 30rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
   color: var(--vp-c-text-2);
   font-size: 0.9rem;
   font-weight: 400;
@@ -154,6 +160,7 @@
 }
 
 .date {
+  width: 6em;
   color: var(--date-color);
   font-family: var(--date-font-family);
 }
