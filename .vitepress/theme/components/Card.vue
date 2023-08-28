@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import logo from "../../images/t.jpg";
 export default {
   props: {
     config: {

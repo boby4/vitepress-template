@@ -51,7 +51,8 @@ onMounted(() => {
     margin-bottom: 1.2rem;
 }
 .post_comments .line_name {
-    font-size: 1.1rem;
-    margin-bottom: 0.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
 }
 </style>

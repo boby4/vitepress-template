@@ -13,11 +13,9 @@
 </template>
 
 <script>
-import img from '../../images/t.jpg'
 export default {
     data(){
         return{
-            img,
             FriendshipData:[]
         }
     },
