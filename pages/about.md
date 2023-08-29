@@ -1,6 +1,8 @@
 ---
+page: true
 title: About
-description: About me test
+description: About me
+aside: false
 ---
 
 # about me

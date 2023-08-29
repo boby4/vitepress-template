@@ -40,7 +40,6 @@ const asyncConfig = async () => {
 			logo: '/favicon.ico',
 			posts: posts,
 			website: 'https://xzmblog.onrender.com',
-			modelPath: '/public/static/lion_dance_monster.glb',
 			// 评论的仓库地址
 			comment: {
 				repo: 'boby4/blog-comments',
