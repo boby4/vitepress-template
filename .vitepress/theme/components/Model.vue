@@ -1,5 +1,5 @@
 <template>
-  <div id="container" class="three-canvas"></div>
+  <div id="container" class="three-canvas" ref="canvas"></div>
 </template>
 
 <script setup lang="ts">
@@ -11,7 +11,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js'
 let container: any, clock: any, mixer: any, width: number, height: number
-let camera: any, scene: any, renderer: any, model
+let camera: any, scene: any, renderer: any, model:any, controls:any
 const { isDark } = useData()
 
 onMounted(() => {
@@ -22,17 +22,15 @@ onMounted(() => {
       }
     })
     init()
-    animate()
   })
 })
 
 const init = () => {
-  console.log(isDark)
   let themeColor = isDark?.value ? 0x7d7d7d : 0xe5e6e7
   container = document.querySelector('.three-canvas')
   const { width, height } = container?.getBoundingClientRect()
   camera = new THREE.PerspectiveCamera(45, width / height, 0.25, 100)
-  camera.position.set(-10, 5, 10)
+  camera.position.set(-6, 5, 15)
   camera.lookAt(0, 2, 0)
   scene = new THREE.Scene()
   scene.background = new THREE.Color(themeColor)
@@ -64,7 +62,15 @@ const init = () => {
       model = gltf.scene
       scene.add(model)
       mixer = new THREE.AnimationMixer(model)
-      mixer.clipAction(gltf.animations[0]).play()
+      const clip1 = gltf.animations[6]
+      const clip2 = gltf.animations[12]
+      const action1 = mixer.clipAction(clip1)
+      const action2 = mixer.clipAction(clip2)
+      mixer.clipAction(gltf.animations[6]).play()
+      setTimeout(() => {
+        action1.stop()
+        action2.play()
+      }, clip1.duration * 2500)
     },
     undefined,
     (e: Error) => {
@@ -72,6 +78,9 @@ const init = () => {
     }
   )
   renderer = new THREE.WebGLRenderer({ antialias: true })
+  controls = new OrbitControls(camera, renderer.domElement)
+  controls.update()
+  animate()
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(width, height)
   container.appendChild(renderer.domElement)
@@ -95,10 +104,10 @@ const onWindowResize = () => {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #d2deea;
+  /* background-color: #d2deea; */
   position: fixed;
   top: 4rem;
-  z-index: -1;
+  /* z-index: -1; */
   left: 0;
 }
 </style>
