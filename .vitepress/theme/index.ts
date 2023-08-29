@@ -6,6 +6,7 @@ import Archives from './components/Archives.vue'
 import Tags from './components/Tags.vue'
 import NewLayout from './components/NewLayout.vue'
 import Model from './components/Model.vue'
+import ModelPlay from './components/ModelPlay.vue'
 import './style/index.scss'
 import type { VNode } from 'vue'
 
@@ -26,5 +27,6 @@ export default {
     app.component("Archives", Archives);
     app.component("Tags", Tags);
     app.component("Model", Model);
+    app.component("ModelPlay", ModelPlay);
   }
 }
