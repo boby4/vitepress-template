@@ -14,11 +14,16 @@
     </a>
 </template>
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, nextTick } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { initTags } from '../../utils/functions'
 let url = window.location?.href.split('?')[1]
 let params = new URLSearchParams(url)
+if(url.includes('?')) {
+    nextTick(() => {
+        toggleTag(params.get('tag'))
+    })
+}
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
 let selectTag = ref(params.get('tag') ? params.get('tag') : '')
