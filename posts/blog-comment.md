@@ -83,6 +83,4 @@ app.component('Comment', Comment);
 // 在你的md文件最下面引用这个组件即可
 <Comment />
 ```
-
-
 <Comment />

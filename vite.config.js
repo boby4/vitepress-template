@@ -1,3 +1,6 @@
 export default {
-  assetsInclude: ['**/*.gltf']
+  assetsInclude: ['**/*.gltf'],
+  server: {
+    host: '0.0.0.0'
+  }
 }

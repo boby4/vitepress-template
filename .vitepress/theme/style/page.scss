@@ -334,13 +334,14 @@ img {
   display: block;
   border: 1.5px solid rgba(247, 244, 244, 0.936);
   box-shadow: .1rem .1rem 0.4rem rgba(198, 191, 191, 0.901);
-  color: #666;
   transition: all 300ms ease;
   border-radius: .3rem;
+  color: var(--text-color);
   box-shadow: rgb(0 0 0 / 20%) 0 0 4px 0;
 }
 .article:hover {
   transform: translateY(-8px);
+  color: var(--text-color);
 }
 .article-header {
   display: flex;
