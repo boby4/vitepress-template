@@ -71,9 +71,9 @@ const init = () => {
       });
 
       // 模拟骨骼
-      let skeleton = new THREE.SkeletonHelper( model );
-      skeleton.visible = false;
-      scene.add( skeleton );
+      // let skeleton = new THREE.SkeletonHelper( model );
+      // skeleton.visible = false;
+      // scene.add( skeleton );
 
       // 动画混合器/控制器
       mixer = new THREE.AnimationMixer(model)

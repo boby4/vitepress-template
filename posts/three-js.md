@@ -3,7 +3,7 @@ date: 2023-08-30
 title: vue3项目中使用three.js
 tags:
 - threejs
-- vue3
+- vue
 description: 在vue3项目中，通过three.js实现了一个简单的三维效果图。
 ---
 

@@ -1,7 +1,6 @@
-<script lang="ts" setup>
+<script setup>
 import { onMounted, ref, watch, nextTick } from 'vue'
 import { useData } from 'vitepress'
-let window = {} as Window
 const utterancesRef = ref()
 const { theme, isDark } = useData()
 onMounted(() => {

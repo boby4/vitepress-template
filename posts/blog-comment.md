@@ -2,7 +2,7 @@
 date: 2023-08-24
 title: 个人博客利用github接入评论组件
 tags:
-- 评论组件
+- 组件
 description: 利用GitHub App的utterances，一个基于 GitHub 问题构建的轻量级评论小部件。使用 GitHub 问题进行博客评论、维基页面等！
 ---
 
@@ -34,10 +34,9 @@ description: 利用GitHub App的utterances，一个基于 GitHub 问题构建的
 
 ## **创建一个comment.vue组件**
 ```vue
-<script lang="ts" setup>
+<script setup>
 import { onMounted, ref, watch, nextTick } from 'vue'
 import { useData } from 'vitepress'
-let window = {} as Window
 const utterancesRef = ref()
 // 主题属性
 const { theme, isDark } = useData()
