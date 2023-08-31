@@ -43,7 +43,6 @@ const toggleTag = (tag) => {
   margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 .tag {
   display: inline-block;
