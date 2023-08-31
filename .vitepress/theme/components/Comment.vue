@@ -12,14 +12,15 @@ onMounted(() => {
             utterances.setAttribute('src', 'https://utteranc.es/client.js')
             utterances.setAttribute('repo', repo)
             utterances.setAttribute('issue-term', issueTerm)
-            utterances.setAttribute('theme', isDark.value ? 'github-dark' : 'github-light')
+            // utterances.setAttribute('theme', isDark.value ? 'github-dark' : 'github-light')
+            utterances.setAttribute('theme', 'github-light')
             utterances.setAttribute('crossorigin', 'anonymous')
             utterancesRef.value.appendChild(utterances)
         }
         //hack method to change utterances theme when change site theme
-        watch(isDark, (newVal, oldVal) => {
-            if (newVal !== oldVal) window.location.replace(window.location?.href)
-        })
+        // watch(isDark, (newVal, oldVal) => {
+        //     if (newVal !== oldVal) window.location.replace(window.location?.href)
+        // })
     })
 })
 </script>
@@ -50,6 +51,7 @@ onMounted(() => {
     margin-bottom: 1.2rem;
 }
 .post_comments .line_name {
+    color: #666;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.2rem;

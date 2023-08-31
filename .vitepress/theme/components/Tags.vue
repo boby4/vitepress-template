@@ -43,6 +43,7 @@ const toggleTag = (tag) => {
   margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .tag {
   display: inline-block;
@@ -55,7 +56,7 @@ const toggleTag = (tag) => {
   background-color: #efefef;
   transition: 0.4s;
   border-radius: 4px;
-  color: var(--vp-c-text-1);
+  color: rgba(60, 60, 67, 0.92);;
   cursor: pointer;
 }
 .tag:hover {
