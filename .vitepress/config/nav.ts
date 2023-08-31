@@ -7,10 +7,10 @@ export const nav = [
   { text: '🌈 标签',
     // link: '/pages/tags',
     items: [
-      { text: "# Vue", link: "/pages/tags?tag=vue", target: '_self', rel: 'sponsored' },
-      { text: "# 组件", link: "/pages/tags?tag=组件", target: '_self', rel: 'sponsored' },
-      { text: "# threejs", link: "/pages/tags?tag=threejs", target: '_self', rel: 'sponsored' },
-      { text: "# 机器人", link: "/pages/tags?tag=机器人", target: '_self', rel: 'sponsored' },
+      { text: "# Vue", link: "/pages/tags?tag=vue" },
+      { text: "# 组件", link: "/pages/tags?tag=组件" },
+      { text: "# threejs", link: "/pages/tags?tag=threejs" },
+      { text: "# 机器人", link: "/pages/tags?tag=机器人" },
     ]
   },
   { text: '💌 友情链接', link: '/pages/link' },
