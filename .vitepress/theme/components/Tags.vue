@@ -23,32 +23,10 @@
   </a>
 </template>
 <script setup>
-import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
-
+import { computed, ref, watch } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { initTags } from '../../utils/functions'
 // let url = window.location?.href.split('?')[1]
-const currentParam = ref('')
-onMounted(() => {
-  handleURLChange()
-  // 添加 URL 变化事件监听
-  window.addEventListener('popstate', handleURLChange)
-})
-onBeforeUnmount(() => {
-  // 移除 URL 变化事件监听
-  window.removeEventListener('popstate', handleURLChange)
-})
-
-const handleURLChange = () => {
-  const searchParams = new URLSearchParams(window.location.search)
-  const newParam = searchParams.get('tag') || ''
-  if (newParam !== currentParam.value) {
-    // 参数发生变化，执行相应的操作
-    console.log('Parameter changed:', newParam)
-    currentParam.value = newParam
-    toggleTag(currentParam.value)
-  }
-}
 
 let url = ref(window.location.search)
 let params = new URLSearchParams(url.value)
