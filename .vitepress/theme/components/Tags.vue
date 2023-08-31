@@ -29,7 +29,7 @@ import { initTags } from '../../utils/functions'
 // let url = window.location?.href.split('?')[1]
 let url = ref(window.location.search)
 console.log('location变化', url)
-let params = new URLSearchParams(url)
+let params = new URLSearchParams(url.value)
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
 let selectTag = ref(params.get('tag') ? params.get('tag') : '')
