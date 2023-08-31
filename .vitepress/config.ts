@@ -20,7 +20,6 @@ const asyncConfig = async () => {
 				},
 			],
 			['meta', { name: 'keywords', content: '前端日记,xuzhiming,blog' }],
-			['meta', { httpEquiv: 'Cache-Control', content: 'max-age=31536000' }],
 			['link', { rel: 'icon', href: '/favicon.ico' }],
 			//播放器插件
 			['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css' }],
