@@ -18,7 +18,7 @@ import { computed, ref, watch } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { initTags } from '../../utils/functions'
 let url = window.location?.href.split('?')[1]
-console.log(url)
+console.log('location变化', window.location)
 let params = new URLSearchParams(url)
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
