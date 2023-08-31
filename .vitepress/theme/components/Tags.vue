@@ -51,7 +51,6 @@ const handleURLChange = () => {
 }
 
 let url = ref(window.location.search)
-console.log('location变化', url)
 let params = new URLSearchParams(url.value)
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
