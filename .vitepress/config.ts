@@ -33,6 +33,7 @@ const asyncConfig = async () => {
 			// ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js' }], // threejs
 			// ['script', { src: '/js/flower.js' }], // 花瓣特效
 			['script', { src: '/js/clickText.js' }], // 点击文字特效
+			['script', { src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js' }], // jq
 			// ['script', { src: '/js/firework.js' }], // 点击烟花特效
 		],
 		// 主题配置

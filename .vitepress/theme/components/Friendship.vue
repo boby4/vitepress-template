@@ -1,6 +1,8 @@
 <template>
   <h3>友情链接</h3>
-  <blockquote>🔗友情链接。在评论里给出你的名称，网址，一小段描述，一张头像即可。</blockquote>
+  <blockquote>
+    🔗友情链接。在评论里给出你的名称，网址，一小段描述，一张头像即可。
+  </blockquote>
   <div class="Friendship">
     <a
       :href="item.link"
@@ -19,7 +21,7 @@
       ></div>
       <div class="introduce">
         <p class="nickName">{{ item.nickName }}</p>
-        <p>{{ item.introduce }}</p>
+        <p class="discript">{{ item.introduce }}</p>
       </div>
     </a>
   </div>
@@ -48,15 +50,15 @@ export default {
 </script>
 <style scoped>
 blockquote {
-    position: relative;
-    color: #666;
-    background-color: #f4f4f5;
-    border-left: 0.5rem solid var(--vp-c-brand);
-    padding: 1rem 0 1rem 1rem;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-    border-bottom-left-radius: 0.25rem;
+  position: relative;
+  color: #666;
+  background-color: #f4f4f5;
+  border-left: 0.5rem solid var(--vp-c-brand);
+  padding: 1rem 0 1rem 1rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.25rem;
 }
 .Friendship {
   display: flex;
@@ -71,7 +73,7 @@ blockquote {
   width: 320px;
   margin: 10px;
   padding: 10px 0;
-  border-radius: 8px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   border: 1px solid var(--border-color);
@@ -99,12 +101,15 @@ blockquote {
   overflow: hidden;
   white-space: nowrap;
   flex: 1;
-  width: 14em;
+  width: 18em;
   color: var(--text-color);
 }
 .nickName {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 550;
+  font-size: 17px;
   color: var(--title-color);
+}
+.discript{
+  font-size: 13px;
 }
 </style>

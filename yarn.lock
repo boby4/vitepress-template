@@ -166,6 +166,11 @@
   resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.18.20.tgz"
   integrity sha512-kTdfRcSiDfQca/y9QIkng02avJ+NCaQvrMejlsB3RRv5sE9rRoeBPISaZpKxHELzRxZyLvNts1P27W3wV+8geQ==
 
+"@fancyapps/ui@^5.0.22":
+  version "5.0.22"
+  resolved "https://registry.npmjs.org/@fancyapps/ui/-/ui-5.0.22.tgz"
+  integrity sha512-44A5/Hm59mn53FqZRyM4HO/R7UWE79UxgNyHmaudSe+HuU5Kl1g6lxR4Ol1QFaqNS97Pbdytlu4SxYsOX1BTxw==
+
 "@jridgewell/sourcemap-codec@^1.4.15":
   version "1.4.15"
   resolved "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz"

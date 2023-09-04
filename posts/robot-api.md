@@ -19,14 +19,19 @@ description: vue前端项目接入钉钉/企业微信群机器人API，实现接
 
 * 打开所在的企微群-点击群管理-添加群机器人
 
-![机器人](https://ice.frostsky.com/2023/08/23/7c9cf3f4e06b1802363e8c49c65dadb4.png)
+<a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/23/7c9cf3f4e06b1802363e8c49c65dadb4.png" data-caption="企微群机器人">
+    <img src="https://ice.frostsky.com/2023/08/23/7c9cf3f4e06b1802363e8c49c65dadb4.png"/>
+</a>
+
 **配置信息**默认即可
 
 * 配置完毕后，点击完成，即可看到群机器人
 
 * 点击群机器人，复制Webhook地址
 
-![自定义机器人](https://ice.frostsky.com/2023/08/23/8283a74beb8fce92b7431b693961f7cd.png)
+<a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/23/8283a74beb8fce92b7431b693961f7cd.png" data-caption="自定义企微机器人">
+    <img src="https://ice.frostsky.com/2023/08/23/8283a74beb8fce92b7431b693961f7cd.png"/>
+</a>
 
 可以看到企微把文档配置放到上面了，接下来就可以自定义你的机器人配置了，easy。
 
@@ -79,11 +84,15 @@ export function qwRobot(response: AxiosResponse) {
 
 * 打开所在的钉钉群-点击群管理-机器人
 
-![机器人](https://ice.frostsky.com/2023/08/23/eafe49a3be74f1c338c1e2f01e0e1f64.png)
+<a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/23/eafe49a3be74f1c338c1e2f01e0e1f64.png" data-caption="群机器人">
+    <img src="https://ice.frostsky.com/2023/08/23/eafe49a3be74f1c338c1e2f01e0e1f64.png"/>
+</a>
 
 * 添加自定义机器人
 
-![自定义机器人](https://ice.frostsky.com/2023/08/23/9d2096bb5288ff06e0885afc91a7e5cc.png)
+<a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/23/9d2096bb5288ff06e0885afc91a7e5cc.png" data-caption="自定义钉钉机器人">
+    <img src="https://ice.frostsky.com/2023/08/23/9d2096bb5288ff06e0885afc91a7e5cc.png"/>
+</a>
 
 **配置信息** 基本默认就行，也可以自定义，ip白名单不配置则ip无限制
 
@@ -91,7 +100,9 @@ export function qwRobot(response: AxiosResponse) {
 
 * 获取Webhook地址
 
-![获取Webhook地址](https://ice.frostsky.com/2023/08/23/148c231f610ed5a68f1106a7b5e5d7dd.png)
+<a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/23/148c231f610ed5a68f1106a7b5e5d7dd.png" data-caption="获取钉钉Webhook">
+    <img src="https://ice.frostsky.com/2023/08/23/148c231f610ed5a68f1106a7b5e5d7dd.png"/>
+</a>
 
 ## **钉钉机器人js配置实现**
 
@@ -142,4 +153,5 @@ export function ddRobot(response: AxiosResponse) {
 }
 ```
 
+<Fancybox />
 <Comment />

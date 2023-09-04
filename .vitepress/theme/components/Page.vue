@@ -1,13 +1,14 @@
 <template>
   <div class="home-bg">
     <div class="content-bg">
-      <h1>xuzhiming
+      <h1>
+        xuzhiming
         <p>95后青年，前端切图仔一枚, <s>一个It技术的探索路上的小学生</s></p>
       </h1>
     </div>
   </div>
   <div class="layout_page">
-    <Aside/>
+    <Aside />
     <div class="f-main">
       <div class="meting_js">
         <meting-js
@@ -24,18 +25,26 @@
           list-max-height="380px"
           lrc-type="1"
           auto="https://y.qq.com/n/ryqq/playlist/7459592653"
-          >
+        >
         </meting-js>
       </div>
-      <a :href="withBase(article.regularPath)" v-for="(article, index) in posts" :key="index" class="article">
+      <a
+        :href="withBase(article.regularPath)"
+        v-for="(article, index) in posts"
+        :key="index"
+        class="article"
+      >
         <div class="article-header">
           <div class="title">🛄 {{ article.frontMatter.title || '' }}</div>
-          <time :datetime="article.frontMatter.date" class="time">⌛{{ article.frontMatter.date || '' }}</time>
+          <time :datetime="article.frontMatter.date" class="time"
+            >⌛{{ article.frontMatter.date || '' }}</time
+          >
         </div>
         <p class="describe">{{ article.frontMatter.description || '' }}</p>
       </a>
       <div class="pagination">
-        <a class="link"
+        <a
+          class="link"
           :class="{ active: pageCurrent === i }"
           v-for="i in pagesNum"
           :key="i"
@@ -45,7 +54,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script lang="ts" setup>
@@ -54,7 +62,7 @@ import Aside from '../components/Aside.vue'
 const props = defineProps({
   posts: Array,
   pageCurrent: Number,
-  pagesNum: Number
+  pagesNum: Number,
 })
 </script>
 

@@ -25,7 +25,9 @@ Three.js 提供了一系列用于创建和管理3D对象、灯光、材质、相
 
 刚开始学习的时候，建议先去<a style="color:blue" href="https://threejs.org/">threejs（官网）</a>上找个示例练下手，会理解的更深刻一点。
 
-![threejs示例](https://ice.frostsky.com/2023/08/30/5d068fee70756bf95d48c640893cb1ab.png)
+<a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/30/5d068fee70756bf95d48c640893cb1ab.png" data-caption="threejs示例">
+    <img src="https://ice.frostsky.com/2023/08/30/5d068fee70756bf95d48c640893cb1ab.png"/>
+</a>
 
 ## **vue3中安装与使用**
 
@@ -173,6 +175,9 @@ const onWindowResize = () => {
 
 <a style="color:blue" href="/pages/about">点这>>></a>
 
-![最终实现效果](https://ice.frostsky.com/2023/08/30/eaa674d07ce8180d5f3b11f71f71b923.png)
+<a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/30/eaa674d07ce8180d5f3b11f71f71b923.png" data-caption="最终效果">
+    <img src="https://ice.frostsky.com/2023/08/30/eaa674d07ce8180d5f3b11f71f71b923.png"/>
+</a>
 
+<Fancybox />
 <Comment />

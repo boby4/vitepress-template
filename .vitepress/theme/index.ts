@@ -7,6 +7,7 @@ import Tags from './components/Tags.vue'
 import NewLayout from './components/NewLayout.vue'
 import Model from './components/Model.vue'
 import ModelPlay from './components/ModelPlay.vue'
+import Fancybox from './components/Fancybox.vue'
 import './style/index.scss'
 import type { VNode } from 'vue'
 
@@ -28,5 +29,6 @@ export default {
     app.component("Tags", Tags);
     app.component("Model", Model);
     app.component("ModelPlay", ModelPlay);
+    app.component("Fancybox", Fancybox);
   }
 }
