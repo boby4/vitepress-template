@@ -3,8 +3,8 @@
   -webkit-box-align: start;
   align-items: flex-start;
   justify-content: center;
-  margin: 20px auto;
-  padding: 0 5px;
+  margin: 0 auto;
+  padding: 20px 10px;
   max-width: 1200px;
 }
 
@@ -275,23 +275,19 @@ img {
 .f-main {
   width: 70%;
   box-sizing: border-box;
-  padding-left: .5rem;
 }
 
 .meting_js {
   color: #666;
 }
 
-.meting_js .aplayer-info {
-  background: var(--vp-c-bg-alt) !important;
-}
-
 .article {
   padding: .9rem;
-  margin: 1.5rem .3rem;
+  margin: 1.1rem .3rem;
   display: block;
   transition: all 400ms ease;
   border-radius: 6px;
+  background: var(--vp-c-bg-alt);
   color: var(--text-color);
   box-shadow: rgb(0 0 0 / 20%) 0 0 4px 0;
 }

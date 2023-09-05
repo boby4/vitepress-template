@@ -54,7 +54,7 @@ blockquote {
   color: #666;
   background-color: #f4f4f5;
   border-left: 0.5rem solid var(--vp-c-brand);
-  padding: 1rem 0 1rem 1rem;
+  padding: 1rem 0.1rem 1rem;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
@@ -69,11 +69,12 @@ blockquote {
   box-shadow: rgb(0 0 0 / 20%) 0 0 4px 0;
   text-decoration: none;
   display: block;
-  background: var(--header-color);
+  background: white;
   width: 320px;
-  margin: 10px;
+  margin: 10px 0;
   padding: 10px 0;
   border-radius: 6px;
+  color: #666;
   display: flex;
   align-items: center;
   border: 1px solid var(--border-color);

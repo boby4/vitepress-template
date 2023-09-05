@@ -167,22 +167,5 @@ npm publish
 }
 ```
 
-## 查询带搜索返回接口建议
-
-* 页面返回字段名与搜索传参字段名可一致。
-
-```javascript
-//前端带搜索表格页面数据结构
-[
-	{
-		label:"企业名称",
-		prop:"appName"
-		search:{
-			type: "text"
-		}
-	}
-]
-```
-
 <Fancybox />
 <Comment />
