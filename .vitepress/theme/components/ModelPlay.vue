@@ -7,10 +7,13 @@ import { onMounted, ref, watch, nextTick } from 'vue'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 let container: any, clock: any, mixer: any, width: number, height: number
 let camera: any, scene: any, renderer: any, model:any, controls:any
 
 onMounted(() => {
+  NProgress.start()
   init()
 })
 
@@ -78,6 +81,7 @@ const init = () => {
       // 动画混合器/控制器
       mixer = new THREE.AnimationMixer(model)
       mixer.clipAction(gltf.animations[0]).play()
+      NProgress.done()
     },
     undefined,
     (e: Error) => {

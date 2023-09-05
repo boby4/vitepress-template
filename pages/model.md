@@ -1,7 +1,7 @@
 ---
 page: true
-title: About
-description: About me test
+title: Model
+description: Modelplay,threejs
 aside: false
 ---
 

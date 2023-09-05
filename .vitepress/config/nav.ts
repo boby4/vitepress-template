@@ -14,5 +14,5 @@ export const nav = [
     // ]
   },
   { text: '💌 友情链接', link: '/pages/link' },
-  { text: '👋 示例', link: '/pages/about' }
+  { text: '👋 示例', link: '/pages/model' }
 ]

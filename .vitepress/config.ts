@@ -4,6 +4,7 @@ import { PluginTable } from './plugin';
 import type MarkdownIt from 'markdown-it';
 import { getPosts } from './utils/serverUtils.js'
 
+
 //每页的文章数量
 const pageSize = 5
 const asyncConfig = async () => {
@@ -30,10 +31,9 @@ const asyncConfig = async () => {
 			// ['script', { src: 'https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js' }], // live2d动漫人物
 			['script', { src: 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js' }], // 网站统计
 			['script', { src: 'https://sdk.jinrishici.com/v2/browser/jinrishici.js' }], // 今日诗词
-			// ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js' }], // threejs
 			// ['script', { src: '/js/flower.js' }], // 花瓣特效
 			['script', { src: '/js/clickText.js' }], // 点击文字特效
-			['script', { src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js' }], // jq
+			['script', { src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js' }], // jquery引入，灯箱依赖jquery
 			// ['script', { src: '/js/firework.js' }], // 点击烟花特效
 		],
 		// 主题配置
