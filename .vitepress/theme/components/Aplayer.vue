@@ -15,7 +15,7 @@
             preload="auto"
             list-folded="true"
             theme="#1890ff"
-            list-max-height="380px"
+            list-max-height="280px"
             lrc-type="1"
             auto="https://y.qq.com/n/ryqq/playlist/7459592653"
           >
@@ -55,12 +55,12 @@ const togglePlayer = () => {
 .meting_js {
   color: #666;
   z-index: 2;
-  width: 20rem;
+  width: 18rem;
 }
 
 /* 定义进入和离开动画的 CSS 类 */
 .slide-fade-enter-active, .slide-fade-leave-active {
-  transition: opacity 0.5s, transform 0.5s;
+  transition: opacity 0.2s, transform 0.2s;
 }
 .slide-fade-enter, .slide-fade-leave-to /* .slide-fade-leave-active in <2.1.8 */ {
   opacity: 0;

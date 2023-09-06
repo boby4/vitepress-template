@@ -35,14 +35,12 @@
         >
       </div>
     </div>
-    <Aplayer/>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { withBase } from 'vitepress'
 import Aside from '../components/Aside.vue'
-import Aplayer from '../components/Aplayer.vue'
 const props = defineProps({
   posts: Array,
   pageCurrent: Number,
