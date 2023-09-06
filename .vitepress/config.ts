@@ -14,12 +14,7 @@ const asyncConfig = async () => {
 		cacheDir: '../../node_modules',
 		description: '前端日记,xuzhiming,blog',
 		head: [
-			['meta',
-				{
-					name: 'viewport',
-					content: 'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no',
-				},
-			],
+			['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' }],
 			['meta', { name: 'keywords', content: '前端日记,xuzhiming,blog' }],
 			['link', { rel: 'icon', href: '/favicon.ico' }],
 			//播放器插件
@@ -31,10 +26,8 @@ const asyncConfig = async () => {
 			// ['script', { src: 'https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js' }], // live2d动漫人物
 			['script', { src: 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js' }], // 网站统计
 			['script', { src: 'https://sdk.jinrishici.com/v2/browser/jinrishici.js' }], // 今日诗词
-			// ['script', { src: '/js/flower.js' }], // 花瓣特效
 			['script', { src: '/js/clickText.js' }], // 点击文字特效
 			['script', { src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js' }], // jquery引入，灯箱依赖jquery
-			// ['script', { src: '/js/firework.js' }], // 点击烟花特效
 		],
 		// 主题配置
 		themeConfig: {

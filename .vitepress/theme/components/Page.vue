@@ -10,24 +10,6 @@
   <div class="layout_page">
     <Aside />
     <div class="f-main">
-      <div class="meting_js">
-        <meting-js
-          server="tencent"
-          type="playlist"
-          id="7459592653"
-          fixed="false"
-          autoplay="false"
-          loop="all"
-          order="list"
-          preload="auto"
-          list-folded="true"
-          theme="#1890ff"
-          list-max-height="380px"
-          lrc-type="1"
-          auto="https://y.qq.com/n/ryqq/playlist/7459592653"
-        >
-        </meting-js>
-      </div>
       <a
         :href="withBase(article.regularPath)"
         v-for="(article, index) in posts"
@@ -53,12 +35,14 @@
         >
       </div>
     </div>
+    <Aplayer/>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { withBase } from 'vitepress'
 import Aside from '../components/Aside.vue'
+import Aplayer from '../components/Aplayer.vue'
 const props = defineProps({
   posts: Array,
   pageCurrent: Number,
