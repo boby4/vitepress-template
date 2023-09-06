@@ -1,6 +1,6 @@
 <template>
   <div class="meting-player">
-    <button @click="togglePlayer">{{ isPlayerVisible ? '>' : '<' }}</button>
+    <button @click="togglePlayer">🎧</button>
     <transition name="slide-fade">
       <div v-show="isPlayerVisible">
         <div class="meting_js">
@@ -39,7 +39,7 @@ const togglePlayer = () => {
 <style lang="scss">
 .meting-player {
   position: fixed;
-  top: 20%;
+  top: 18%;
   right: 0;
   background-color: #fff;
   box-shadow: -2px 3px 5px rgba(0, 0, 0, 0.1);
@@ -51,6 +51,7 @@ const togglePlayer = () => {
   font-size: 1.1rem;
   color: #666;
   padding: 10px;
+  border-right: 1px solid #eee;
 }
 .meting_js {
   color: #666;
