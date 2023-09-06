@@ -279,19 +279,23 @@ img {
 
 .article {
   padding: .9rem;
-  margin: .3rem .3rem 1.1rem .3rem;
+  margin: .4rem .3rem 1.1rem .3rem;
   display: block;
   transition: all 400ms ease;
-  border-radius: 6px;
   background: var(--vp-c-bg-alt);
   color: var(--text-color);
-  box-shadow: rgb(0 0 0 / 20%) 0 0 4px 0;
+  -webkit-box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(7, 17, 27, 0.08);
+  box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(7, 17, 27, 0.08);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .article:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   color: var(--text-color);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .article-header {
