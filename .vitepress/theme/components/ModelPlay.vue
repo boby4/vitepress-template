@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch, nextTick } from 'vue'
+import { onMounted, ref, watch, nextTick, onUnmounted } from 'vue'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
@@ -15,6 +15,10 @@ let camera: any, scene: any, renderer: any, model:any, controls:any
 onMounted(() => {
   NProgress.start()
   init()
+})
+
+onUnmounted(() => {
+  NProgress.done()
 })
 
 const init = () => {
