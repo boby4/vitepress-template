@@ -44,6 +44,27 @@ export default {
         nickName: '小徐',
         introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
       },
+      {
+        link: 'https://xzmhome.onrender.com/',
+        imgUrl:
+          'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
+        nickName: '小徐',
+        introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
+      },
+      {
+        link: 'https://xzmhome.onrender.com/',
+        imgUrl:
+          'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
+        nickName: '小徐',
+        introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
+      },
+      {
+        link: 'https://xzmhome.onrender.com/',
+        imgUrl:
+          'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
+        nickName: '小徐',
+        introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
+      },
     ]
   },
 }
@@ -64,16 +85,18 @@ blockquote {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
 }
 .Friendship a {
   box-shadow: rgb(0 0 0 / 20%) 0 0 4px 0;
   text-decoration: none;
   display: block;
   background: white;
-  width: 320px;
-  margin: 10px 0;
-  padding: 10px 0;
-  border-radius: 6px;
+  width: 21rem;
+  margin-bottom: 1rem;
+  padding: .8rem 0;
+  border-radius: 4px;
   color: #666;
   display: flex;
   align-items: center;

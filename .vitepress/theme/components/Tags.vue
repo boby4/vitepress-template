@@ -94,6 +94,7 @@ const toggleTag = (tag) => {
   }
   .date {
     font-size: 0.7rem;
+    width: 120px;
   }
 }
 </style>

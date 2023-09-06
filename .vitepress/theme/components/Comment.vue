@@ -52,5 +52,6 @@ onMounted(() => {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.2rem;
+  padding-left: 1rem;
 }
 </style>
