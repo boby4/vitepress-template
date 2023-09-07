@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 import Comment from "./components/Comment.vue";
 import Friendship from "./components/Friendship.vue";
 import Archives from './components/Archives.vue'
+import TimeLine from './components/TimeLine.vue'
 import Tags from './components/Tags.vue'
 import NewLayout from './components/NewLayout.vue'
 import Model from './components/Model.vue'
@@ -27,6 +28,7 @@ export default {
     app.component('Comment', Comment);
     app.component("Friendship", Friendship);
     app.component("Archives", Archives);
+    app.component("TimeLine", TimeLine);
     app.component("Tags", Tags);
     app.component("Model", Model);
     app.component("ModelPlay", ModelPlay);
