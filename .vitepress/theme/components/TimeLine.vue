@@ -169,6 +169,7 @@ console.log(data.value)
   clear: both;
 }
 .cd-timeline-content h4 {
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   margin-top: 0;
   padding-top: 0;
@@ -177,7 +178,6 @@ console.log(data.value)
 .cd-timeline-content p,
 .cd-timeline-content .cd-date {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
   font-size: 0.8125rem;
 }
 .cd-timeline-content .cd-date {

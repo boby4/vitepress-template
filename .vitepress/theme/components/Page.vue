@@ -1,5 +1,5 @@
 <template>
-  <div class="home-bg">
+  <div class="home-bg" :style="backgroundStyle">
     <div class="content-bg">
       <h1>
         xuzhiming
@@ -39,8 +39,14 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, ref } from 'vue'
 import { withBase } from 'vitepress'
 import Aside from '../components/Aside.vue'
+import { randomImage } from '../../utils/functions'
+const backgroundStyle = computed(() => {
+  const backgroundImageStyle = `url('${randomImage()}') center center / cover no-repeat`;
+  return { background: backgroundImageStyle };
+})
 const props = defineProps({
   posts: Array,
   pageCurrent: Number,
