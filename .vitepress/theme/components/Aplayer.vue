@@ -7,7 +7,7 @@
           <meting-js
             server="tencent"
             type="playlist"
-            id="7459592653"
+            id="1983842486"
             fixed="false"
             autoplay="false"
             loop="all"
@@ -17,7 +17,7 @@
             theme="#1890ff"
             list-max-height="280px"
             lrc-type="1"
-            auto="https://y.qq.com/n/ryqq/playlist/7459592653"
+            auto="https://y.qq.com/n/ryqq/playlist/1983842486"
           >
           </meting-js>
         </div>
