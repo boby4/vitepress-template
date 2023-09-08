@@ -27,6 +27,30 @@ export function initTags(post: Post[]) {
 	return data;
 }
 
+export function initTagsParams(post: Post[]) {
+  const transformedData:Record<string, any>[] = [];
+  const uniqueTags = Array.from(new Set(post.flatMap(item => item.frontMatter.tags)));
+  uniqueTags.forEach(tag => {
+    const tagData:Record<string, any> = {
+      selectTag: tag,
+      item: []
+    };
+    post.forEach(item => {
+      if (item.frontMatter.tags.includes(tag)) {
+        tagData.item.push({
+          date: item.frontMatter.date,
+          description: item.frontMatter.description,
+          tags: item.frontMatter.tags,
+          title: item.frontMatter.title,
+          regularPath: item.regularPath
+        });
+      }
+    });
+    transformedData.push(tagData);
+  });
+  return transformedData;
+}
+
 export function useYearSort(post: Post[]) {
 	const data = [];
 	let year = '0';

@@ -1,91 +1,111 @@
 <template>
-  <div class="tags">
-    <span
-      @click="toggleTag(key)"
-      v-for="(item, key) in data"
-      :class="key == selectTag ? 'tag_select' : 'tag'"
-    >
-      # {{ key }} <strong>{{ data[key].length }}</strong>
-    </span>
-  </div>
-  <div class="tag-header">{{ selectTag }}</div>
-  <a
-    :href="withBase(article.regularPath)"
-    v-for="(article, index) in data[selectTag]"
-    :key="index"
-    class="posts"
-  >
-    <div class="post-container">
-      <div class="post-dot"></div>
-      {{ article.frontMatter.title }}
+  <div class="tag_contain">
+    <div class="tags">
+      <span
+        @click="toggleTag(key)"
+        v-for="(item, key) in data"
+        class="tag"
+        :key="key"
+        >#{{ key }} <span style="color: #666">{{ data[key].length }}</span>
+      </span>
     </div>
-    <div class="date">{{ article.frontMatter.date }}</div>
-  </a>
+
+    <div class="tag_post" v-for="(article, index) in posts" :key="index" :id="article.selectTag">
+      <div class="tag-header" v-if="article.selectTag">
+        「{{ article.selectTag }}」
+      </div>
+      <a
+        v-for="(items, keys) in article.item"
+        :key="keys"
+        :href="withBase(items.regularPath)"
+        class="posts"
+      >
+        <div class="post-container">
+          <div class="post-dot"></div>
+          {{ items.title }}
+        </div>
+        <div class="date">{{ items.date }}</div>
+      </a>
+    </div>
+
+  </div>
 </template>
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onMounted, nextTick } from 'vue'
 import { useData, withBase } from 'vitepress'
-import { initTags } from '../../utils/functions'
-// let url = window.location?.href.split('?')[1]
+import { initTagsParams, initTags } from '../../utils/functions'
+onMounted(() => {
+  nextTick(() => {
+    let url = ref(window.location.search)
+    let params = new URLSearchParams(url.value)
+    console.log(params.get('tag'))
+    if (params.get('tag')) {
+      toggleTag(params.get('tag'))
+    }
+  })
+})
 
-let url = ref(window.location.search)
-let params = new URLSearchParams(url.value)
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
-let selectTag = ref(params.get('tag') ? params.get('tag') : '')
+const posts = computed(() => initTagsParams(theme.value.posts))
 const toggleTag = (tag) => {
-  selectTag.value = tag
+  const element = document.getElementById(tag);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 </script>
 
 <style scoped>
+.tag_post{
+  padding: 30px 0;
+  background-color: #fff;
+  border: 1px solid #e7eaf1;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 3px rgba(0, 37, 55, 0.1);
+  margin-bottom: 15px;
+}
 .tags {
   margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
+  padding: 30px 20px;
+  background-color: #fff;
+  border: 1px solid #e7eaf1;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 3px rgba(0, 37, 55, 0.1);
+  margin-bottom: 30px;
 }
 .tag {
   display: inline-block;
-  padding: 4px 16px;
-  margin: 6px 8px;
-  font-size: 0.7rem;
-  line-height: 25px;
-  font-weight: 600;
+  width: auto;
+  height: 22px;
+  padding: 4px 8px;
+  font-size: 14px;
+  color: #a6abb2;
+  line-height: 22px;
+  box-sizing: border-box;
+  font-family: -apple-system, Verdana, pingfang sc, helvetica neue, arial,
+    hiragino sans gb, microsoft yahei, wenquanyi micro hei, sans-serif;
   border-radius: 2px;
-  background-color: #efefef;
-  transition: 0.4s;
-  border-radius: 4px;
-  color: rgba(60, 60, 67, 0.92);;
+  background-color: #fafafa;
   cursor: pointer;
+  margin-right: 10px;
+  transition: 0.2s;
+  margin-bottom: 10px;
 }
 .tag:hover {
-  background-color: var(--vp-c-brand);
-  transition: 0.4s;
-  border-radius: 4px;
-  color: rgb(255, 255, 255);
-}
-.tag_select {
-  display: inline-block;
-  padding: 4px 16px;
-  margin: 6px 8px;
-  border-radius: 2px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  line-height: 25px;
-  background-color: var(--vp-c-brand);
-  transition: 0.4s;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-}
-.tag strong {
-  color: var(--vp-c-brand);
+  transition: 0.3s;
+  color: #a1a1a1;
 }
 .tag-header {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 2rem 0 1rem 0;
-  text-align: left;
+  display: block;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -94,7 +114,7 @@ const toggleTag = (tag) => {
   }
   .date {
     font-size: 0.7rem;
-    width: 120px;
+    width: 150px;
   }
 }
 </style>
