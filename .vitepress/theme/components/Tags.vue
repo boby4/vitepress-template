@@ -1,5 +1,6 @@
 <template>
   <div class="tag_contain">
+    <h2>TAGS</h2>
     <div class="tags">
       <span
         @click="toggleTag(key)"
@@ -57,6 +58,12 @@ const toggleTag = (tag) => {
 </script>
 
 <style scoped>
+h2{
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  text-align: center;
+  border-top: none;
+}
 .tag_post{
   padding: 30px 0;
   background-color: #fff;
