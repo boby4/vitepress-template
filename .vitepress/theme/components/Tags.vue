@@ -88,8 +88,9 @@ h2{
 .tag {
   display: inline-block;
   width: auto;
-  height: 22px;
-  padding: 4px 8px;
+  /* padding: 4px 8px; */
+  margin: 4px;
+  padding: 4px;
   font-size: 14px;
   color: #a6abb2;
   line-height: 22px;

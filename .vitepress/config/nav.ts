@@ -13,6 +13,7 @@ export const nav = [
     //   { text: "# 机器人", link: "/pages/tags?tag=机器人" },
     // ]
   },
+  { text: '🎬 相册', link: '/pages/album' },
   { text: '💌 友情链接', link: '/pages/link' },
   { text: '👋 示例', link: '/pages/model' }
 ]
