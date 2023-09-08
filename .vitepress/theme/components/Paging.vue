@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-card" v-for="(post, index) in datas" :class="{ alt: index % 2 === 1 }" :key="index">
+  <a class="blog-card" v-for="(post, index) in datas" :class="{ alt: index % 2 === 1 }" :key="index" :href="withBase(post.regularPath)">
     <div class="meta">
       <div
         class="photo"
@@ -19,11 +19,11 @@
       <h1>{{post.frontMatter.title}}</h1>
       <h2>Opening a door to the future</h2>
       <p class="dis_content">{{post.frontMatter.description}}</p>
-      <p class="read-more">
+      <p class="read_more">
         <a :href="withBase(post.regularPath)">Read More</a>
       </p>
     </div>
-  </div>
+  </a>
 </template>
 
 <script lang="ts" setup>
@@ -37,6 +37,10 @@ const backgroundStyle = computed(() => {
   const backgroundImageStyle = `url('${randomImage()}')`;
   return { background: backgroundImageStyle };
 })
+
+const toDetail = (path:string) => {
+  withBase(path)
+}
 
 </script>
 <style lang="scss">
@@ -61,7 +65,7 @@ $color_dark: rgba(60, 60, 67, 0.92);
   background: $color_white;
   line-height: 1.4;
   font-family: sans-serif;
-  border-radius: 5px;
+  border-radius: 3px;
   overflow: hidden;
   z-index: 0;
   a {
@@ -144,11 +148,11 @@ $color_dark: rgba(60, 60, 67, 0.92);
     }
   }
   .description {
-    padding: .5rem;
+    padding: .7rem;
     background: $color_white;
     position: relative;
     width: 820px;
-    height: 200px;
+    height: 180px;
     z-index: 1;
     h1,
     h2 {
@@ -158,17 +162,18 @@ $color_dark: rgba(60, 60, 67, 0.92);
     h1 {
       line-height: 1;
       margin: 4px 0 0;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
     h2 {
-      font-size: 1rem;
+      font-size: .8rem;
       font-weight: 300;
       text-transform: uppercase;
       color: $color_grey_dark;
-      margin-top: 5px;
+      margin-top: 3px;
     }
-    .read-more {
+    .read_more {
       text-align: right;
+      padding-right: 5px;
       a {
         color: $color_prime;
         display: inline-block;
@@ -196,6 +201,7 @@ $color_dark: rgba(60, 60, 67, 0.92);
     overflow: hidden;
     text-overflow: ellipsis;
     padding-top: .5rem;
+    font-size: .9rem;
     height: 4.5rem;
     &:before {
       content: '';
@@ -210,7 +216,7 @@ $color_dark: rgba(60, 60, 67, 0.92);
   p {
     color: $color_dark;
     position: relative;
-    margin: 1rem 0 0;
+    margin: .5rem 0 0;
   }
   &:hover {
     .details {
@@ -227,6 +233,9 @@ $color_dark: rgba(60, 60, 67, 0.92);
     .description {
       width: 100%;
       height: 100%;
+      h1 h2 p{
+        margin: 5px 0 0 5px;
+      }
     }
   }
 
