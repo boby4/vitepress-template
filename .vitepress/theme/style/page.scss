@@ -274,6 +274,11 @@ img {
 .f-main {
   width: 70%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction:column;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .article {

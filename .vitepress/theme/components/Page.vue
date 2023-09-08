@@ -10,7 +10,7 @@
   <div class="layout_page">
     <Aside />
     <div class="f-main">
-      <a
+      <!-- <a
         :href="withBase(article.regularPath)"
         v-for="(article, index) in posts"
         :key="index"
@@ -23,7 +23,8 @@
           >
         </div>
         <p class="describe">{{ article.frontMatter.description || '' }}</p>
-      </a>
+      </a> -->
+      <Paging :datas="posts" />
       <div class="pagination">
         <a
           class="link"

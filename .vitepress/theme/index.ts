@@ -5,6 +5,7 @@ import Friendship from "./components/Friendship.vue";
 import Archives from './components/Archives.vue'
 import TimeLine from './components/TimeLine.vue'
 import NewTimeLine from './components/NewTimeLine.vue'
+import Paging from './components/Paging.vue'
 import Tags from './components/Tags.vue'
 import NewLayout from './components/NewLayout.vue'
 import Model from './components/Model.vue'
@@ -31,6 +32,7 @@ export default {
     app.component("Archives", Archives);
     app.component("TimeLine", TimeLine);
     app.component("NewTimeLine", NewTimeLine);
+    app.component("Paging", Paging);
     app.component("Tags", Tags);
     app.component("Model", Model);
     app.component("ModelPlay", ModelPlay);

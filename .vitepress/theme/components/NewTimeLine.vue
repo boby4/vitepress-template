@@ -38,7 +38,6 @@ const data = computed(() => theme.value.posts)
 
 </script>
 <style lang="scss">
-@import '../style/_variables.css';
 // @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
 .cd-container {
@@ -86,7 +85,6 @@ $background: #f7f7f7;
 $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
 $border: 1px solid rgba(191, 191, 191, 0.4);
 $items: 5;
-// $items: 5;
 $rows: ceil($items / 2);
 
 
