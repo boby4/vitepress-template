@@ -1,91 +1,34 @@
 <template>
   <main>
     <div id="gallery" @scroll="handleScroll" @mouseover="handleMouseOver" @mouseout="handleMouseOut">
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1610042560883-3cab6606b805?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMxODczNDB8&ixlib=rb-4.0.3&q=100&w=500"
-          alt="Pink and blue clouds at sunset. " title="Photo by Jeremy Doddridge for Unsplash">
-        <figcaption>8 PM, Summer</figcaption>
-      </figure>
-      <figure>
-        <div>
+      <figure v-for="(item, index) in albumImage()" :key="index">
+        <img v-if="item.src" :src="item.src" alt="" title="">
+        <figcaption v-if="item.src">{{item.desc}}</figcaption>
+        <div v-else-if="!item.src">
           <div>
             <h2>Note</h2>
-            <p>Scroll Animation!</p>
-            <p><br><small>Hover animation : <br><a href="#">Hover animation</a></small></p>
+            <p>{{item.desc}}</p>
+            <p><br><small>Hover animation<br></small></p>
           </div>
         </div>
-      </figure>
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1566228015668-4c45dbc4e2f5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMxODczNDB8&ixlib=rb-4.0.3&q=100&w=500"
-          alt="Low angle view up into a sky filled with deep blue clouds. "
-          title="Photo by Matthew Brayer for Unsplash">
-        <figcaption>3 PM, Winter</figcaption>
-      </figure>
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1525920980995-f8a382bf42c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMxODc0ODZ8&ixlib=rb-4.0.3&q=100&w=500"
-          alt="Heavy gray clouds in the sky. " title="Photo by Simeon Muller for Unsplash">
-        <figcaption>10 AM, Summer Storm</figcaption>
-      </figure>
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMxODc1Mjl8&ixlib=rb-4.0.3&q=100&w=500"
-          alt="Deep orange clouds at sunset. " title="Photo by Laura Vinck for Unsplash">
-        <figcaption>5 PM, Autumn</figcaption>
-      </figure>
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1583506140156-6e343f045b81?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMxODc1OTV8&ixlib=rb-4.0.3&q=100&w=500"
-          alt="Clouds in shades of dark blue and magenta at sunset. " title="Photo by Szabo Viktor for Unsplash">
-        <figcaption>7 PM, Spring</figcaption>
-      </figure>
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1493130952181-47e36589f64d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMxODc2NTJ8&ixlib=rb-4.0.3&q=100&w=500"
-          alt="Clouds in shades of blue and gold at sunrise. " title="Photo by Łukasz Łada for Unsplash">
-        <figcaption>6:30 AM, Summer</figcaption>
-      </figure>
-      <figure>
-        <img
-          src='https://images.unsplash.com/photo-1514519334989-3d5c8b1a9f91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMyOTk0NzR8&ixlib=rb-4.0.3&q=100&w=500'
-          alt='clouds and sky during daytime' title="Photo by Diego PH for Unsplash">
-        <figcaption>6 PM, Autumn</figcaption>
-      </figure>
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1589517628174-5698bcf47311?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMyOTk4MTd8&ixlib=rb-4.0.3&q=100&w=500"
-          alt="white clouds and blue sky. " title="Photo by Carlos Kenobi for Unsplash">
-        <figcaption>5 PM, Summer</figcaption>
-      </figure>
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1509803874385-db7c23652552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMzMDAwMDh8&ixlib=rb-4.0.3&q=100&w=500"
-          alt="cloudy sky. " title="Photo by Alex Machado for Unsplash">
-        <figcaption>11 AM, Summer</figcaption>
-      </figure>
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1563846465145-c733e29ee0f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTMzMDA5MDV8&ixlib=rb-4.0.3&q=100&w=500"
-          alt="rainbow during daytime. " title="Photo by Yulia Gadalina for Unsplash">
-        <figcaption>2 PM, Spring Rainbow</figcaption>
-      </figure>
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1542272201-b1ca555f8505?ixlib=rb-4.0.3&q=100&w=jpg&crop=entropy&cs=srgb&w=500"
-          alt="white sea of clouds. " title="Photo by Szabo Viktor for Unsplash">
-        <figcaption>4 PM, Autumn</figcaption>
       </figure>
     </div>
   </main>
   <footer id='info'><a href="#">@xuyirui-1</a></footer>
 </template>
 <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue';
+  import {
+    ref,
+    onMounted,
+    onUnmounted
+  } from 'vue';
+  import {
+    albumImage
+  } from '../../utils/functions'
   onMounted(() => {
     gallery.value = document.querySelector('#gallery');
     window.addEventListener('resize', handleScroll);
+    albumList = albumImage()
     handleScroll();
   });
   const gallery = ref(null);
@@ -228,7 +171,7 @@
     margin: var(--adjust-size);
     padding: 0.5rem;
     border-radius: 5px;
-    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
     height: auto;
     text-align: center;

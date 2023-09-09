@@ -46,6 +46,7 @@ const togglePlayer = () => {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   display: flex;
+  z-index: 2;
 }
 .meting-player button {
   font-size: 1.1rem;
