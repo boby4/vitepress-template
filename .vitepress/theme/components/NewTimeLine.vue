@@ -257,7 +257,7 @@ $counter: $items - $rows + 2;
       }
       h2 {
         text-transform: uppercase;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         font-weight: inherit;
         overflow: hidden;
         white-space: nowrap;
@@ -265,12 +265,12 @@ $counter: $items - $rows + 2;
         letter-spacing: 2px;
         border-top: none;
         margin: 0;
-        padding-top: 0;
+        padding-top: 3px;
         padding-bottom: 6px;
-        line-height: 1rem;
+        line-height: 1.4rem;
         @include mq-sm {
-          font-size: 140%;
-          line-height: 1.2rem;
+          font-size: 110%;
+          line-height: 1.4rem;
         }
         span {
           display: block;
@@ -286,14 +286,13 @@ $counter: $items - $rows + 2;
       background: #fff;
       border: $border;
       border-top: 0;
-      padding: $inner-margin;
+      padding: 1px 15px;
       @include mq-lg {
         height: $body-height;
       }
       p {
         font-size: 14px;
         line-height: 18px;
-        height: 54px;
         text-indent: 2em;
         display: -webkit-box; /* 使用弹性盒子布局模型 */
         -webkit-line-clamp: 3; /* 最大行数为3 */

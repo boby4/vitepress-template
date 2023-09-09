@@ -5,9 +5,9 @@
       <div v-show="isPlayerVisible">
         <div class="meting_js">
           <meting-js
-            server="tencent"
+            server="netease"
             type="playlist"
-            id="1983842486"
+            id="2092813489"
             fixed="false"
             autoplay="false"
             loop="all"
@@ -17,7 +17,7 @@
             theme="#1890ff"
             list-max-height="280px"
             lrc-type="1"
-            auto="https://y.qq.com/n/ryqq/playlist/1983842486"
+            auto="https://music.163.com/#/playlist?id=2092813489"
           >
           </meting-js>
         </div>
