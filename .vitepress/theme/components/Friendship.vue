@@ -38,6 +38,12 @@ export default {
   mounted() {
     this.FriendshipData = [
       {
+        link: 'https://blog.zhheo.com/',
+        imgUrl: 'https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640',
+        nickName: '张洪Heo',
+        introduce: '分享设计与科技生活',
+      },
+      {
         link: 'https://liuyuyang.net/',
         imgUrl: 'https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640',
         nickName: '宇阳',
