@@ -39,7 +39,7 @@ export default {
     this.FriendshipData = [
       {
         link: 'https://blog.zhheo.com/',
-        imgUrl: 'https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640',
+        imgUrl: 'https://bu.dusays.com/2022/12/28/63ac2812183aa.png',
         nickName: '张洪Heo',
         introduce: '分享设计与科技生活',
       },
