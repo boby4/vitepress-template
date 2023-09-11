@@ -28,7 +28,6 @@
   onMounted(() => {
     gallery.value = document.querySelector('#gallery');
     window.addEventListener('resize', handleScroll);
-    albumList = albumImage()
     handleScroll();
   });
   const gallery = ref(null);
