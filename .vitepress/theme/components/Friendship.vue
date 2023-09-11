@@ -38,12 +38,6 @@ export default {
   mounted() {
     this.FriendshipData = [
       {
-        link: 'https://xzmhome.onrender.com/',
-        imgUrl: 'https://i.miji.bid/2023/08/09/382e790cbf2d7cc657be71440e033347.jpeg',
-        nickName: '小徐',
-        introduce: '95后青年，前端切图仔一枚, 一个It技术的探索路上的小学生',
-      },
-      {
         link: 'https://liuyuyang.net/',
         imgUrl: 'https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640',
         nickName: '宇阳',
@@ -54,6 +48,12 @@ export default {
         imgUrl: 'https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac?s=100&r=G&d=https://pic.isolitude.cn/2022/01/28/75a6d779e1bc8.png',
         nickName: 'Leo',
         introduce: '是谁说生活生来就要活。',
+      },
+      {
+        link: 'https://xiaoger.top',
+        imgUrl: 'https://image.xiaoger.top/xiaoger/config/xiaoger.jpg',
+        nickName: 'xiaoger',
+        introduce: '个人学习和分享壁纸的博客',
       },
     ]
   },
