@@ -37,12 +37,12 @@ export default {
   },
   mounted() {
     this.FriendshipData = [
-      {
-        link: 'https://liuyuyang.net/',
-        imgUrl: 'https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640',
-        nickName: '宇阳',
-        introduce: '互联网从不缺乏天才，而努力才是最终的入场券！',
-      },
+      // {
+      //   link: 'https://liuyuyang.net/',
+      //   imgUrl: 'https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640',
+      //   nickName: '宇阳',
+      //   introduce: '互联网从不缺乏天才，而努力才是最终的入场券！',
+      // },
       {
         link: 'https://www.isolitude.cn/',
         imgUrl: 'https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac?s=100&r=G&d=https://pic.isolitude.cn/2022/01/28/75a6d779e1bc8.png',
