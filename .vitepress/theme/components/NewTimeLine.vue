@@ -84,7 +84,7 @@ const data = computed(() => theme.value.posts)
 $background: #f7f7f7;
 $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
 $border: 1px solid rgba(191, 191, 191, 0.4);
-$items: 5;
+$items: 7;
 $rows: ceil($items / 2);
 
 
