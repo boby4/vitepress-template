@@ -82,14 +82,13 @@ blockquote {
   flex-wrap: wrap;
   margin-top: 20px;
   justify-content: space-between;
-  align-items: center;
 }
 .Friendship a {
   box-shadow: rgb(0 0 0 / 20%) 0 0 4px 0;
   text-decoration: none;
   display: block;
   background: white;
-  width: 21rem;
+  width: 48%;
   margin-bottom: 1rem;
   padding: .8rem 0;
   border-radius: 4px;
@@ -131,5 +130,10 @@ blockquote {
 }
 .discript{
   font-size: 13px;
+}
+@media screen and (max-width: 900px) {
+  .Friendship a {
+  width: 100%;
+}
 }
 </style>
