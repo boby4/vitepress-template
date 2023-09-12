@@ -67,7 +67,6 @@ export default {
 </script>
 <style scoped>
 blockquote {
-  position: relative;
   color: #666;
   background-color: #f4f4f5;
   border-left: 0.5rem solid var(--vp-c-brand);
@@ -78,6 +77,7 @@ blockquote {
   border-bottom-left-radius: 0.25rem;
 }
 .Friendship {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
@@ -96,8 +96,6 @@ blockquote {
   display: flex;
   align-items: center;
   border: 1px solid var(--border-color);
-  position: relative;
-  top: 0;
   transition: all 0.2s;
 }
 .Friendship a:hover {
