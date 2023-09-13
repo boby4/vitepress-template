@@ -93,6 +93,8 @@ blockquote {
   padding: .8rem 0;
   border-radius: 4px;
   color: #666;
+  position: relative;
+  top: 0;
   display: flex;
   align-items: center;
   border: 1px solid var(--border-color);
