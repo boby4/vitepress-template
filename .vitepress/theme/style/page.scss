@@ -30,6 +30,7 @@
   overflow: hidden;
   margin: .3rem 0;
   background: #fff;
+  border: 1px solid #e3e8f7;
   -webkit-box-shadow: 0 .1rem .2rem .1rem rgba(7, 17, 27, .08);
   box-shadow: 0 .1rem .2rem .1rem rgba(7, 17, 27, .08);
   -webkit-transition: all .3s;
@@ -96,6 +97,9 @@ img {
 
 #aside_content .item-headline {
   font-size: 1rem;
+  i{
+    font-size: 1.2rem;
+  }
 }
 
 .webinfo-site-jinrishici {
