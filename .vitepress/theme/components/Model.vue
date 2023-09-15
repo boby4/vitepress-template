@@ -62,8 +62,9 @@ const init = () => {
       model = gltf.scene
       scene.add(model)
       mixer = new THREE.AnimationMixer(model)
+      console.log(gltf.animations)
       const clip1 = gltf.animations[6]
-      const clip2 = gltf.animations[12]
+      const clip2 = gltf.animations[0]
       const action1 = mixer.clipAction(clip1)
       const action2 = mixer.clipAction(clip2)
       mixer.clipAction(gltf.animations[6]).play()

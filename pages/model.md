@@ -9,4 +9,5 @@ aside: false
 
 coming soon...
 
-<ModelPlay/>
+<Model/>
+<!-- <ModelPlay/> -->
