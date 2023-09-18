@@ -18,7 +18,7 @@
         <div class="item-headline">
           <span>💕 今日诗词</span>
         </div>
-        <div class="webinfo-site-jinrishici" id="jinrishici-sentence"></div>
+        <div class="webinfo-site-jinrishici" id="jinrishici-sentence">轻舟已过万重山</div>
       </div>
     </div>
 
@@ -33,14 +33,14 @@
             <div
               class="webinfo-site-uv-count"
               id="busuanzi_value_site_uv"
-            ></div>
+            >-</div>
           </div>
           <div class="webinfo-item">
             <div class="webinfo-site-name">本站总访问量 :</div>
             <div
               class="webinfo-site-pv-count"
               id="busuanzi_value_site_pv"
-            ></div>
+            >-</div>
           </div>
         </div>
       </div>
