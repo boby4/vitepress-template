@@ -3,18 +3,21 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch, nextTick } from 'vue'
+import { onMounted, ref, watch, nextTick, onUnmounted } from 'vue'
 import { useData } from 'vitepress'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 let container: any, clock: any, mixer: any, width: number, height: number
 let camera: any, scene: any, renderer: any, model:any, controls:any
 const { isDark } = useData()
 
 onMounted(() => {
+  NProgress.start()
   nextTick(() => {
     watch(isDark, (newVal, oldVal) => {
       if (newVal !== oldVal) {
@@ -23,6 +26,10 @@ onMounted(() => {
     })
     init()
   })
+})
+
+onUnmounted(() => {
+  NProgress.done()
 })
 
 const init = () => {
@@ -62,7 +69,6 @@ const init = () => {
       model = gltf.scene
       scene.add(model)
       mixer = new THREE.AnimationMixer(model)
-      console.log(gltf.animations)
       const clip1 = gltf.animations[6]
       const clip2 = gltf.animations[0]
       const action1 = mixer.clipAction(clip1)
@@ -72,9 +78,11 @@ const init = () => {
         action1.stop()
         action2.play()
       }, clip1.duration * 2500)
+      NProgress.done()
     },
     undefined,
     (e: Error) => {
+      NProgress.done()
       console.error(e)
     }
   )
