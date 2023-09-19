@@ -370,6 +370,14 @@ img {
   margin-top: 2rem;
   display: flex;
   justify-content: center;
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    i{
+      line-height: 2.5rem;
+    }
+  }
 }
 
 .link {
@@ -397,13 +405,3 @@ img {
   line-height: 2.5rem;
 }
 
-.link:first-child {
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
-}
-
-.link:last-child {
-  border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
-  border-right: 1px var(--vp-c-divider-light) solid;
-}

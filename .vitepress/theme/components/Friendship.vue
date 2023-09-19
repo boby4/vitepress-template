@@ -61,6 +61,12 @@ export default {
         nickName: 'xiaoger',
         introduce: '个人学习和分享壁纸的博客',
       },
+      {
+        link: 'https://blog.kobal.top/',
+        imgUrl: 'https://gcore.jsdelivr.net/gh/kebuAAA/Picloud@main/img/avatar.webp',
+        nickName: '爱编程的小明',
+        introduce: '不要温和地走进那个良夜',
+      },
     ]
   },
 }

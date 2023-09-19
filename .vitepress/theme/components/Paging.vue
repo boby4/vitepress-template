@@ -1,5 +1,5 @@
 <template>
-  <a class="blog-card" v-for="(post, index) in datas" :class="{ alt: index % 2 === 1 }" :key="index" :href="withBase(post.regularPath)">
+  <a class="blog-card" v-for="(post, indexs) in datas" :class="{ alt: indexs % 2 === 1 }" :key="indexs" :href="withBase(post.regularPath)">
     <div class="meta">
       <div
         class="photo"

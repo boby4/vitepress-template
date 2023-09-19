@@ -26,6 +26,7 @@
       </a> -->
       <Paging :datas="posts" />
       <div class="pagination">
+        <a class="icon" v-if="pageCurrent !== 1" :href="withBase(pageCurrent === 2 ? '/index.html' :`/page_${pageCurrent-1}.html`)"><i class="iconfont icon_paging_left"></i></a>
         <a
           class="link"
           :class="{ active: pageCurrent === i }"
@@ -34,6 +35,7 @@
           :href="withBase(i === 1 ? '/index.html' : `/page_${i}.html`)"
           >{{ i }}</a
         >
+        <a class="icon" style="margin-left:-0.5rem;" v-if="posts.length==5" :href="withBase(`/page_${pageCurrent+1}.html`)"><i class="iconfont icon_paging_right"></i></a>
       </div>
     </div>
   </div>
@@ -57,4 +59,5 @@ const props = defineProps({
 
 <style scoped>
 @import '../style/page.scss';
+@import '../style/iconfont.css';
 </style>
