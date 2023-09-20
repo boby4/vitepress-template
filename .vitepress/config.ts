@@ -19,6 +19,8 @@ const asyncConfig = async () => {
 			['link', { rel: 'icon', href: '/favicon.ico' }],
 			//播放器插件
 			['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css' }],
+			['link', { rel: 'prefetch', href: 'https://xzmblog.onrender.com' }], // 预取回 Prefetch
+			['link', { rel: 'preconnect', href: 'https://xzmblog.onrender.com' }], // 预连接 Preconnect
 			['script', { src: 'https://v1.hitokoto.cn/?encode=js&select=%23hitokoto', defer: true}], // 今日一言
 			['script', { src: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js' }],
 			['script', { src: 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js' }],

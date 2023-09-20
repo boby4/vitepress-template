@@ -776,11 +776,6 @@ three@^0.155.0:
   resolved "https://registry.npmjs.org/three/-/three-0.155.0.tgz"
   integrity sha512-sNgCYmDijnIqkD/bMfk+1pHg3YzsxW7V2ChpuP6HCQ8NiZr3RufsXQr8M3SSUMjW4hG+sUk7YbyuY0DncaDTJQ==
 
-throttle-debounce@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/throttle-debounce/-/throttle-debounce-5.0.0.tgz"
-  integrity sha512-2iQTSgkkc1Zyk0MeVrt/3BvuOXYPl/R8Z0U2xxo9rjwNciaHDG3R+Lm6dh4EeUci49DanvBnuqI6jshoQQRGEg==
-
 to-regex-range@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz"
@@ -839,7 +834,7 @@ vue-demi@*:
   resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.14.5.tgz"
   integrity sha512-o9NUVpl/YlsGJ7t+xuqJKx8EBGf1quRhCiT6D/J0pfwmk9zUwYkC7yrF4SZCe6fETvSM3UNL2edcbYrSyc4QHA==
 
-"vue@^3.0.0-0 || ^2.6.0", vue@^3.2.25, vue@^3.2.47, vue@3.3.4:
+"vue@^3.0.0-0 || ^2.6.0", vue@^3.2.25, vue@^3.2.47, vue@^3.x, vue@3.3.4:
   version "3.3.4"
   resolved "https://registry.npmjs.org/vue/-/vue-3.3.4.tgz"
   integrity sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw==
@@ -850,9 +845,7 @@ vue-demi@*:
     "@vue/server-renderer" "3.3.4"
     "@vue/shared" "3.3.4"
 
-vue3-seamless-scroll@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/vue3-seamless-scroll/-/vue3-seamless-scroll-2.0.1.tgz"
-  integrity sha512-mI3BaDU3pjcPUhVSw3/xNKdfPBDABTi/OdZaZqKysx4cSdNfGRbVvGNDzzptBbJ5S7imv5T55l6x/SqgnxKreg==
-  dependencies:
-    throttle-debounce "5.0.0"
+vue3-word-cloud@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/vue3-word-cloud/-/vue3-word-cloud-1.0.4.tgz"
+  integrity sha512-wGHVW6qu7Nt2+vT1McQkufKOCa+MqWPNQFuFEUVFuoai5CVCZclEozv8bKuhwOVJbCLCaVkNocWJ9Hi/HfTCVQ==
