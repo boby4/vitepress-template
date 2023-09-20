@@ -34,6 +34,15 @@
     <div class="card-widget card-announcement">
       <div class="card-content">
         <div class="item-headline">
+          <span><i class="iconfont know-your-miner" style="font-size:1.5rem;"></i> 技能</span>
+        </div>
+        <InfiniteScrollContainer></InfiniteScrollContainer>
+    </div>
+    </div>
+
+    <div class="card-widget card-announcement">
+      <div class="card-content">
+        <div class="item-headline">
           <span><i class="iconfont biaoqian"></i> 标签</span>
         </div>
         <div class="webinfo-site-jinrishici">
@@ -41,6 +50,7 @@
             style="height: 250px; width: 100%;"
             :words="generateRandomColors(data)"
             font-family="Roboto"
+            rotation-unit="deg"
           >
           <template v-slot="{text, word}">
             <a :title="`#${text}: ${word.value}`" style="cursor: pointer;" :href="withBase(`/pages/tags?tag=${text}`)">
@@ -80,20 +90,15 @@
   </div>
 </template>
 <script setup>
+import InfiniteScrollContainer from './InfiniteScrollContainer.vue'
 import { withBase } from 'vitepress'
 import Vue3WordCloud from 'vue3-word-cloud'
 import { useData } from 'vitepress'
 import { ref,computed } from 'vue'
 import { initTagsParams, initTags } from '../../utils/functions'
 const { theme } = useData()
-
 const data = computed(() => initTagsParams(theme.value.posts))
-// let words = ref([])
-// data.value.forEach((item,index) => {
-//   words.value[index] = [item.selectTag, item.item.length]
-// })
 const articleNum = theme.value.posts.length
-
 const randomColor = () => {
   // 生成随机颜色
   const letters = '0123456789ABCDEF';
@@ -103,15 +108,27 @@ const randomColor = () => {
   }
   return color;
 }
-
 const generateRandomColors = (words) => {
   // 为每个词语生成随机颜色
   return words.map((word) => ({
-    text: word.selectTag,
-    value: word.item.length,
-    color: randomColor(),
+    text: word.selectTag, // 标签名称
+    value: word.item.length, // 标签个数
+    weight: getRandomSize(), // 单词权重，权重越大，字体越大
+    // spacing: 10, //单词之间的间距
+    color: randomColor(), //单词颜色
+    // rotation: getRandomRotation(), // 单词旋转角度
   }));
 };
+
+const getRandomSize = () => {
+  return Math.floor(Math.random() * (40 - 10 + 1) + 10); // 随机大小在10到40之间
+}
+
+// 获取随机旋转角度
+const getRandomRotation = () => {
+  const randomAngle = Math.random() < 0.5 ? 0 : 90; // 随机选择45度或90度
+  return randomAngle;
+}
 </script>
 <style scoped>
 @import '../style/page.scss';

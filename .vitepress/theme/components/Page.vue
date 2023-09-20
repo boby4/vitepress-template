@@ -44,7 +44,7 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { withBase } from 'vitepress'
-import Aside from '../components/Aside.vue'
+import Aside from './Aside.vue'
 import { randomImage } from '../../utils/functions'
 const backgroundStyle = computed(() => {
   const backgroundImageStyle = `url('${randomImage()}') center center / cover no-repeat`;
