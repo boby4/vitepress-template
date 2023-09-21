@@ -43,7 +43,7 @@
     <div class="card-widget card-announcement">
       <div class="card-content">
         <div class="item-headline">
-          <span><i class="iconfont biaoqian"></i> 标签</span>
+          <span><i class="iconfont biaoqian"></i> 标签云</span>
         </div>
         <div class="webinfo-site-jinrishici">
           <vue3-word-cloud
@@ -51,6 +51,7 @@
             :words="generateRandomColors(data)"
             font-family="Roboto"
             rotation-unit="deg"
+            font-size-ratio="3"
           >
           <template v-slot="{text, word}">
             <a :title="`#${text}: ${word.value}`" style="cursor: pointer;" :href="withBase(`/pages/tags?tag=${text}`)">
@@ -113,7 +114,7 @@ const generateRandomColors = (words) => {
   return words.map((word) => ({
     text: word.selectTag, // 标签名称
     value: word.item.length, // 标签个数
-    weight: getRandomSize(), // 单词权重，权重越大，字体越大
+    weight: getRandomSize(), // 单词权重
     // spacing: 10, //单词之间的间距
     color: randomColor(), //单词颜色
     // rotation: getRandomRotation(), // 单词旋转角度
@@ -121,7 +122,7 @@ const generateRandomColors = (words) => {
 };
 
 const getRandomSize = () => {
-  return Math.floor(Math.random() * (40 - 10 + 1) + 10); // 随机大小在10到40之间
+  return Math.floor(Math.random() * (20 - 1 + 1) + 1); // 随机大小在1到20之间
 }
 
 // 获取随机旋转角度
