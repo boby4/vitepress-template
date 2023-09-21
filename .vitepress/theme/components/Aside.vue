@@ -34,7 +34,7 @@
     <div class="card-widget card-announcement">
       <div class="card-content">
         <div class="item-headline">
-          <span><i class="iconfont know-your-miner" style="font-size:1.5rem;"></i> 技能</span>
+          <span><i class="iconfont jinengzhangwo"></i> 技能</span>
         </div>
         <InfiniteScrollContainer></InfiniteScrollContainer>
     </div>
