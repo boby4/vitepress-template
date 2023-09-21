@@ -1,8 +1,8 @@
 <template>
   <swiper
-    :slidesPerView="3"
+    :slidesPerView="4"
     :centeredSlides="true"
-    :spaceBetween="30"
+    :spaceBetween="15"
     :loop="true"
     effect="slide"
     :speed="2000"
@@ -73,7 +73,7 @@ const imageList = ref([
   background: none;
   transform: translate3d(0, 0, 0);
   img{
-    width: 4.5rem;
+    width: 4.2rem;
     height: auto;
     border-radius: 1rem;
     box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.1);
