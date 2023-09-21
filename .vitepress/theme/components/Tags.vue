@@ -39,7 +39,6 @@ onMounted(() => {
   nextTick(() => {
     let url = ref(window.location.search)
     let params = new URLSearchParams(url.value)
-    console.log(params.get('tag'))
     if (params.get('tag')) {
       toggleTag(params.get('tag'))
     }

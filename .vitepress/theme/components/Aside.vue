@@ -45,7 +45,7 @@
         <div class="item-headline">
           <span><i class="iconfont biaoqian"></i> 标签云</span>
         </div>
-        <div class="webinfo-site-jinrishici">
+        <div class="webinfo-site-tag">
           <vue3-word-cloud
             style="height: 250px; width: 100%;"
             :words="generateRandomColors(data)"

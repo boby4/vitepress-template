@@ -14,7 +14,6 @@
     :modules="[Autoplay]"
   >
     <swiper-slide v-for="(item, index) in skills" :key="index" class="swiper-slide" :style="{ background: item.color}">
-      <!-- <img :src="item" alt="Image" /> -->
       <i :class="`iconfont ${item.title}`"></i>
     </swiper-slide>
   </swiper>
