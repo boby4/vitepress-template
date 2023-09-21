@@ -26,17 +26,18 @@ import 'swiper/css';
 
 const skills = ref([
   { title: 'sass', color: '#ffffff' },
-  { title: 'JavaScript', color: '#ffffff' },
   { title: 'CSS', color: '#242938' },
+  { title: 'JavaScript', color: '#ffffff' },
   { title: 'HTML', color: '#242938' },
   { title: 'Iconfont', color: '#fff' },
-  { title: 'webpack', color: '#242938' },
   { title: 'Vue', color: '#242938' },
   { title: 'Nodejs', color: '' },
   { title: 'typescript', color: '#fff' },
   { title: 'a-adobeillustrator', color: '#f29e39' },
   { title: 'a-adobephotoshop', color: '#57b6e6' },
+  { title: 'webpack', color: '#242938' },
   { title: 'Docker', color: '' },
+  { title: 'xiaochengxuguanli3x', color: '' },
 ]); // 技能列表
 
 const imageList = ref([
@@ -59,7 +60,6 @@ const imageList = ref([
   height: 100%;
   padding: 1.5rem 0 1rem 0;
 }
-
 .swiper-slide {
   transform: translate3d(0, 0, 0);
   text-align: center;
@@ -73,5 +73,4 @@ const imageList = ref([
     line-height: 4rem;
   }
 }
-
 </style>

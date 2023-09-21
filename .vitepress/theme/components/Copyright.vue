@@ -1,25 +1,40 @@
 <template>
-    <div class="site-footer">
-        MIT Licensed | Copyright © 2023-2024 <a class="vitepress" :href="website">{{ webTitle }}</a><br />
-        Powered by <a class="vitepress" target="_blank" href="//vitepress.vuejs.org/">VitePress - 1.0.0-rc.47</a>
-        <p class="htmer_time">本站已实际运行 <strong>{{currentTimeHtml}}</strong></p>
-    </div>
+  <div class="site-footer">
+    MIT Licensed | Copyright © 2023-2024
+    <a class="vitepress" :href="website">{{ webTitle }}</a
+    ><br />
+    Powered by
+    <a class="vitepress" target="_blank" href="//vitepress.vuejs.org/"
+      >VitePress - 1.0.0-rc.47</a
+    >
+    <p class="htmer_time">
+      本站已实际运行 <strong>{{ currentTimeHtml }}</strong>
+    </p>
+  </div>
 </template>
 <script lang="ts" setup>
-import { calculateUptime  } from '../../utils/runTime'
+import { calculateUptime } from '../../utils/runTime'
 import { useData } from 'vitepress'
 import { onMounted, ref } from 'vue'
 
 onMounted(() => {
-    setTime(); // 初始化
-    setInterval(setTime, 1000); // 每秒钟刷新
-});
-let currentTimeHtml = ref('');
+  setTime() // 初始化
+  setInterval(setTime, 1000) // 每秒钟刷新
+})
+let currentTimeHtml = ref('')
 const setTime = () => {
-    const currentTime = calculateUptime(); // 调用公用方法
-    currentTimeHtml.value =
-    currentTime[0] + '年' + currentTime[1] + '天' +
-    currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4] + '秒';
+  const currentTime = calculateUptime() // 调用公用方法
+  currentTimeHtml.value =
+    currentTime[0] +
+    '年' +
+    currentTime[1] +
+    '天' +
+    currentTime[2] +
+    '时' +
+    currentTime[3] +
+    '分' +
+    currentTime[4] +
+    '秒'
 }
 
 const { site, theme } = useData()
@@ -29,19 +44,19 @@ const webTitle = site.value.title
 
 <style>
 .site-footer {
-    color: #888;
-    text-align: center;
-    font-size: 0.75rem;
-    width: 100%;
-    padding: 10px 0 10px 0;
-    /* height: 4rem;
+  color: #888;
+  text-align: center;
+  font-size: 0.75rem;
+  width: 100%;
+  padding: 10px 0 10px 0;
+  /* height: 4rem;
     background: white;
     position: fixed;
     bottom: 0;
     z-index: 9; */
 }
 .vitepress {
-    color: var(--vp-c-text-1);
-    font-weight: 700;
+  color: var(--vp-c-text-1);
+  font-weight: 700;
 }
 </style>
