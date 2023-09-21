@@ -57,6 +57,7 @@ const imageList = ref([
   'https://i.mji.rip/2023/09/21/90b84c4ef7107b0589b84f9619dd321f.png',
   'https://i.mji.rip/2023/09/21/391c3b6bef88f1b5874b8dab75fcfba7.png',
   'https://i.mji.rip/2023/09/21/a74cf93efcc1b5e07e1b7bca46123671.png',
+  'https://i.mji.rip/2023/09/21/73335ed420db8284382766fdb2952213.png',
 ]);
 </script>
 
