@@ -26,12 +26,21 @@ export function secondToDate(second) {
 }
 
 export function calculateUptime() {
-	var create_time = Math.round(
-		new Date(Date.UTC(2023, 8, 18, 0, 0, 0)).getTime() / 1000
-	);
-	var timestamp = Math.round(
-		(new Date().getTime() + 8 * 60 * 60 * 1000) / 1000
-	);
-	var currentTime = secondToDate(timestamp - create_time);
-	return currentTime;
+	let create_time = Math.round(
+		new Date(Date.UTC(2023, 7, 15, 0, 0, 0)).getTime() / 1000
+	); // 注意月份是从0开始计数，所以月份要-1
+	let timestamp = Math.round(new Date().getTime() / 1000); // 不需要再加上时区偏移
+	let currentTime = secondToDate(timestamp - create_time);
+	let currentTimeHtml =
+		currentTime[0] +
+		'年' +
+		currentTime[1] +
+		'天' +
+		currentTime[2] +
+		'时' +
+		currentTime[3] +
+		'分' +
+		currentTime[4] +
+		'秒';
+	return currentTimeHtml;
 }
