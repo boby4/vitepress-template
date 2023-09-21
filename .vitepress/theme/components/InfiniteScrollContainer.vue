@@ -75,7 +75,7 @@ const imageList = ref([
     width: 4.5rem;
     height: auto;
     border-radius: 1rem;
-    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.1);
   }
   i{
     font-size: 4rem;
