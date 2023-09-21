@@ -13,8 +13,9 @@
     }"
     :modules="[Autoplay]"
   >
-    <swiper-slide v-for="(item, index) in skills" :key="index" class="swiper-slide" :style="{ background: item.color}">
-      <i :class="`iconfont ${item.title}`"></i>
+    <swiper-slide v-for="(item, index) in imageList" :key="index" class="swiper-slide">
+      <img :src="item" alt="">
+      <!-- <i :class="`iconfont ${item.title}`"></i> -->
     </swiper-slide>
   </swiper>
 </template>
@@ -41,33 +42,41 @@ const skills = ref([
 ]); // 技能列表
 
 const imageList = ref([
-  { img: 'https://ice.frostsky.com/2023/09/07/4d348831ab4ef88112a19f5efc2741c3.jpeg', color: 'color1' },
-  { img: 'https://ice.frostsky.com/2023/09/07/4fc03088862d4256b6df81c9f61a8cf9.jpeg', color: 'color2' },
-  { img: 'https://ice.frostsky.com/2023/09/07/94565255cc9e8439decb0dbaf683b565.jpeg', color: 'color3' },
-  { img: 'https://ice.frostsky.com/2023/09/07/827c01c1219949cc6f649947f3876dc2.jpeg', color: 'color4' },
-  { img: 'https://ice.frostsky.com/2023/09/07/f3ff873adc3d7d095389a092e42f503d.jpeg', color: 'color5' },
-  { img: 'https://ice.frostsky.com/2023/09/07/6a8f65ac5f90226096fbea2a8839ee85.jpeg', color: 'color6' },
-  { img: 'https://ice.frostsky.com/2023/09/07/ef439fb9ebc4f6704cc0b4dd8d221125.jpeg', color: 'color7' },
-  { img: 'https://ice.frostsky.com/2023/09/07/8ed527cc40ab38723cfb339cc2f873d3.jpeg', color: 'color8' },
-  { img: 'https://ice.frostsky.com/2023/09/07/0a5c2fedda66a8ed766483596fe20ba4.jpeg', color: 'color9' },
+  'https://i.mji.rip/2023/09/21/bfc560470393e9b56bb09da9a1ef6408.png',
+  'https://i.mji.rip/2023/09/21/5998f3961581623105eddf47160decc5.png',
+  'https://i.mji.rip/2023/09/21/43aaa64f71aa6aabba9055368de1357c.png',
+  'https://i.mji.rip/2023/09/21/05afea2fe0c016aa070f6be50af3311c.png',
+  'https://i.mji.rip/2023/09/21/7ca328af82a2f2d64f896c5d0d4ce1a8.png',
+  'https://i.mji.rip/2023/09/21/0c0f27bfcff9db8c68006e70d092af87.png',
+  'https://i.mji.rip/2023/09/21/07e2fb0096800311572f4163b9e070f0.png',
+  'https://i.mji.rip/2023/09/21/62c953e47517461fe802b9daa19ded56.png',
+  'https://i.mji.rip/2023/09/21/66f7e42e5963da1981322da6b6b500aa.png',
+  'https://i.mji.rip/2023/09/21/0e5f71674e9b7380d2d08d10cbf6ea89.png',
+  'https://i.mji.rip/2023/09/21/360e24517f2d66a77235e5b93dce3727.png',
+  'https://i.mji.rip/2023/09/21/15572a23669a960eb619329a04d8e829.png',
+  'https://i.mji.rip/2023/09/21/90b84c4ef7107b0589b84f9619dd321f.png',
+  'https://i.mji.rip/2023/09/21/391c3b6bef88f1b5874b8dab75fcfba7.png',
+  'https://i.mji.rip/2023/09/21/a74cf93efcc1b5e07e1b7bca46123671.png',
 ]);
 </script>
 
 <style scoped lang="scss">
 @import '../style/iconfont.css';
 .swiper {
+  background: none;
   width: 100%;
   height: 100%;
   padding: 1.5rem 0 1rem 0;
 }
 .swiper-slide {
+  background: none;
   transform: translate3d(0, 0, 0);
-  text-align: center;
-  border-radius: 13px;
-  margin-top: 10px;
-  margin-right: 10px;
-  padding: 8px 12px 8px 8px;
-  box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.1);
+  img{
+    width: 4.5rem;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.12);
+  }
   i{
     font-size: 4rem;
     line-height: 4rem;
