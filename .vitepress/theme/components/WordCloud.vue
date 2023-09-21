@@ -4,7 +4,7 @@
     :words="generateRandomColors(data)"
     font-family="Roboto"
     rotation-unit="deg"
-    font-size-ratio="3"
+    font-size-ratio="2"
   >
     <template v-slot="{text, word}">
       <a :title="`#${text}: ${word.value}`" style="cursor: pointer;" :href="withBase(`/pages/tags?tag=${text}`)">

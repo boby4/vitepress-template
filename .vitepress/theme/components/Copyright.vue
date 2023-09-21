@@ -1,6 +1,6 @@
 <template>
   <div class="site-footer">
-    MIT Licensed | Copyright © 2023-2024
+    Copyright © 2023-2024
     <a class="vitepress" :href="website">{{ webTitle }}</a
     ><br />
     Powered by
