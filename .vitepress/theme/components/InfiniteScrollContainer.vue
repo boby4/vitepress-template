@@ -6,24 +6,28 @@
     :loop="true"
     effect="slide"
     :speed="2000"
-    :allowTouchMove="true"
+    :allowTouchMove="false"
     :autoplay="{
       delay: 0,
       disableOnInteraction: false,
     }"
     :modules="[Autoplay]"
   >
-    <swiper-slide v-for="(item, index) in imageList" :key="index" class="swiper-slide">
-      <img :src="item" alt="">
+    <swiper-slide
+      v-for="(item, index) in imageList"
+      :key="index"
+      class="swiper-slide"
+    >
+      <img :src="item" alt="" />
       <!-- <i :class="`iconfont ${item.title}`"></i> -->
     </swiper-slide>
   </swiper>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue';
-import { Autoplay } from 'swiper/modules';
-import {Swiper, SwiperSlide} from 'swiper/vue'
-import 'swiper/css';
+import { ref, onMounted } from 'vue'
+import { Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
 
 const skills = ref([
   { title: 'sass', color: '#ffffff' },
@@ -39,7 +43,7 @@ const skills = ref([
   { title: 'webpack', color: '#242938' },
   { title: 'Docker', color: '' },
   { title: 'xiaochengxuguanli3x', color: '' },
-]); // 技能列表
+]) // 技能列表
 
 const imageList = ref([
   'https://i.mji.rip/2023/09/21/bfc560470393e9b56bb09da9a1ef6408.png',
@@ -58,7 +62,7 @@ const imageList = ref([
   'https://i.mji.rip/2023/09/21/391c3b6bef88f1b5874b8dab75fcfba7.png',
   'https://i.mji.rip/2023/09/21/a74cf93efcc1b5e07e1b7bca46123671.png',
   'https://i.mji.rip/2023/09/21/73335ed420db8284382766fdb2952213.png',
-]);
+])
 </script>
 
 <style scoped lang="scss">
@@ -72,13 +76,13 @@ const imageList = ref([
 .swiper-slide {
   background: none;
   transform: translate3d(0, 0, 0);
-  img{
+  img {
     width: 4.2rem;
     height: auto;
     border-radius: 1rem;
     box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.1);
   }
-  i{
+  i {
     font-size: 4rem;
     line-height: 4rem;
   }

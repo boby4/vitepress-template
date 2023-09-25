@@ -13,6 +13,7 @@ import ModelPlay from './components/ModelPlay.vue'
 import Fancybox from './components/Fancybox.vue'
 import Aplayer from './components/Aplayer.vue'
 import Album from './components/Album.vue'
+import PhotoCloud from './components/photoCloud.vue'
 import './style/index.scss'
 import type { VNode } from 'vue'
 
@@ -40,5 +41,6 @@ export default {
     app.component("Fancybox", Fancybox);
     app.component("Aplayer", Aplayer);
     app.component("Album", Album);
+    app.component("PhotoCloud", PhotoCloud);
   }
 }

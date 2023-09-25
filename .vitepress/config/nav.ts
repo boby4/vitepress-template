@@ -14,6 +14,7 @@ export const nav = [
     // ]
   },
   { text: '🎬 照片墙', link: '/pages/album' },
+  { text: '🌄 Github图床', link: '/pages/cloud' },
   { text: '💌 友情链接', link: '/pages/link' },
   { text: '👋 示例', link: '/pages/model' }
 ]

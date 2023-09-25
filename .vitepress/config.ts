@@ -24,7 +24,6 @@ const asyncConfig = async () => {
 			['script', { src: 'https://v1.hitokoto.cn/?encode=js&select=%23hitokoto', defer: true}], // 今日一言
 			['script', { src: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js' }],
 			['script', { src: 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js' }],
-			['script', { src: 'https://lib.baomitu.com/axios/0.21.1/axios.js' }], // axios
 			// ['script', { src: 'https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js' }], // live2d动漫人物
 			['script', { src: 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js' }], // 网站统计
 			['script', { src: 'https://sdk.jinrishici.com/v2/browser/jinrishici.js' }], // 今日诗词
