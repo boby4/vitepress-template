@@ -34,7 +34,7 @@ const branch = 'img'
 // 文件路径，这里是相对于分支的路径
 const path = 'img'
 const url = `https://api.github.com/repos/${username}/${repo}/contents/${path}`
-const token = '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'
+// const token = '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'
 
 const fetchImages = async () => {
   const response = await axios.get(url, {
