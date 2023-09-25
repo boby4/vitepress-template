@@ -11,11 +11,11 @@
   <LazyLoadImg :img="state.files" @delete="deleteImage" />
 </template>
 
-<script setup>
+<script setup type="module">
 import LazyLoadImg from './lazyLoadImg.vue'
 import axios from 'axios'
 import { onMounted, ref, reactive } from 'vue'
-import { toast } from 'https://cdn.jsdelivr.net/npm/vue3-toastify@0.1.13/+esm';
+// import { toast } from 'https://cdn.jsdelivr.net/npm/vue3-toastify@0.1.13/+esm';
 
 onMounted(() => {
   fetchImages()
@@ -71,10 +71,10 @@ const uploadFile = async (files) => {
     const file = files
     const isImage = isImageFile(file)
     if (!isImage) {
-      toast.warning("只能上传图片文件!", {
-        autoClose: 1500,
-        position: toast.POSITION.TOP_CENTER,
-      });
+      // toast.warning("只能上传图片文件!", {
+      //   autoClose: 1500,
+      //   position: toast.POSITION.TOP_CENTER,
+      // });
       return
     }
     const reader = new FileReader()
@@ -99,16 +99,16 @@ const uploadFile = async (files) => {
           },
         }
       )
-      toast.success('成功上传图片,如果图片没有展示就等会就刷新下页面', {
-        autoClose: 1500,
-        position: toast.POSITION.TOP_CENTER,
-      });
+      // toast.success('成功上传图片,如果图片没有展示就等会就刷新下页面', {
+      //   autoClose: 1500,
+      //   position: toast.POSITION.TOP_CENTER,
+      // });
       fetchImages()
       } catch (e) {
-        toast.warning("上传文件时出错!", {
-          autoClose: 1500,
-          position: toast.POSITION.TOP_CENTER,
-        });
+        // toast.warning("上传文件时出错!", {
+        //   autoClose: 1500,
+        //   position: toast.POSITION.TOP_CENTER,
+        // });
       }
     }
     reader.readAsDataURL(file)
@@ -137,16 +137,16 @@ const deleteImage = async(item) => {
       }
     );
     // 删除成功后，从状态中移除对应的文件
-    toast.success('成功删除图片，请等待github删除操作生效', {
-      autoClose: 1500,
-      position: toast.POSITION.TOP_CENTER,
-    });
+    // toast.success('成功删除图片，请等待github删除操作生效', {
+    //   autoClose: 1500,
+    //   position: toast.POSITION.TOP_CENTER,
+    // });
     fetchImages()
   } catch (error) {
-    toast.warning('删除文件时出错', {
-      autoClose: 1500,
-      position: toast.POSITION.TOP_CENTER,
-    });
+    // toast.warning('删除文件时出错', {
+    //   autoClose: 1500,
+    //   position: toast.POSITION.TOP_CENTER,
+    // });
     console.error('删除文件时出错:', error);
   }
 };
