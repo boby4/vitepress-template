@@ -29,6 +29,8 @@ const asyncConfig = async () => {
 			['script', { src: 'https://sdk.jinrishici.com/v2/browser/jinrishici.js' }], // 今日诗词
 			['script', { src: '/js/clickText.js' }], // 点击文字特效
 			['script', { src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js' }], // jquery引入，灯箱依赖jquery
+			['script', { src: 'https://cdn.jsdelivr.net/npm/vue3-toastify@0.1.13/dist/index.min.js' }], // vue3-toastify
+			['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/vue3-toastify@0.1.13/dist/index.min.css' }],
 		],
 		// 主题配置
 		themeConfig: {

@@ -15,8 +15,7 @@
 import LazyLoadImg from './lazyLoadImg.vue'
 import axios from 'axios'
 import { onMounted, ref, reactive } from 'vue'
-import { toast } from 'vue3-toastify';
-import 'vue3-toastify/dist/index.css';
+import { toast } from 'https://cdn.jsdelivr.net/npm/vue3-toastify@0.1.13/+esm';
 
 onMounted(() => {
   fetchImages()
