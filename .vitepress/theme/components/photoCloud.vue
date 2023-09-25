@@ -38,9 +38,9 @@ const url = `https://api.github.com/repos/${username}/${repo}/contents/${path}`
 
 const fetchImages = async () => {
   const response = await axios.get(url, {
-    // headers: {
-    //   Authorization: `token ${token}`, // 带上token，一小时请求限制5000次，不带token几下就莫得了
-    // },
+    headers: {
+      Authorization: `token ${token}`, // 带上token，一小时请求限制5000次，不带token几下就莫得了
+    },
     params: {
       ref: branch, // 指定分支
     },
