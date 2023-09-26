@@ -61,9 +61,12 @@ function nextPage() {
 /* 分页样式 */
 .pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   margin-top: 20px;
-  width: 100%;
+  width: 100% !important;
+  position: relative;
 }
 
 .pagin {
