@@ -14,6 +14,7 @@ import Fancybox from './components/Fancybox.vue'
 import Aplayer from './components/Aplayer.vue'
 import Album from './components/Album.vue'
 import PhotoCloud from './components/photoCloud.vue'
+import Pagination from './components/Pagination.vue'
 import './style/index.scss'
 import type { VNode } from 'vue'
 
@@ -42,6 +43,7 @@ export default {
     app.component("Aplayer", Aplayer);
     app.component("Album", Album);
     app.component("PhotoCloud", PhotoCloud);
+    app.component("Pagination", Pagination);
     // createApp({}).use(EMChatroom, {
     //   appKey: "1182230925159941#xzm"
     // })

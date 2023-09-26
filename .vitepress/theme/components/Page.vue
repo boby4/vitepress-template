@@ -24,7 +24,6 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { withBase, useData } from 'vitepress'
-import Pagination from './Pagination.vue'
 import Aside from './Aside.vue'
 import { randomImage } from '../../utils/functions'
 

@@ -36,7 +36,6 @@
 import { useData, withBase } from 'vitepress'
 import { computed, ref } from 'vue'
 import { useYearSort, randomImage } from '../../utils/functions'
-import Pagination from './Pagination.vue'
 
 const padNumber = (number: any) => {
   return number < 10 ? `0${number}` : number
