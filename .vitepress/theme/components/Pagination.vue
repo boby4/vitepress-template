@@ -1,6 +1,6 @@
 <template>
   <div class="pagination">
-    <button class="pagin prev-button" @click="prevPage" :disabled="currentPage === 1">上一页</button>
+    <div class="pagin prev-button" @click="prevPage" :disabled="currentPage === 1">上一页</div>
     <div class="page-numbers">
       <!-- 显示页码 -->
       <button
@@ -11,7 +11,7 @@
         class="page-button"
       >{{ page }}</button>
     </div>
-    <button class="pagin next-button" @click="nextPage" :disabled="currentPage === totalPages">下一页</button>
+    <div class="pagin next-button" @click="nextPage" :disabled="currentPage === totalPages">下一页</div>
   </div>
 </template>
 
