@@ -1,4 +1,4 @@
-import { h } from 'vue'
+import { h, createApp } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import Comment from "./components/Comment.vue";
 import Friendship from "./components/Friendship.vue";
@@ -42,5 +42,9 @@ export default {
     app.component("Aplayer", Aplayer);
     app.component("Album", Album);
     app.component("PhotoCloud", PhotoCloud);
+    // createApp({}).use(EMChatroom, {
+    //   appKey: "1182230925159941#xzm"
+    // })
+    // .mount("#app");
   }
 }

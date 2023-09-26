@@ -367,42 +367,4 @@ img {
   }
 }
 
-.pagination {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  .icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    text-align: center;
-    i{
-      line-height: 2.5rem;
-    }
-  }
-}
-
-.link {
-  display: inline-block;
-  margin-right: .5rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  text-align: center;
-  font-weight: 400;
-  line-height: 2.5rem;
-}
-
-.link:hover {
-  background: var(--vp-c-brand);
-  color: var(--vp-c-text-inverse-1);
-  border-radius: .2rem;
-  line-height: 2.5rem;
-  transition: all 800ms;
-}
-
-.link.active {
-  background: var(--vp-c-brand);
-  color: var(--vp-c-text-inverse-1);
-  border-radius: .2rem;
-  line-height: 2.5rem;
-}
 

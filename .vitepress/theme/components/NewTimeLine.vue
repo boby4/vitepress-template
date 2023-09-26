@@ -2,7 +2,7 @@
   <section id="timeline" class="dynamic-items">
     <div class="demo-card-wrapper">
       <a
-        v-for="(card, index) in data"
+        v-for="(card, index) in displayedData"
         :key="index"
         :class="`demo-card demo-card--step${index + 1}`"
         :href="withBase(card.regularPath)"
@@ -21,25 +21,101 @@
           <img :src="randomImage()" alt="Graphic" />
         </div>
       </a>
+      <div v-for="n in emptyCardCount" :key="`empty_${n}`" class="demo-card demo-card-placeholder"></div>
     </div>
   </section>
+  <Pagination
+    :currentPage="currentPage"
+    :totalPages="totalPages"
+    @pageChange="handlePageChange"
+    :visiblePageCount="5"
+  />
 </template>
 
 <script lang="ts" setup>
 import { useData, withBase } from 'vitepress'
-import { computed, ref, onMounted, watch } from 'vue'
+import { computed, ref } from 'vue'
 import { useYearSort, randomImage } from '../../utils/functions'
+import Pagination from './Pagination.vue'
 
 const padNumber = (number: any) => {
   return number < 10 ? `0${number}` : number
 }
+
 const { theme } = useData()
 const data = computed(() => theme.value.posts)
+const currentPage = ref(1);
 
+const handlePageChange = (newPage:number) => {
+  currentPage.value = newPage;
+  // 根据新的页码加载数据等操作
+};
+
+const itemsPerPage = 5;
+const totalPages = computed(() => Math.ceil(data.value.length / itemsPerPage));
+
+const displayedData = computed(() => {
+  const startIndex = (currentPage.value - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  return data.value.slice(startIndex, endIndex);
+});
+
+const emptyCardCount = computed(() => {
+  // 计算第二页需要的占位元素数量
+  const remainingCards = itemsPerPage - displayedData.value.length;
+  return remainingCards > 0 ? remainingCards : 0;
+});
 </script>
 <style lang="scss">
 // @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
+
+/* 添加占位元素的样式 */
+.demo-card-placeholder {
+  display: block;
+  margin: 10px auto 80px;
+  max-width: 94%;
+  height: 400px; /* 与正常卡片高度一致 */
+  box-shadow: none !important; /* 取消阴影 */
+}
+
+/* 分页样式 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #46b8e9;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #3a99c4;
+}
+
+.pagination button:hover {
+  background-color: #3a99c4;
+}
+
+.pagination .page-numbers {
+  display: flex;
+  align-items: center;
+}
+
+.pagination div {
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+
 .cd-container {
   width: 100%;
   margin: 0 auto;
@@ -84,7 +160,7 @@ const data = computed(() => theme.value.posts)
 $background: #f7f7f7;
 $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
 $border: 1px solid rgba(191, 191, 191, 0.4);
-$items: 7;
+$items: 5;
 $rows: ceil($items / 2);
 
 
