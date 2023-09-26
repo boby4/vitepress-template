@@ -79,43 +79,6 @@ const emptyCardCount = computed(() => {
   box-shadow: none !important; /* 取消阴影 */
 }
 
-/* 分页样式 */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.pagination button {
-  background-color: #46b8e9;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 16px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.pagination button.active {
-  background-color: #3a99c4;
-}
-
-.pagination button:hover {
-  background-color: #3a99c4;
-}
-
-.pagination .page-numbers {
-  display: flex;
-  align-items: center;
-}
-
-.pagination div {
-  margin: 0 10px;
-  font-size: 18px;
-}
-
-
 .cd-container {
   width: 100%;
   margin: 0 auto;

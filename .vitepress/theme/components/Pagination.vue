@@ -67,6 +67,9 @@ function nextPage() {
 }
 
 .pagin {
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 0 5px;
   background-color: var(--vp-c-brand) !important;
   color: #fff !important;
   cursor: pointer;
@@ -85,7 +88,7 @@ function nextPage() {
 
 /* 页码按钮样式 */
 .page-button {
-  background-color: white;
+  /* background-color: white; */
   color: var(--vp-c-text-1);
   border: none;
   border-radius: 5px;
