@@ -57,7 +57,7 @@ function nextPage() {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /* 分页样式 */
 .pagination {
   display: flex;
@@ -91,7 +91,6 @@ function nextPage() {
 
 /* 页码按钮样式 */
 .page-button {
-  /* background-color: white; */
   color: var(--vp-c-text-1);
   border: none;
   border-radius: 5px;
@@ -110,10 +109,5 @@ function nextPage() {
   background-color: var(--vp-c-brand);
   color: #fff;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.pagination div {
-  margin: 0 10px;
-  font-size: 18px;
 }
 </style>
