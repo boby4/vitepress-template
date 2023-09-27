@@ -80,7 +80,7 @@ function nextPage() {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 /* 分页样式 */
 .pagination {
   display: flex;
@@ -89,7 +89,7 @@ function nextPage() {
   margin-top: 20px;
   width: 100%;
   min-width: 350px;
-  .pagin {
+  & .pagin {
     border-radius: 5px;
     padding: 8px 16px;
     margin: 0 5px;
@@ -100,17 +100,17 @@ function nextPage() {
   }
 
   /* 上一页按钮样式 */
-  .prev-button {
+  & .prev-button {
     margin-right: 10px;
   }
 
   /* 下一页按钮样式 */
-  .next-button {
+  & .next-button {
     margin-left: 10px;
   }
 
   /* 页码按钮样式 */
-  .page-button {
+  & .page-button {
     color: var(--vp-c-text-1);
     border: none;
     border-radius: 5px;
@@ -120,12 +120,12 @@ function nextPage() {
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   }
 
-  .page-button.active {
+  & .page-button.active {
     background-color: var(--vp-c-brand);
     color: #fff;
   }
 
-  .page-button:hover {
+  & .page-button:hover {
     background-color: var(--vp-c-brand);
     color: #fff;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
