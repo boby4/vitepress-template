@@ -51,7 +51,7 @@ const posts = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .home_bg {
   width: 100%;
   height: 380px;
