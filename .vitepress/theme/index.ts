@@ -15,7 +15,7 @@ import Aplayer from './components/Aplayer.vue'
 import Album from './components/Album.vue'
 import PhotoCloud from './components/photoCloud.vue'
 import Pagination from './components/Pagination.vue'
-// import './style/index.scss'
+import './style/index.scss'
 import type { VNode } from 'vue'
 
 export default {
