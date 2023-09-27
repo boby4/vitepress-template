@@ -10,13 +10,13 @@
   <div class="layout_page">
     <Aside />
     <div class="f_main">
-      <Paging :datas="posts" />
+      <Paging :datas="posts"></Paging>
       <Pagination
         :currentPage="currentPage"
         :totalPages="totalPages"
         @pageChange="handlePageChange"
         :visiblePageCount="5"
-      />
+      ></Pagination>
     </div>
   </div>
 </template>
