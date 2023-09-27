@@ -53,6 +53,3 @@ const getRandomRotation = () => {
   return randomAngle;
 }
 </script>
-
-<style scoped lang="scss">
-</style>

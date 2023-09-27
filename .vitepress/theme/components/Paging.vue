@@ -43,7 +43,7 @@ const toDetail = (path:string) => {
 }
 
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import url('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');
 // @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
 // @import url(https://fonts.googleapis.com/css?family=Roboto:400,900);

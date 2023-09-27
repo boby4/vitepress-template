@@ -207,17 +207,13 @@
 
 // 滚动条
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 4px;
+  height: 6px;
+  cursor: pointer;
 }
 
 // 滚动滑块
 ::-webkit-scrollbar-thumb {
   background: #dddddd;
-  border-radius: 6px;
-}
-
-// 滚动条高度
-::-webkit-scrollbar {
-  height: 8px;
-  cursor: pointer;
+  border-radius: 4px;
 }

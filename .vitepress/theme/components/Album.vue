@@ -1,5 +1,4 @@
 <template>
-  <main>
     <div id="gallery" @scroll="handleScroll" @mouseover="handleMouseOver" @mouseout="handleMouseOut">
       <figure v-for="(item, index) in albumImage()" :key="index">
         <img v-if="item.src" :src="item.src" alt="" title="">
@@ -13,8 +12,6 @@
         </div>
       </figure>
     </div>
-  </main>
-  <footer id='info'><a href="#">@xuyirui-1</a></footer>
 </template>
 <script setup>
   import {
@@ -56,39 +53,11 @@
     window.removeEventListener('resize', handleScroll);
   });
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap");
 
   :root {
     --adjust-size: 0px;
-    /* 必要に応じて */
-  }
-
-  main {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  p {
-    line-height: 1;
-  }
-
-  a {
-    color: crimson;
-    text-decoration: none;
-  }
-
-  img {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
   }
 
   #gallery {
@@ -164,7 +133,6 @@
     --delay: calc(-0.5 * var(--duration));
     --direction: alternate;
     --pin-color: red;
-
     position: relative;
     display: inline-block;
     margin: var(--adjust-size);
@@ -179,7 +147,6 @@
     // background-size: cover;
     // background-position: center;
     // background-blend-mode: multiply;
-
     transform-origin: center 0.22rem;
     will-change: transform;
     break-inside: avoid;
@@ -191,8 +158,7 @@
 
   #gallery.active figure {
     animation-duration: var(--duration), 1.5s;
-    animation-delay: var(--delay),
-      calc(var(--delay) + var(--duration) * var(--count));
+    animation-delay: var(--delay), calc(var(--delay) + var(--duration) * var(--count));
     animation-timing-function: ease-in-out;
     animation-iteration-count: var(--count), 1;
     animation-direction: var(--direction), normal;
@@ -257,7 +223,6 @@
     0% {
       transform: rotate3d(0, 0, 1, calc(-1 * var(--angle)));
     }
-
     100% {
       transform: rotate3d(0, 0, 1, var(--angle));
     }
@@ -279,13 +244,6 @@
     font-size: 1.1rem;
   }
 
-  /*
-@media (orientation: landscape) {
-	#gallery {
-		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-	}
-}
-*/
   @media (min-width: 800px) {
     #gallery {
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

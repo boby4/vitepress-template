@@ -85,7 +85,7 @@ import { useData } from 'vitepress'
 const { theme } = useData()
 const articleNum = theme.value.posts.length
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../style/iconfont.css';
 
 #aside_content {
@@ -122,10 +122,6 @@ const articleNum = theme.value.posts.length
 
 #aside_content .card-content {
   padding: 1rem 1.2rem;
-}
-
-.tool a {
-  color: #ff0066;
 }
 
 .is-center {
@@ -211,20 +207,6 @@ img {
   }
 }
 
-::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to right, #ff0066 0%, #ff00cc 100%);
-  width: 85%;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
 .article {
   padding: 0.9rem;
   margin: 0.4rem 0.3rem 1.1rem 0.3rem;
@@ -250,59 +232,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.describe {
-  font-size: 0.9rem;
-  text-indent: 2em;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  color: var(--vp-c-text-2);
-  margin: 10px 0;
-  line-height: 1.5rem;
-  letter-spacing: 0.06rem;
-}
-
-.time {
-  font-size: 0.5rem;
-  color: #aaa;
-  letter-spacing: 0.5px;
-}
-
-.title {
-  color: var(--vp-c-text-2);
-  display: block;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0.5rem 0;
-}
-
-@media screen and (max-width: 700px) {
-  .title {
-    font-size: 0.9rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 14em;
-  }
-  .describe {
-    font-size: 0.7rem;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-    color: var(--vp-c-text-2);
-    padding: 0 0.5em;
-    letter-spacing: 0.06rem;
-  }
-  .time {
-    font-size: 0.5rem;
-  }
-  .line {
-    border-top: 0.15rem solid #353535;
-  }
 }
 
 @media screen and (max-width: 900px) {

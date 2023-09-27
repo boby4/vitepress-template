@@ -23,7 +23,7 @@ const data = computed(() => useYearSort(theme.value.posts))
 console.log(theme.value.posts)
 </script>
 
-<style scoped>
+<style>
 .year {
     padding: 14px 0 8px 0;
     font-size: 1.25rem;
