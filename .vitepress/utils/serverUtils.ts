@@ -7,7 +7,7 @@ async function getPosts(pageSize) {
 	let paths = await globby(['posts/**.md']);
 
 	//生成分页页面markdown
-	await generatePaginationPages(paths.length, pageSize);
+	// await generatePaginationPages(paths.length, pageSize);
 
 	let posts = await Promise.all(
 		paths.map(async (item) => {
