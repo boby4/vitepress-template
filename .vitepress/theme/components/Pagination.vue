@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination">
+  <p class="pagination">
     <div
       class="pagin prev-button"
       @click="prevPage"
@@ -26,7 +26,7 @@
     >
       下一页
     </div>
-  </div>
+  </p>
 </template>
 
 <script setup>
