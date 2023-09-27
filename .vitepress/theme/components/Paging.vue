@@ -1,5 +1,11 @@
 <template>
-  <a class="blog-card" v-for="(post, indexs) in datas" :class="{ alt: indexs % 2 === 1 }" :key="indexs" :href="withBase(post.regularPath)">
+  <a
+    class="blog-card"
+    v-for="(post, indexs) in datas"
+    :class="{ alt: indexs % 2 === 1 }"
+    :key="indexs"
+    :href="withBase(post.regularPath)"
+  >
     <div class="meta">
       <div
         class="photo"
@@ -7,18 +13,20 @@
       ></div>
       <ul class="details">
         <li class="author"><a href="#">前端日记</a></li>
-        <li class="date">{{post.frontMatter.date}}</li>
+        <li class="date">{{ post.frontMatter.date }}</li>
         <li class="tags">
           <ul>
-            <li v-for="(tags, keys) in post.frontMatter.tags" :key="keys"><a :href="withBase(`/pages/tags?tag=${tags}`)">{{tags}} </a></li>
+            <li v-for="(tags, keys) in post.frontMatter.tags" :key="keys">
+              <a :href="withBase(`/pages/tags?tag=${tags}`)">{{ tags }} </a>
+            </li>
           </ul>
         </li>
       </ul>
     </div>
     <div class="description">
-      <h1>{{post.frontMatter.title}}</h1>
+      <h1>{{ post.frontMatter.title }}</h1>
       <h2>Opening a door to the future</h2>
-      <p class="dis_content">{{post.frontMatter.description}}</p>
+      <p class="dis_content">{{ post.frontMatter.description }}</p>
       <p class="read_more">
         <a :href="withBase(post.regularPath)">Read More</a>
       </p>
@@ -34,14 +42,13 @@ const props = defineProps({
   datas: Array,
 })
 const backgroundStyle = computed(() => {
-  const backgroundImageStyle = `url('${randomImage()}')`;
-  return { background: backgroundImageStyle };
+  const backgroundImageStyle = `url('${randomImage()}')`
+  return { background: backgroundImageStyle }
 })
 
-const toDetail = (path:string) => {
+const toDetail = (path: string) => {
   withBase(path)
 }
-
 </script>
 <style lang="scss">
 @import url('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');
@@ -148,7 +155,7 @@ $color_dark: rgba(60, 60, 67, 0.92);
     }
   }
   .description {
-    padding: .7rem;
+    padding: 0.7rem;
     background: $color_white;
     position: relative;
     width: 820px;
@@ -165,7 +172,7 @@ $color_dark: rgba(60, 60, 67, 0.92);
       font-size: 1.1rem;
     }
     h2 {
-      font-size: .8rem;
+      font-size: 0.8rem;
       font-weight: 300;
       text-transform: uppercase;
       color: $color_grey_dark;
@@ -186,7 +193,6 @@ $color_dark: rgba(60, 60, 67, 0.92);
           vertical-align: middle;
           transition: margin 0.3s, opacity 0.3s;
         }
-
         &:hover:after {
           margin-left: 5px;
           opacity: 1;
@@ -194,14 +200,14 @@ $color_dark: rgba(60, 60, 67, 0.92);
       }
     }
   }
-  .dis_content{
+  .dis_content {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-top: .5rem;
-    font-size: .9rem;
+    padding-top: 0.5rem;
+    font-size: 0.9rem;
     height: 4.5rem;
     &:before {
       content: '';
@@ -216,7 +222,7 @@ $color_dark: rgba(60, 60, 67, 0.92);
   p {
     color: $color_dark;
     position: relative;
-    margin: .5rem 0 0;
+    margin: 0.5rem 0 0;
   }
   &:hover {
     .details {
@@ -225,15 +231,13 @@ $color_dark: rgba(60, 60, 67, 0.92);
   }
 
   @media screen and (max-width: 640px) {
-    width: 100%;
-    height: 100%;
     .meta {
       height: 0;
     }
     .description {
       width: 100%;
       height: 100%;
-      h1 h2 p{
+      h1 h2 p {
         margin: 5px 0 0 5px;
       }
     }

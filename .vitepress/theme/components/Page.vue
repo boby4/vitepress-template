@@ -11,7 +11,6 @@
     <Aside />
     <div class="f_main">
       <Paging :datas="posts"></Paging>
-
       <Pagination
         :currentPage="currentPage"
         :totalPages="totalPages"
@@ -118,12 +117,6 @@ const posts = computed(() => {
 
 .f_main {
   width: 70%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  font-size: 1rem;
-  justify-content: center;
-  align-items: center;
 }
 
 @media screen and (max-width: 768px) {

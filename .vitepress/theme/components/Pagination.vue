@@ -1,5 +1,5 @@
 <template>
-  <div class="description">
+  <div class="pagination">
     <div class="pagin" @click="prevPage" :disabled="currentPage === 1">
       上一页
     </div>
@@ -71,9 +71,9 @@ const nextPage=()=> {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 /* 分页样式 */
-.description {
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
