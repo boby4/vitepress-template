@@ -65,16 +65,15 @@ function nextPage() {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  width: 100% !important;
-  position: relative;
+  width: 100%;
 }
 
 .pagin {
   border-radius: 5px;
   padding: 8px 16px;
   margin: 0 5px;
-  background-color: var(--vp-c-brand) !important;
-  color: #fff !important;
+  background-color: var(--vp-c-brand);
+  color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
