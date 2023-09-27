@@ -51,20 +51,20 @@ const visiblePages = computed(() => {
   )
 })
 
-function goToPage(page) {
+const goToPage=(page)=> {
   if (page >= 1 && page <= props.totalPages) {
     currentPage.value = page
     emits('page-change', page)
   }
 }
 
-function prevPage() {
+const prevPage=()=> {
   if (currentPage.value > 1) {
     goToPage(currentPage.value - 1)
   }
 }
 
-function nextPage() {
+const nextPage=()=> {
   if (currentPage.value < props.totalPages) {
     goToPage(currentPage.value + 1)
   }

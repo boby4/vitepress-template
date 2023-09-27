@@ -11,6 +11,7 @@
     <Aside />
     <div class="f_main">
       <Paging :datas="posts"></Paging>
+
       <Pagination
         :currentPage="currentPage"
         :totalPages="totalPages"
