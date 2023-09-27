@@ -57,7 +57,7 @@ function nextPage() {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 /* 分页样式 */
 .pagination {
   display: flex;
