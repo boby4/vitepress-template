@@ -85,11 +85,6 @@ $color_dark: rgba(60, 60, 67, 0.92);
     height: 200px;
   }
   .photo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     background-size: cover;
     background-position: center;
     transition: transform 0.2s;

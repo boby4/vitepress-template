@@ -1,14 +1,9 @@
 <template>
-  <p class="pagination">
-    <div
-      class="pagin prev-button"
-      @click="prevPage"
-      :disabled="currentPage === 1"
-    >
+  <div class="pagination">
+    <div class="pagin" @click="prevPage" :disabled="currentPage === 1">
       上一页
     </div>
     <div class="page-numbers">
-      <!-- 显示页码 -->
       <button
         v-for="page in visiblePages"
         :key="page"
@@ -19,14 +14,10 @@
         {{ page }}
       </button>
     </div>
-    <div
-      class="pagin next-button"
-      @click="nextPage"
-      :disabled="currentPage === totalPages"
-    >
+    <div class="pagin" @click="nextPage" :disabled="currentPage === totalPages">
       下一页
     </div>
-  </p>
+  </div>
 </template>
 
 <script setup>
@@ -89,7 +80,7 @@ function nextPage() {
   margin-top: 20px;
   width: 100%;
   min-width: 350px;
-  & .pagin {
+  .pagin {
     border-radius: 5px;
     padding: 8px 16px;
     margin: 0 5px;
@@ -99,18 +90,8 @@ function nextPage() {
     transition: background-color 0.3s ease-in-out;
   }
 
-  /* 上一页按钮样式 */
-  & .prev-button {
-    margin-right: 10px;
-  }
-
-  /* 下一页按钮样式 */
-  & .next-button {
-    margin-left: 10px;
-  }
-
   /* 页码按钮样式 */
-  & .page-button {
+  .page-button {
     color: var(--vp-c-text-1);
     border: none;
     border-radius: 5px;
@@ -120,12 +101,12 @@ function nextPage() {
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   }
 
-  & .page-button.active {
+  .page-button.active {
     background-color: var(--vp-c-brand);
     color: #fff;
   }
 
-  & .page-button:hover {
+  .page-button:hover {
     background-color: var(--vp-c-brand);
     color: #fff;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
