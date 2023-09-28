@@ -1,23 +1,27 @@
 <template>
-  <div class="pagination">
-    <div class="pagin" @click="prevPage" :disabled="currentPage === 1">
-      上一页
-    </div>
-    <div class="page-numbers">
-      <button
-        v-for="page in visiblePages"
-        :key="page"
-        @click="goToPage(page)"
-        :class="{ active: currentPage === page }"
-        class="page-button"
+    <div class="pagination">
+      <div class="pagin" @click="prevPage" :disabled="currentPage === 1">
+        上一页
+      </div>
+      <div class="page-numbers">
+        <button
+          v-for="page in visiblePages"
+          :key="page"
+          @click="goToPage(page)"
+          :class="{ active: currentPage === page }"
+          class="page-button"
+        >
+          {{ page }}
+        </button>
+      </div>
+      <div
+        class="pagin"
+        @click="nextPage"
+        :disabled="currentPage === totalPages"
       >
-        {{ page }}
-      </button>
+        下一页
+      </div>
     </div>
-    <div class="pagin" @click="nextPage" :disabled="currentPage === totalPages">
-      下一页
-    </div>
-  </div>
 </template>
 
 <script setup>
@@ -51,20 +55,20 @@ const visiblePages = computed(() => {
   )
 })
 
-const goToPage=(page)=> {
+const goToPage = (page) => {
   if (page >= 1 && page <= props.totalPages) {
     currentPage.value = page
     emits('page-change', page)
   }
 }
 
-const prevPage=()=> {
+const prevPage = () => {
   if (currentPage.value > 1) {
     goToPage(currentPage.value - 1)
   }
 }
 
-const nextPage=()=> {
+const nextPage = () => {
   if (currentPage.value < props.totalPages) {
     goToPage(currentPage.value + 1)
   }
@@ -72,7 +76,7 @@ const nextPage=()=> {
 </script>
 
 <style lang="scss">
-/* 分页样式 */
+/* Pagination Styles */
 .pagination {
   display: flex;
   justify-content: center;
@@ -80,6 +84,7 @@ const nextPage=()=> {
   margin-top: 20px;
   width: 100%;
   min-width: 350px;
+
   .pagin {
     border-radius: 5px;
     padding: 8px 16px;
@@ -88,9 +93,10 @@ const nextPage=()=> {
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
+    user-select: none; /* Disable text selection */
   }
 
-  /* 页码按钮样式 */
+  /* Page Number Button Styles */
   .page-button {
     color: var(--vp-c-text-1);
     border: none;
@@ -99,6 +105,7 @@ const nextPage=()=> {
     margin: 0 5px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    user-select: none; /* Disable text selection */
   }
 
   .page-button.active {
@@ -111,5 +118,6 @@ const nextPage=()=> {
     color: #fff;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   }
+
 }
 </style>

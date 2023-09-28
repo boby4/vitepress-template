@@ -6,6 +6,8 @@ import Archives from './components/Archives.vue'
 import TimeLine from './components/TimeLine.vue'
 import NewTimeLine from './components/NewTimeLine.vue'
 import Paging from './components/Paging.vue'
+import SparkModel from './components/SparkModel.vue'
+import Message from './components/Message.vue'
 import Tags from './components/Tags.vue'
 import NewLayout from './components/NewLayout.vue'
 import Model from './components/Model.vue'
@@ -44,6 +46,8 @@ export default {
     app.component("Album", Album);
     app.component("PhotoCloud", PhotoCloud);
     app.component("Pagination", Pagination);
+    app.component("SparkModel", SparkModel);
+    app.component("Message", Message);
     // createApp({}).use(EMChatroom, {
     //   appKey: "1182230925159941#xzm"
     // })
