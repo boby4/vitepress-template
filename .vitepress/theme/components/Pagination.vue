@@ -25,11 +25,10 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps, defineEmits } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 const isComponentReady = ref(false)
 
 onMounted(() => {
-  // 在组件加载后设置 isComponentReady 为 true
   isComponentReady.value = true
 })
 const props = defineProps({
