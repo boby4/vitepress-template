@@ -1,5 +1,5 @@
 <template>
-    <div class="pagination">
+    <div class="pagination" v-if="isComponentReady">
       <div class="pagin" @click="prevPage" :disabled="currentPage === 1">
         上一页
       </div>
@@ -26,7 +26,12 @@
 
 <script setup>
 import { ref, computed, defineProps, defineEmits } from 'vue'
+const isComponentReady = ref(false)
 
+onMounted(() => {
+  // 在组件加载后设置 isComponentReady 为 true
+  isComponentReady.value = true
+})
 const props = defineProps({
   currentPage: Number,
   totalPages: Number,
@@ -35,11 +40,8 @@ const props = defineProps({
     default: 5, // 可见页码数量，默认为 5
   },
 })
-
 const emits = defineEmits(['page-change'])
-
 const currentPage = ref(props.currentPage)
-
 const visiblePages = computed(() => {
   const startPage = Math.max(
     1,
@@ -54,20 +56,17 @@ const visiblePages = computed(() => {
     (_, i) => startPage + i
   )
 })
-
 const goToPage = (page) => {
   if (page >= 1 && page <= props.totalPages) {
     currentPage.value = page
     emits('page-change', page)
   }
 }
-
 const prevPage = () => {
   if (currentPage.value > 1) {
     goToPage(currentPage.value - 1)
   }
 }
-
 const nextPage = () => {
   if (currentPage.value < props.totalPages) {
     goToPage(currentPage.value + 1)
