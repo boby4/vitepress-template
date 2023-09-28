@@ -1,5 +1,5 @@
 <template>
-    <div class="pagination" v-if="isComponentReady">
+    <div class="pagination">
       <div class="pagin" @click="prevPage" :disabled="currentPage === 1">
         上一页
       </div>
@@ -25,12 +25,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
-const isComponentReady = ref(false)
-
-onMounted(() => {
-  isComponentReady.value = true
-})
+import { ref, computed } from 'vue'
 const props = defineProps({
   currentPage: Number,
   totalPages: Number,
@@ -73,7 +68,7 @@ const nextPage = () => {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 /* Pagination Styles */
 .pagination {
   display: flex;
