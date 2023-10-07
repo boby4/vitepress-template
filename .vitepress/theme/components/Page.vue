@@ -42,43 +42,26 @@ const posts = computed(() => {
 <style lang="scss">
 .layout_page,
 .layout_post {
-  -webkit-animation: main 1s;
-  -moz-animation: main 1s;
-  -o-animation: main 1s;
-  -ms-animation: main 1s;
   animation: main 1s;
 }
 
 .f_main {
   width: 70%;
-}
-
-@media screen and (max-width: 768px) {
-  .layout_page {
-    padding: 0 5px !important;
-  }
-  .f_main {
-    width: 100% !important;
-  }
+  max-width: 1200px;
 }
 
 @media screen and (max-width: 900px) {
   .layout_page {
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    -o-box-orient: vertical;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     flex-direction: column;
   }
   .f_main {
-    width: 100% !important;
+    width: 100%;
   }
 }
 
 .layout_page {
   display: flex;
-  -webkit-box-align: start;
+  box-align: start;
   align-items: flex-start;
   justify-content: center;
   margin: 0 auto;

@@ -1,5 +1,6 @@
 <template>
-    <div class="pagination">
+  <div class="pagination">
+    <div class="pages">
       <div class="pagin" @click="prevPage" :disabled="currentPage === 1">
         上一页
       </div>
@@ -22,6 +23,7 @@
         下一页
       </div>
     </div>
+  </div>
 </template>
 
 <script setup>
@@ -70,47 +72,45 @@ const nextPage = () => {
 
 <style lang="scss" scoped>
 /* Pagination Styles */
-.pagination {
+.pages {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
   width: 100%;
   min-width: 350px;
+}
+.pagin {
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 0 5px;
+  background-color: var(--vp-c-brand);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  user-select: none; /* Disable text selection */
+}
 
-  .pagin {
-    border-radius: 5px;
-    padding: 8px 16px;
-    margin: 0 5px;
-    background-color: var(--vp-c-brand);
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    user-select: none; /* Disable text selection */
-  }
+/* Page Number Button Styles */
+.page-button {
+  color: var(--vp-c-text-1);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  user-select: none; /* Disable text selection */
+}
 
-  /* Page Number Button Styles */
-  .page-button {
-    color: var(--vp-c-text-1);
-    border: none;
-    border-radius: 5px;
-    padding: 8px 16px;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    user-select: none; /* Disable text selection */
-  }
+.page-button.active {
+  background-color: var(--vp-c-brand);
+  color: #fff;
+}
 
-  .page-button.active {
-    background-color: var(--vp-c-brand);
-    color: #fff;
-  }
-
-  .page-button:hover {
-    background-color: var(--vp-c-brand);
-    color: #fff;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  }
-
+.page-button:hover {
+  background-color: var(--vp-c-brand);
+  color: #fff;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 </style>
