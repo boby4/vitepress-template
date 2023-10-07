@@ -20,7 +20,7 @@
             id="question"
             placeholder="输入你想问的问题"
           />
-          <button @click.stop="sendMsg" id="btn">
+          <button @click.stop="sendMsg" id="btn" :disabled="btnDisable">
             <i class="iconfont chat"></i>发送
           </button>
         </div>
@@ -36,6 +36,7 @@ import * as base64 from 'base-64'
 import CryptoJs from 'crypto-js'
 
 let isRobotVisible = ref(false)
+let btnDisable = ref(false)
 
 const toggleRobot = () => {
   isRobotVisible.value = !isRobotVisible.value
@@ -61,6 +62,7 @@ const sendMsg = async () => {
       duration: 3000,
       type: 'warning',
     })
+  btnDisable.value = true
   // 获取请求地址
   const myUrl = await getWebsocketUrl()
   // 获取输入框中的内容
@@ -128,6 +130,7 @@ const sendMsg = async () => {
     // 对话完成后socket会关闭，将聊天记录换行处理
     requestObj.sparkResult = requestObj.sparkResult + '\n\n'
     addMsgToTextarea(requestObj.sparkResult)
+    btnDisable.value = false
     // 清空输入框
   })
   socket.addEventListener('error', (event) => {
