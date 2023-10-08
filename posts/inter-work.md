@@ -40,7 +40,7 @@ description: 不用部署服务器，直接让别人访问在你电脑上运行�
 
 * 官网地址
 
-```url
+```
 https://www.ngrok.com/
 ```
 
