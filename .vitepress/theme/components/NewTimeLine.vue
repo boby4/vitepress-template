@@ -35,7 +35,7 @@
 <script lang="ts" setup>
 import { useData, withBase } from 'vitepress'
 import { computed, ref } from 'vue'
-import { useYearSort, randomImage } from '../../utils/functions'
+import { randomImage } from '../../utils/functions'
 
 const padNumber = (number: any) => {
   return number < 10 ? `0${number}` : number
@@ -123,7 +123,7 @@ $background: #f7f7f7;
 $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
 $border: 1px solid rgba(191, 191, 191, 0.4);
 $items: 5;
-$rows: ceil($items / 2);
+$rows: ceil(calc($items / 2));
 
 
 /* Card sizing */
@@ -148,7 +148,7 @@ $container-height: $rows * ($card-height + $outer-margin) + $stagger;
 $container-width: $card-width * 2 + $outer-margin * 3;
 $head-height: $number-size + 50;
 $body-height: $card-height - $head-height;
-$marker-dist: $card-width + $outer-margin/2 - $marker-size/2;
+$marker-dist: $card-width + calc($outer-margin / 2) - calc($marker-size / 2);
 
 /* Placeholders */
 @include mq-lg {
@@ -245,10 +245,10 @@ $counter: $items - $rows + 2;
       max-width: $card-width;
       height: $card-height;
       margin: $outer-margin;
-      margin-top: $outer-margin/2;
-      margin-bottom: $outer-margin/2;
+      margin-top: calc($outer-margin / 2);
+      margin-bottom: calc($outer-margin / 2);
       &:nth-child(odd) {
-        margin-right: $outer-margin/2;
+        margin-right: calc($outer-margin / 2);
         .head::after {
           @extend %arrow;
           border-left-width: 15px;
@@ -261,7 +261,7 @@ $counter: $items - $rows + 2;
         }
       }
       &:nth-child(even) {
-        margin-left: $outer-margin/2;
+        margin-left: calc($outer-margin / 2);
         .head::after {
           @extend %arrow;
           border-right-width: 15px;
