@@ -1,6 +1,5 @@
 <template>
   <div v-if="isVisible" :class="[type, position]" class="notification">
-    <!-- <i class="iconfont tixing"></i> -->
     {{ message }}
   </div>
 </template>
@@ -36,8 +35,6 @@ defineExpose({
 </script>
 
 <style lang="scss" scoped>
-@import url('../style/iconfont.css');
-
 .notification {
   position: fixed;
   padding: .3rem 2rem;
@@ -45,13 +42,21 @@ defineExpose({
   font-size: 1rem;
   color: white;
   z-index: 9999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* 阴影效果 */
-  border: 2px solid transparent; /* 边框 */
-  transition: opacity 0.3s, transform 0.3s;
-  i {
-    font-size: 1.2rem;
-    padding-right: .8rem;
-    text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border: 2px solid transparent;
+  opacity: 0; /* 初始时设置透明度为0 */
+  transform: translateY(-20px); /* 初始时将提示框向上平移一些距离 */
+  animation: fadeInUp 0.3s ease-in-out forwards; /* 使用动画实现慢慢出现效果 */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* 从上方平移 */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* 最终位置 */
   }
 }
 

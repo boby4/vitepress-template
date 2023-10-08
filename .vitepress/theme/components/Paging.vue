@@ -156,6 +156,7 @@ $color_dark: rgba(60, 60, 67, 0.92);
   }
   .description {
     padding: 0.7rem;
+    border-top: 1px solid rgb(238, 238, 238, 0.5);
     background: $color_white;
     position: relative;
     width: 820px;

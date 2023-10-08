@@ -101,7 +101,7 @@ export function albumImage() {
 		{
 			"src": "",
 			"title": "",
-			"desc": "儿子的成长记录",
+			"desc": "阿瑞的成长记录",
 			"time": ""
 		},
 		{

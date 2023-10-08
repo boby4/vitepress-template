@@ -110,7 +110,7 @@ const toggleTag = (tag) => {
   }
   .tag:hover {
     transition: 0.3s;
-    color: #a1a1a1;
+    color: #7c7c7c;
   }
   .tag-header {
     display: block;

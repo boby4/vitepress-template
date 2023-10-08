@@ -55,7 +55,6 @@ const requestObj = {
 
 // 发送消息
 const sendMsg = async () => {
-  console.log(notification)
   if (!inputVal.value)
     return notification.value.show({
       message: '请输入你的问题',
