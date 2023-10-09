@@ -1,6 +1,6 @@
 <template>
   <div class="home_bg">
-    <img alt="background Image" v-lazy="{ src: imgs, loading: '/src/img/20210622113916157.gif', delay: 2000 }">
+    <img alt="background Image" v-lazy="randomImage()">
     <div class="content_bg">
       <h1>
         xuzhiming
@@ -11,9 +11,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { randomImage } from '../../utils/functions'
-const imgs = ref(randomImage())
 </script>
 
 <style lang="scss" scoped>

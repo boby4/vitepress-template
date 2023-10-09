@@ -33,7 +33,9 @@ export default {
   //   })
   // },
   enhanceApp({ app }) {
-    app.use(VueLazyload);
+    app.use(VueLazyload, {
+      loading: '/src/img/loading.gif',
+    });
     app.component('Comment', Comment);
     app.component("Friendship", Friendship);
     app.component("Archives", Archives);

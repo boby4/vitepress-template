@@ -7,7 +7,7 @@
     :href="withBase(post.regularPath)"
   >
     <div class="meta">
-      <img class="photo" v-lazy="{ src: randomImage(), loading: '/src/img/20210622113916157.gif', delay: 2000 }" alt="">
+      <img class="photo" v-lazy="randomImage()" alt="">
       <ul class="details">
         <li class="author"><a href="#">前端日记</a></li>
         <li class="date">{{ post.frontMatter.date }}</li>
