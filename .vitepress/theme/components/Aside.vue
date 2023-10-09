@@ -10,7 +10,7 @@
       <div class="card-content">
         <div class="card-info-avatar is-center">
           <img
-            class="avatar-img"
+            class="avatar_img"
             src="https://i.miji.bid/2023/08/09/eb59257ffc307103e5907a09eb10cefb.md.webp"
             alt="avatar"
           />
@@ -98,17 +98,11 @@ const articleNum = theme.value.posts.length
   margin: 0.5rem 0;
   background: #fff;
   border: 1px solid #e3e8f7;
-  -webkit-box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(7, 17, 27, 0.08);
   box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(7, 17, 27, 0.08);
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -ms-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 .sidebar-banner {
-  -o-object-fit: cover;
   object-fit: cover;
   background-position-x: center;
   background-position-y: center;
@@ -128,23 +122,20 @@ const articleNum = theme.value.posts.length
   text-align: center;
 }
 
-#aside_content .card-info img {
+.avatar_img {
   display: inline-block;
   margin-top: -50px;
+  // border: 1px solid rgb(0, 0, 0, 0.1);
   width: 72px;
   height: 72px;
   border-radius: 50%;
   vertical-align: top;
-  transition: all 0.3s;
+  transition: transform 0.8s ease; /* 添加过渡效果 */
+  transform-origin: center center;
 }
 
-img {
-  max-width: 100%;
-  transition: all 0.2s;
-}
-
-.avatar-img {
-  animation: avatar_turn_around 2s linear infinite;
+.avatar_img:hover {
+  transform: rotate(360deg);
 }
 
 #aside_content .card-info .author-info__name {
@@ -214,12 +205,7 @@ img {
   transition: all 400ms ease;
   background: var(--vp-c-bg-alt);
   color: var(--text-color);
-  -webkit-box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(7, 17, 27, 0.08);
   box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(7, 17, 27, 0.08);
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -ms-transition: all 0.3s;
   transition: all 0.3s;
 }
 

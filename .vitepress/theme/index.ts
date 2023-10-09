@@ -1,4 +1,4 @@
-import { h, createApp } from 'vue'
+import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import Comment from "./components/Comment.vue";
 import Friendship from "./components/Friendship.vue";
@@ -17,6 +17,7 @@ import Aplayer from './components/Aplayer.vue'
 import Album from './components/Album.vue'
 import PhotoCloud from './components/photoCloud.vue'
 import Pagination from './components/Pagination.vue'
+import VueLazyload from 'vue3-lazyload'
 import './style/index.scss'
 import type { VNode } from 'vue'
 
@@ -32,6 +33,7 @@ export default {
   //   })
   // },
   enhanceApp({ app }) {
+    app.use(VueLazyload);
     app.component('Comment', Comment);
     app.component("Friendship", Friendship);
     app.component("Archives", Archives);
@@ -48,9 +50,5 @@ export default {
     app.component("Pagination", Pagination);
     app.component("SparkModel", SparkModel);
     app.component("Message", Message);
-    // createApp({}).use(EMChatroom, {
-    //   appKey: "1182230925159941#xzm"
-    // })
-    // .mount("#app");
   }
 }

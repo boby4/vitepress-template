@@ -18,7 +18,7 @@
         </div>
         <div class="body">
           <p>{{ card.frontMatter.description }}</p>
-          <img :src="randomImage()" alt="Graphic" />
+          <img v-lazy="{ src: randomImage(), loading: '/src/img/20210622113916157.gif', delay: 2000 }" alt="Graphic" />
         </div>
       </a>
       <div v-for="n in emptyCardCount" :key="`empty_${n}`" class="demo-card demo-card-placeholder"></div>

@@ -7,10 +7,7 @@
     :href="withBase(post.regularPath)"
   >
     <div class="meta">
-      <div
-        class="photo"
-        :style="{ backgroundImage: 'url(' + randomImage() + ')' }"
-      ></div>
+      <img class="photo" v-lazy="{ src: randomImage(), loading: '/src/img/20210622113916157.gif', delay: 2000 }" alt="">
       <ul class="details">
         <li class="author"><a href="#">前端日记</a></li>
         <li class="date">{{ post.frontMatter.date }}</li>
@@ -34,19 +31,15 @@
   </a>
 </template>
 
-<script lang="ts" setup>
+<script setup>
+import { ref } from 'vue'
 import { useData, withBase } from 'vitepress'
-import { computed } from 'vue'
 import { randomImage } from '../../utils/functions'
 const props = defineProps({
   datas: Array,
 })
-const backgroundStyle = computed(() => {
-  const backgroundImageStyle = `url('${randomImage()}')`
-  return { background: backgroundImageStyle }
-})
 
-const toDetail = (path: string) => {
+const toDetail = (path) => {
   withBase(path)
 }
 </script>
@@ -92,13 +85,14 @@ $color_dark: rgba(60, 60, 67, 0.92);
     height: 200px;
   }
   .photo {
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
     transition: transform 0.2s;
   }
   .details,

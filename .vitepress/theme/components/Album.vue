@@ -1,7 +1,7 @@
 <template>
     <div id="gallery" @scroll="handleScroll" @mouseover="handleMouseOver" @mouseout="handleMouseOut">
       <figure v-for="(item, index) in albumImage()" :key="index">
-        <img v-if="item.src" :src="item.src" alt="" title="">
+        <img v-if="item.src" alt="" title="" v-lazy="{ src: item.src, loading: '/src/img/20210622113916157.gif', delay: 2000 }">
         <figcaption v-if="item.src">{{item.desc}}</figcaption>
         <div v-else-if="!item.src">
           <div>

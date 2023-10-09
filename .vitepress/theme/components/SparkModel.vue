@@ -182,10 +182,10 @@ const addMsgToTextarea = (text) => {
     right: 5px;
     background: white;
     border-radius: 100px !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-    height: 4rem !important;
-    width: 4rem !important;
-    z-index: 1000 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    height: 4rem;
+    width: 4rem;
+    z-index: 2;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;

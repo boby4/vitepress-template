@@ -1,5 +1,6 @@
 <template>
-  <div class="home_bg" :style="backgroundStyle">
+  <div class="home_bg">
+    <img alt="background Image" v-lazy="{ src: imgs, loading: '/src/img/20210622113916157.gif', delay: 2000 }">
     <div class="content_bg">
       <h1>
         xuzhiming
@@ -9,14 +10,10 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { computed } from 'vue'
+<script setup>
+import { ref } from 'vue'
 import { randomImage } from '../../utils/functions'
-
-const backgroundStyle = computed(() => {
-  const backgroundImageStyle = `url('${randomImage()}') center center / cover no-repeat`
-  return { background: backgroundImageStyle }
-})
+const imgs = ref(randomImage())
 </script>
 
 <style lang="scss" scoped>
@@ -25,7 +22,11 @@ const backgroundStyle = computed(() => {
   height: 380px;
   position: relative;
   overflow: hidden;
-  background-size: cover;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 @keyframes typing {
@@ -59,6 +60,8 @@ const backgroundStyle = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 0;
 }
 
 .content_bg h1 {
@@ -79,8 +82,6 @@ const backgroundStyle = computed(() => {
   .content_bg,
   .home_bg {
     height: 15rem;
-    background-size: cover;
-    object-fit: cover;
   }
 }
 
