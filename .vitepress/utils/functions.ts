@@ -190,3 +190,20 @@ export function albumImage() {
 		}
 	]
 }
+
+
+export function calculateUptime() {
+  let create_time:any = new Date(2023, 7, 15); // 月份是从 0 开始计数，所以 8 月对应 7
+  let currentTime:any = new Date();
+  let timeDiff = currentTime - create_time;
+
+  let days = Math.floor(timeDiff / (24 * 60 * 60 * 1000));
+  timeDiff -= days * 24 * 60 * 60 * 1000;
+  let hours = Math.floor(timeDiff / (60 * 60 * 1000));
+  timeDiff -= hours * 60 * 60 * 1000;
+  let minutes = Math.floor(timeDiff / (60 * 1000));
+  timeDiff -= minutes * 60 * 1000;
+  let seconds = Math.floor(timeDiff / 1000);
+
+  return `${days}天${hours}小时${minutes}分钟${seconds}秒`;
+}

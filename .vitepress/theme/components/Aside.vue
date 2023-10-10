@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="card-widget card-announcement">
+    <!-- <div class="card-widget card-announcement">
       <div class="card-content">
         <div class="item-headline">
           <span>💕 今日诗词</span>
@@ -29,7 +29,7 @@
           轻舟已过万重山
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="card-widget card-announcement">
       <div class="card-content">
@@ -62,6 +62,16 @@
             <div class="webinfo-site-uv-count">{{ articleNum }}</div>
           </div>
           <div class="webinfo-item">
+            <div class="webinfo-site-uv-name">标签 :</div>
+            <div class="webinfo-site-uv-count">{{ tags.length }}</div>
+          </div>
+          <div class="webinfo-item">
+            <div class="webinfo-site-uv-name">运行时间 :</div>
+            <div class="webinfo-site-uv-count">
+              {{currentTimeHtml}}
+            </div>
+          </div>
+          <!-- <div class="webinfo-item">
             <div class="webinfo-site-uv-name">本站访客数 :</div>
             <div class="webinfo-site-uv-count" id="busuanzi_value_site_uv">
               -
@@ -72,7 +82,7 @@
             <div class="webinfo-site-pv-count" id="busuanzi_value_site_pv">
               -
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -82,7 +92,21 @@
 import InfiniteScrollContainer from './InfiniteScrollContainer.vue'
 import WordCloud from './WordCloud.vue'
 import { useData } from 'vitepress'
+import { onMounted, ref } from 'vue'
+import { calculateUptime, initTagsParams } from '../../utils/functions'
+
+onMounted(() => {
+  setTime() // 初始化
+  setInterval(setTime, 1000) // 每秒钟刷新
+})
+let currentTimeHtml = ref('')
+const setTime = () => {
+  const currentTime = calculateUptime() // 调用公用方法
+  currentTimeHtml.value = currentTime
+}
 const { theme } = useData()
+const tags = initTagsParams(theme.value.posts)
+console.log(theme.value.posts)
 const articleNum = theme.value.posts.length
 </script>
 <style lang="scss">

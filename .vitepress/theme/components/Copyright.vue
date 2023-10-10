@@ -7,26 +7,13 @@
     <a class="vitepress" target="_blank" href="//vitepress.vuejs.org/"
       >VitePress - 1.0.0-rc.47</a
     >
-    <p class="htmer_time">
+    <!-- <p class="htmer_time">
       本站已实际运行 <strong>{{ currentTimeHtml }}</strong>
-    </p>
+    </p> -->
   </div>
 </template>
 <script lang="ts" setup>
-import { calculateUptime } from '../../utils/runTime'
 import { useData } from 'vitepress'
-import { onMounted, ref } from 'vue'
-
-onMounted(() => {
-  setTime() // 初始化
-  setInterval(setTime, 1000) // 每秒钟刷新
-})
-let currentTimeHtml = ref('')
-const setTime = () => {
-  const currentTime = calculateUptime() // 调用公用方法
-  currentTimeHtml.value = currentTime
-}
-
 const { site, theme } = useData()
 const website = theme.value.website
 const webTitle = site.value.title
