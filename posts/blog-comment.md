@@ -15,7 +15,7 @@ description: 利用GitHub App的utterances，一个基于 GitHub 问题构建的
 ## **实现效果**
 
 <a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/24/aeea1fcb8598ea41d46252feb028282d.png" data-caption="评论组件">
-<img src="https://ice.frostsky.com/2023/08/24/aeea1fcb8598ea41d46252feb028282d.png"/>
+<img v-lazy="'https://ice.frostsky.com/2023/08/24/aeea1fcb8598ea41d46252feb028282d.png'"/>
 </a>
 
 ## **操作步骤**
@@ -23,19 +23,19 @@ description: 利用GitHub App的utterances，一个基于 GitHub 问题构建的
 * 先在github创建一个存储评论的仓库，***注意仓库一定要是public***，记住仓库名称，后面创建utterances需要用到
 
 <a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/24/66995578035b31b1bf3fc0c2bd4dcd8d.png" data-caption="评论仓库">
-<img src="https://ice.frostsky.com/2023/08/24/66995578035b31b1bf3fc0c2bd4dcd8d.png"/>
+<img v-lazy="'https://ice.frostsky.com/2023/08/24/66995578035b31b1bf3fc0c2bd4dcd8d.png'"/>
 </a>
 
 * 在github上面创建一个utterances APP，进入<a style="color:blue" href="https://github.com/apps/utterances">utterances</a>，之后点击install
 
 <a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/24/3541441a29f631cb000deab62525b5f3.png" data-caption="utterances安装">
-<img src="https://ice.frostsky.com/2023/08/24/3541441a29f631cb000deab62525b5f3.png"/>
+<img v-lazy="'https://ice.frostsky.com/2023/08/24/3541441a29f631cb000deab62525b5f3.png'"/>
 </a>
 
 * 创建成功之后，会提示让你选择仓库，可以选择所有仓库，也可以指定你创建的评论仓库，指定我的刚才评论仓库，这样所有的评论都会存放在这个仓库里
 
 <a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/24/ecbda308a2128e2764bc3f90cb66e995.png" data-caption="utterances">
-    <img src="https://ice.frostsky.com/2023/08/24/ecbda308a2128e2764bc3f90cb66e995.png"/>
+    <img v-lazy="'https://ice.frostsky.com/2023/08/24/ecbda308a2128e2764bc3f90cb66e995.png'"/>
 </a>
 
 到这我们的评论组件就创建好了，接下来就是如何使用

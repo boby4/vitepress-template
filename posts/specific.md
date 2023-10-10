@@ -15,7 +15,7 @@ description: 想要团队的代码风格统一、开发效率和质量高，规�
 * git 提交流程图
 
 <a data-fancybox="gallery" href="https://ice.frostsky.com/2023/09/04/de20addf4d478eaf82f167e7f7e7dfb3.png" data-caption="git 提交流程图">
-<img src="https://ice.frostsky.com/2023/09/04/de20addf4d478eaf82f167e7f7e7dfb3.png"/>
+<img v-lazy="'https://ice.frostsky.com/2023/09/04/de20addf4d478eaf82f167e7f7e7dfb3.png'"/>
 </a>
 
 * git commit(提交) 格式（type: 改动内容描述）
@@ -94,7 +94,7 @@ npm publish
 ## 接口规范
 
 <a data-fancybox="gallery" href="https://ice.frostsky.com/2023/09/04/4ba3851ac7a55cb744f953463ac8eab2.png" data-caption="前后端协定接口流程">
-  <img src="https://ice.frostsky.com/2023/09/04/4ba3851ac7a55cb744f953463ac8eab2.png"/>
+  <img v-lazy="'https://ice.frostsky.com/2023/09/04/4ba3851ac7a55cb744f953463ac8eab2.png'"/>
 </a>
 
 ## 接口请求规范
