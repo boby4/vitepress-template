@@ -15,7 +15,9 @@
             alt="avatar"
           />
           <div class="author-info__name">XZM</div>
-          <div class="author-info__description" id="hitokoto"></div>
+          <div class="author-info__description" v-if="hitokoto.hitokoto">
+            {{hitokoto.hitokoto}}《{{hitokoto.from}}》--{{hitokoto.from_who}}
+          </div>
         </div>
       </div>
     </div>
@@ -66,6 +68,18 @@
             <div class="webinfo-site-uv-count">{{ tags.length }}</div>
           </div>
           <div class="webinfo-item">
+            <div class="webinfo-site-uv-name">IP :</div>
+            <div class="webinfo-site-uv-count">
+              {{address}} {{`(${IP})`}}
+            </div>
+          </div>
+          <div class="webinfo-item">
+            <div class="webinfo-site-uv-name">天气 :</div>
+            <div class="webinfo-site-uv-count">
+              {{weather}}
+            </div>
+          </div>
+          <div class="webinfo-item">
             <div class="webinfo-site-uv-name">运行时间 :</div>
             <div class="webinfo-site-uv-count">
               {{currentTimeHtml}}
@@ -94,6 +108,26 @@ import WordCloud from './WordCloud.vue'
 import { useData } from 'vitepress'
 import { onMounted, ref } from 'vue'
 import { calculateUptime, initTagsParams } from '../../utils/functions'
+import axios from 'axios'
+
+const ipUrl = 'https://ipinfo.io/json'
+const yyUrl = 'https://v1.hitokoto.cn/'
+const weatherUrl = 'https://api.seniverse.com/v3/weather/daily.json?key=SMdgJzHuxy2jubPOj'
+const hitokoto = ref({})
+const IP = ref('')
+const address = ref('')
+const weather = ref('')
+onMounted(async() => {
+  const response = await axios.get(ipUrl)
+  IP.value = response.data.ip
+  const yy = await axios.get(yyUrl)
+  hitokoto.value = yy.data
+  if(response.data){
+    const weath = await axios.get(`${weatherUrl}&location=${response.data.city}&language=zh-Hans&unit=c&start=-1&days=2`)
+    weather.value = weath.data.results[0].daily[0].text_day + '/' + weath.data.results[0].daily[0].text_night
+    address.value = weath.data.results[0].location.name
+  }
+})
 
 onMounted(() => {
   setTime() // 初始化
@@ -104,6 +138,7 @@ const setTime = () => {
   const currentTime = calculateUptime() // 调用公用方法
   currentTimeHtml.value = currentTime
 }
+
 const { theme } = useData()
 const tags = initTagsParams(theme.value.posts)
 const articleNum = theme.value.posts.length

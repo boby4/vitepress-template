@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { withBase, useData } from 'vitepress'
 import Aside from './Aside.vue'
 import Banner from './Banner.vue'

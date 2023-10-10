@@ -1,16 +1,12 @@
 
 import { defineConfig } from 'vite';
+// import Vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
+  // plugins: [Vue()],
   assetsInclude: ['**/*.gltf'],
   server: {
     host: '0.0.0.0'
-  },
-  plugins: [
-  ],
-  resolve: {
-    alias: {
-    },
   },
   build: {
     outDir: 'dist',
