@@ -106,7 +106,6 @@ const setTime = () => {
 }
 const { theme } = useData()
 const tags = initTagsParams(theme.value.posts)
-console.log(theme.value.posts)
 const articleNum = theme.value.posts.length
 </script>
 <style lang="scss">
