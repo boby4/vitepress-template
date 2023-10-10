@@ -76,7 +76,7 @@
           <div class="webinfo-item">
             <div class="webinfo-site-uv-name">天气 :</div>
             <div class="webinfo-site-uv-count">
-              {{weather}}
+              {{weather || '获取失败'}}
             </div>
           </div>
           <div class="webinfo-item">

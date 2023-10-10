@@ -18,9 +18,9 @@ const asyncConfig = async () => {
 			['meta', { name: 'keywords', content: '前端日记,xuzhiming,blog' }],
 			['link', { rel: 'icon', href: '/favicon.ico' }],
 			//播放器插件
-			['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css' }],
 			['link', { rel: 'prefetch', href: 'https://xzmblog.onrender.com' }], // 预取回 Prefetch
 			['link', { rel: 'preconnect', href: 'https://xzmblog.onrender.com' }], // 预连接 Preconnect
+			['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css' }],
 			['script', { src: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js' }],
 			['script', { src: 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js' }],
 			// ['script', { src: 'https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js' }], // live2d动漫人物
