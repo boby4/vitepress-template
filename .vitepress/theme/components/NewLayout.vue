@@ -10,7 +10,3 @@ import Copyright from './Copyright.vue'
 import Aplayer from './Aplayer.vue'
 const { Layout } = DefaultTheme
 </script>
-
-<script>
-  var vConsole = new window.VConsole();
-</script>
