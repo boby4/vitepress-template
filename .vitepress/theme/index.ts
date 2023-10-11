@@ -33,13 +33,15 @@ export default {
   //   })
   // },
   enhanceApp({ app }) {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/vconsole@latest/dist/vconsole.min.js';
-    script.onload = () => {
-      // 在 VConsole 加载完成后，手动初始化它
-      new VConsole();
-    };
-    document.body.appendChild(script);
+    if (typeof window !== 'undefined') {
+      // 仅在浏览器环境中加载 VConsole
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/vconsole@latest/dist/vconsole.min.js';
+      script.onload = () => {
+        new VConsole();
+      };
+      document.body.appendChild(script);
+    }
     app.use(VueLazyload, {
       loading: '/src/img/loading.gif',
     });
