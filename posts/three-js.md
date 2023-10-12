@@ -173,11 +173,7 @@ const onWindowResize = () => {
 
 ## **最终实现效果**
 
-<a style="color:blue" href="/pages/model">点这>>></a>
-
-<a data-fancybox="gallery" href="https://ice.frostsky.com/2023/08/30/eaa674d07ce8180d5f3b11f71f71b923.png" data-caption="最终效果">
-    <img v-lazy="'https://ice.frostsky.com/2023/08/30/eaa674d07ce8180d5f3b11f71f71b923.png'"/>
-</a>
+<ModelPlay/>
 
 <Fancybox />
 <Comment />

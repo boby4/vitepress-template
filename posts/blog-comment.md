@@ -8,8 +8,6 @@ description: 利用GitHub App的utterances，一个基于 GitHub 问题构建的
 
 # **个人博客利用github接入评论组件**
 
-## **前提**
-
 利用GitHub App的utterances，一个基于 GitHub 问题构建的轻量级评论小部件。使用 GitHub 问题进行博客评论、个人网站页面等！以下基于vitepress和vue3实现，不同项目情况基本一致
 
 ## **实现效果**

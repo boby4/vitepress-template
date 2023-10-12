@@ -17,6 +17,8 @@ import Aplayer from './components/Aplayer.vue'
 import Album from './components/Album.vue'
 import PhotoCloud from './components/photoCloud.vue'
 import Pagination from './components/Pagination.vue'
+import InfiniteScroll from './components/InfiniteScroll.vue'
+import InfiniteScrollContainer from './components/InfiniteScrollContainer.vue'
 import VueLazyload from 'vue3-lazyload'
 import './style/index.scss'
 import type { VNode } from 'vue'
@@ -46,6 +48,8 @@ export default {
       loading: '/src/img/loading.gif',
     });
     app.component('Comment', Comment);
+    app.component('InfiniteScroll', InfiniteScroll);
+    app.component('InfiniteScrollContainer', InfiniteScrollContainer);
     app.component("Friendship", Friendship);
     app.component("Archives", Archives);
     app.component("TimeLine", TimeLine);

@@ -15,6 +15,7 @@ let camera: any, scene: any, renderer: any, model:any, controls:any
 onMounted(() => {
   NProgress.start()
   init()
+  window.addEventListener('resize', onWindowResize)
 })
 
 onUnmounted(() => {
@@ -26,8 +27,8 @@ const init = () => {
   const { width, height } = container?.getBoundingClientRect()
   clock = new THREE.Clock()
   // 透视相机，设置模型视角位置
-  camera = new THREE.PerspectiveCamera(40, width / height, 0.25, 500)
-  camera.position.set(5, 2, 9)
+  camera = new THREE.PerspectiveCamera(22, width / height, 0.25, 500)
+  camera.position.set(5, 3, 9)
   camera.lookAt(1, 1, 10)
 
   // 场景设置，放置物体、灯光、摄像机
@@ -58,7 +59,7 @@ const init = () => {
   })
   const plane = new THREE.Mesh(planeGeometry, planeMaterial)
   plane.rotation.x = -Math.PI / 2
-  plane.position.y = -0.1 // 设置平面位置在物体下方
+  plane.position.y = -1.1 // 设置平面位置在物体下方，基于model.position
   plane.receiveShadow = true
   scene.add(plane)
 
@@ -76,7 +77,8 @@ const init = () => {
           object.receiveShadow = true;
         }
       });
-
+      // 向下平移一个单位
+      model.position.set(0, -1, 0);
       // 模拟骨骼
       // let skeleton = new THREE.SkeletonHelper( model );
       // skeleton.visible = false;
@@ -115,21 +117,18 @@ const animate = () => {
   renderer.render(scene, camera)
 }
 const onWindowResize = () => {
+  const { width, height } = container?.getBoundingClientRect()
   camera.aspect = width / height
   camera.updateProjectionMatrix()
   renderer.setSize(width, height)
 }
 </script>
 
-<style>
+<style scoped>
 .three-canvas {
   width: 100%;
   height: 100%;
+  min-height: 550px;
   overflow: hidden;
-  /* background-color: #d2deea; */
-  position: fixed;
-  top: 4rem;
-  /* z-index: -1; */
-  left: 0;
 }
 </style>

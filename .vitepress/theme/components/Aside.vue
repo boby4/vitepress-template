@@ -38,7 +38,8 @@
         <div class="item-headline">
           <span><i class="iconfont jinengzhangwo"></i> 技能</span>
         </div>
-        <InfiniteScrollContainer></InfiniteScrollContainer>
+        <InfiniteScroll />
+        <!-- <InfiniteScrollContainer></InfiniteScrollContainer> -->
       </div>
     </div>
 
@@ -103,7 +104,6 @@
   </div>
 </template>
 <script setup>
-import InfiniteScrollContainer from './InfiniteScrollContainer.vue'
 import WordCloud from './WordCloud.vue'
 import { useData } from 'vitepress'
 import { onMounted, ref } from 'vue'

@@ -8,8 +8,6 @@ description: 总结一下我使用 typeScript 开发项目时的一些知识点
 
 # **TypeScript 入门知识点总结**
 
-## **前提**
-
 总结一下我使用 typeScript 开发项目时的一些知识点。
 
 ## Typescript 是什么
