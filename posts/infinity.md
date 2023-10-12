@@ -66,6 +66,8 @@ import 'swiper/css'
 
 <InfiniteScrollContainer />
 
+可以看到这个虽然实现了效果，但是会有那种swiper特有的停顿感，不顺畅，于是就有了下面这个方案
+
 ## 使用CSS+js实现
 
 创建一个addAnimation 函数用于添加滚动动画效果。
