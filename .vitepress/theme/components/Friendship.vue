@@ -77,6 +77,12 @@ const FriendshipData = ref([
     nickName: '小码同学',
     introduce: '喜欢的东西就努力去追求，万一成功了呢!',
   },
+  {
+    link: 'https://likepoems.com',
+    imgUrl: 'https://likepoems.com/wp-content/uploads/2021/01/favicon.jpg',
+    nickName: '如诗',
+    introduce: '学习笔记',
+  },
 ])
 
 const notification = ref('')
