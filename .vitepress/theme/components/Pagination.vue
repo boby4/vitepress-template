@@ -71,36 +71,35 @@ const nextPage = () => {
 </script>
 
 <style lang="scss" scoped>
-/* Pagination Styles */
 .pages {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 1.5rem;
   width: 100%;
-  min-width: 350px;
 }
 .pagin {
-  border-radius: 5px;
-  padding: 8px 16px;
-  margin: 0 5px;
+  border-radius: .2rem;
+  padding: .5rem .9rem;
+  margin: 0 .3rem;
+  font-size: .8rem;
   background-color: var(--vp-c-brand);
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  user-select: none; /* Disable text selection */
+  user-select: none;
 }
 
-/* Page Number Button Styles */
 .page-button {
   color: var(--vp-c-text-1);
   border: none;
-  border-radius: 5px;
-  padding: 8px 16px;
-  margin: 0 5px;
+  border-radius: .2rem;
+  padding: .5rem .9rem;
+  margin: 0 .3rem;
+  font-size: .8rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  user-select: none; /* Disable text selection */
+  user-select: none;
 }
 
 .page-button.active {

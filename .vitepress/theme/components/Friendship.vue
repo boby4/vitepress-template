@@ -13,14 +13,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <!-- <img :src="item.imgUrl" > -->
-        <div
-          class="img-div"
-          :style="{
-            background:
-              'url(' + item.imgUrl + ') center center / cover no-repeat',
-          }"
-        ></div>
+        <img class="img-div" :src="item.imgUrl" >
         <div class="introduce">
           <p class="nickName">{{ item.nickName }}</p>
           <p class="discript">{{ item.introduce }}</p>
@@ -78,7 +71,8 @@ export default {
 </script>
 <style lang="scss">
 .friend_ship {
-  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   blockquote {
     color: #666;
     background-color: #f4f4f5;
@@ -93,17 +87,17 @@ export default {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
+    padding: 10px 10px 0 10px;
     justify-content: space-between;
+    align-items: center;
   }
   .Friendship .ships {
     box-shadow: rgb(0 0 0 / 20%) 0 0 4px 0;
     text-decoration: none;
-    display: block;
     background: white;
     width: 48%;
     margin-bottom: 1rem;
-    padding: 0.8rem 0;
+    padding: 1rem 0;
     border-radius: 4px;
     color: #666;
     position: relative;
@@ -123,6 +117,10 @@ export default {
     margin: 0 10px;
     border-radius: 50%;
     cursor: pointer;
+    transition: all 0.3s;
+  }
+  .Friendship .img-div:hover {
+    transform: rotate(360deg);
   }
   .introduce {
     flex: 1;
@@ -132,21 +130,23 @@ export default {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    flex: 1;
-    width: 18em;
     color: var(--text-color);
   }
   .nickName {
-    font-weight: 550;
-    font-size: 17px;
+    font-weight: bold;
+    font-size: 1rem; /* Adjust font size for mobile */
     color: var(--title-color);
   }
   .discript {
-    font-size: 13px;
+    font-size: 0.875rem; /* Adjust font size for mobile */
   }
   @media screen and (max-width: 900px) {
+    .Friendship {
+      flex-direction: column;
+      align-items: center;
+    }
     .Friendship .ships {
-      width: 100%;
+      width: 90%;
     }
   }
 }
