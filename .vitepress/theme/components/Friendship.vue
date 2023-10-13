@@ -39,16 +39,9 @@ export default {
         nickName: '张洪Heo',
         introduce: '分享设计与科技生活',
       },
-      // {
-      //   link: 'https://liuyuyang.net/',
-      //   imgUrl: 'https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640',
-      //   nickName: '宇阳',
-      //   introduce: '互联网从不缺乏天才，而努力才是最终的入场券！',
-      // },
       {
         link: 'https://www.isolitude.cn/',
-        imgUrl:
-          'https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac?s=100&r=G&d=https://pic.isolitude.cn/2022/01/28/75a6d779e1bc8.png',
+        imgUrl: 'https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac?s=100&r=G&d=https://pic.isolitude.cn/2022/01/28/75a6d779e1bc8.png',
         nickName: 'Leo',
         introduce: '是谁说生活生来就要活。',
       },
@@ -60,10 +53,15 @@ export default {
       },
       {
         link: 'https://blog.kobal.top/',
-        imgUrl:
-          'https://gcore.jsdelivr.net/gh/kebuAAA/Picloud@main/img/avatar.webp',
+        imgUrl:'https://gcore.jsdelivr.net/gh/kebuAAA/Picloud@main/img/avatar.webp',
         nickName: '爱编程的小明',
         introduce: '不要温和地走进那个良夜',
+      },
+      {
+        link: 'https://blog.hikki.site',
+        imgUrl:'https://bu.dusays.com/2022/11/04/636511250b21b.jpg',
+        nickName: '小码同学',
+        introduce: '喜欢的东西就努力去追求，万一成功了呢!',
       },
     ]
   },
@@ -138,7 +136,7 @@ export default {
     color: var(--title-color);
   }
   .discript {
-    font-size: 0.875rem; /* Adjust font size for mobile */
+    font-size: 0.8rem; /* Adjust font size for mobile */
   }
   @media screen and (max-width: 900px) {
     .Friendship {
