@@ -1,5 +1,5 @@
 <template>
-  <div class="out_scroll">
+  <div class="out_scroll" @mouseover="stopAnimation" @mouseout="startAnimation">
     <!-- 创建一个滚动容器，包含两个滚动元素 -->
     <div class="scroller" data-direction="left" data-speed="slow">
       <ul class="tag-list scroller__inner">
@@ -14,7 +14,9 @@
         <li>Illustrator</li>
         <li>Photoshop</li>
         <li>Webpack</li>
+        <li>Vite</li>
         <li>Docker</li>
+        <li>Jenkins</li>
         <li>Wechat Mini Program</li>
       </ul>
     </div>
@@ -36,10 +38,12 @@
 import { ref, onMounted } from 'vue'
 
 const scrollers = ref([])
+const animationTimeout = ref(null)
+
 onMounted(() => {
   // 检查用户是否启用了“减少动画”选项
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    addAnimation()
+    startAnimation()
   }
 })
 
@@ -77,13 +81,42 @@ const addAnimation = () => {
     })
   })
 }
+
+const stopAnimation = () => {
+  scrollers.value.forEach((scroller) => {
+    scroller.removeAttribute('data-animated')
+  })
+}
+
+const startAnimation = () => {
+  scrollers.value = document.querySelectorAll('.scroller')
+  scrollers.value.forEach((scroller) => {
+    scroller.setAttribute('data-animated', true)
+  })
+}
 </script>
 
 <style lang="scss" scoped>
 .out_scroll {
+  cursor: pointer; /* 添加鼠标指针样式 */
   font-size: 1.125rem;
   margin: .5rem 0 0;
 }
+
+.tag-list {
+  margin: 0;
+  padding-inline: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  color: hsl(0, 0%, 100%);
+  padding: 1rem;
+  background: hsl(215, 25%, 27%);
+  border-radius: 0.5rem;
+  box-shadow: 0 .5rem .2rem -.25rem #e2e7f1;
+}
+
 .scroller {
   max-width: 600px;
 }
@@ -131,19 +164,5 @@ const addAnimation = () => {
   to {
     transform: translate(calc(-50% - 0.5rem));
   }
-}
-
-.tag-list {
-  margin: 0;
-  padding-inline: 0;
-  list-style: none;
-}
-
-.tag-list li {
-  color: hsl(0, 0%, 100%);
-  padding: 1rem;
-  background: hsl(215, 25%, 27%);
-  border-radius: 0.5rem;
-  box-shadow: 0 .5rem .2rem -.25rem #e2e7f1;
 }
 </style>
