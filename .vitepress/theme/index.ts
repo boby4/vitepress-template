@@ -19,6 +19,7 @@ import PhotoCloud from './components/photoCloud.vue'
 import Pagination from './components/Pagination.vue'
 import InfiniteScroll from './components/InfiniteScroll.vue'
 import InfiniteScrollContainer from './components/InfiniteScrollContainer.vue'
+import Clock from './components/Clock.vue'
 import VueLazyload from 'vue3-lazyload'
 import './style/index.scss'
 import type { VNode } from 'vue'
@@ -48,6 +49,7 @@ export default {
       loading: '/src/img/loading.gif',
     });
     app.component('Comment', Comment);
+    app.component('Clock', Clock);
     app.component('InfiniteScroll', InfiniteScroll);
     app.component('InfiniteScrollContainer', InfiniteScrollContainer);
     app.component("Friendship", Friendship);

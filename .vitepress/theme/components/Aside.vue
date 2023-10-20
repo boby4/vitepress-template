@@ -22,6 +22,8 @@
       </div>
     </div>
 
+    <Clock></Clock>
+
     <!-- <div class="card-widget card-announcement">
       <div class="card-content">
         <div class="item-headline">

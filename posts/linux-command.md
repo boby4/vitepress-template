@@ -78,6 +78,14 @@ mv source_directory destination_directory
 cat file_name
 ```
 
+* vi
+
+用于查看编辑文件内容。
+
+```bash
+vi file_name
+```
+
 * head 和 tail
 
 用于查看文件的头部和尾部内容。
