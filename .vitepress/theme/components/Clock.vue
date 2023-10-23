@@ -25,7 +25,7 @@ const updateClock = () => {
 };
 
 onMounted(() => {
-  updateClock(); // Initialize the clock immediately
+  updateClock();
   const timerID = setInterval(updateClock, 1000);
 
   onBeforeUnmount(() => {
