@@ -107,6 +107,7 @@
 </template>
 <script setup>
 import WordCloud from './WordCloud.vue'
+import Clock from './Clock.vue'
 import { useData } from 'vitepress'
 import { onMounted, ref } from 'vue'
 import { calculateUptime, initTagsParams } from '../../utils/functions'

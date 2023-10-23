@@ -8,51 +8,32 @@
 </template>
 
 <script setup>
-import { ref, onBeforeUnmount } from 'vue'
+import { ref, onBeforeUnmount, onMounted } from 'vue';
 
-const time = ref('')
-const date = ref('')
+const time = ref('');
+const date = ref('');
+const week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
-const week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+const zeroPadding = (num, digit) => {
+  return num.toString().padStart(digit, '0');
+};
 
-const updateTime = () => {
-  const zeroPadding = (num, digit) => {
-    let zero = ''
-    for (let i = 0; i < digit; i++) {
-      zero += '0'
-    }
-    return (zero + num).slice(-digit)
-  }
+const updateClock = () => {
+  const now = new Date();
+  time.value = `${zeroPadding(now.getHours(), 2)}:${zeroPadding(now.getMinutes(), 2)}:${zeroPadding(now.getSeconds(), 2)}`;
+  date.value = `${now.getFullYear()}-${zeroPadding(now.getMonth() + 1, 2)}-${zeroPadding(now.getDate(), 2)} ${week[now.getDay()]}`;
+};
 
-  const updateClock = () => {
-    const cd = new Date()
-    time.value =
-      zeroPadding(cd.getHours(), 2) +
-      ':' +
-      zeroPadding(cd.getMinutes(), 2) +
-      ':' +
-      zeroPadding(cd.getSeconds(), 2)
-    date.value =
-      zeroPadding(cd.getFullYear(), 4) +
-      '-' +
-      zeroPadding(cd.getMonth() + 1, 2) +
-      '-' +
-      zeroPadding(cd.getDate(), 2) +
-      ' ' +
-      week[cd.getDay()]
-  }
-
-  const timerID = setInterval(updateClock, 1000)
+onMounted(() => {
+  updateClock(); // Initialize the clock immediately
+  const timerID = setInterval(updateClock, 1000);
 
   onBeforeUnmount(() => {
-    clearInterval(timerID)
-  })
-
-  updateClock()
-}
-
-updateTime()
+    clearInterval(timerID);
+  });
+});
 </script>
+
 
 <style scoped lang="scss">
 @media screen and (min-width: 900px) {
@@ -70,7 +51,7 @@ updateTime()
 #clock {
   font-family: 'Share Tech Mono', monospace;
   text-align: center;
-  text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
+  text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
   .time {
     letter-spacing: 0.05em;
     font-size: 40px;
