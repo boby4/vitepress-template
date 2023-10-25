@@ -75,7 +75,7 @@ const nextPage = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1.5rem;
+  margin-top: 3rem;
   width: 100%;
 }
 .pagin {

@@ -11,11 +11,13 @@
         <li>Vue</li>
         <li>Nodejs</li>
         <li>TypeScript</li>
+        <li>Threejs</li>
         <li>Illustrator</li>
         <li>Photoshop</li>
         <li>Webpack</li>
         <li>Vite</li>
         <li>Docker</li>
+        <li>Nginx</li>
         <li>Jenkins</li>
         <li>Wechat Mini Program</li>
       </ul>
@@ -64,6 +66,8 @@ const imageList = ref([
   'https://i.mji.rip/2023/09/21/391c3b6bef88f1b5874b8dab75fcfba7.png',
   'https://i.mji.rip/2023/09/21/a74cf93efcc1b5e07e1b7bca46123671.png',
   'https://i.mji.rip/2023/09/21/73335ed420db8284382766fdb2952213.png',
+  'https://i.mji.rip/2023/10/25/9e1e3afa41e601cff15400ecf02775de.png',
+  'https://i.mji.rip/2023/10/25/33a2ac5d37af8eb6bccff3687d9cfa56.png',
 ])
 
 // 添加滚动动画的函数
