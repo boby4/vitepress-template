@@ -14,6 +14,15 @@ const asyncConfig = async () => {
 		cacheDir: '../../node_modules',
 		description: '前端日记,xuzhiming,blog',
 		head: [
+			["script", {}, `
+				var _hmt = _hmt || [];
+				(function() {
+					var hm = document.createElement("script");
+					hm.src = "https://hm.baidu.com/hm.js?4a88589ecdf72275a34f08d9d5681a96";
+					var s = document.getElementsByTagName("script")[0];
+					s.parentNode.insertBefore(hm, s);
+				})();
+			`],
 			['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' }],
 			['meta', { name: 'keywords', content: '前端日记,xuzhiming,blog' }],
 			['link', { rel: 'icon', href: '/favicon.ico' }],
