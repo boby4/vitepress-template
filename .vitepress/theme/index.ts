@@ -44,6 +44,14 @@ export default {
     //   };
     //   document.body.appendChild(script);
     // }
+    // 百度统计
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4a88589ecdf72275a34f08d9d5681a96";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
     app.use(VueLazyload, {
       loading: '/src/img/loading.gif',
     });
