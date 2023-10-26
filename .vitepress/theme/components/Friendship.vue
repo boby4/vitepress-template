@@ -83,6 +83,12 @@ const FriendshipData = ref([
     nickName: '如诗',
     introduce: '学习笔记',
   },
+  {
+    link: 'https://www.oldit.cn',
+    imgUrl: 'https://image.oldit.cn/image/author.webp',
+    nickName: '老生杂谈的IT人',
+    introduce: '老生杂谈，后继有人。',
+  },
 ])
 
 const notification = ref('')
