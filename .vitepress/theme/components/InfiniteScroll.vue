@@ -19,6 +19,7 @@
         <li>Docker</li>
         <li>Nginx</li>
         <li>Jenkins</li>
+        <li>Kubernets</li>
         <li>Wechat Mini Program</li>
         <li>Echarts</li>
       </ul>
@@ -69,7 +70,8 @@ const imageList = ref([
   'https://i.mji.rip/2023/09/21/73335ed420db8284382766fdb2952213.png',
   'https://i.mji.rip/2023/10/25/9e1e3afa41e601cff15400ecf02775de.png',
   'https://i.mji.rip/2023/10/25/33a2ac5d37af8eb6bccff3687d9cfa56.png',
-  'https://i.mji.rip/2023/10/25/1e9524d9cd9634a15561ae763748be6e.png'
+  'https://i.mji.rip/2023/10/25/1e9524d9cd9634a15561ae763748be6e.png',
+  'https://i.mji.rip/2023/10/26/a83a7fc1f00999108c627b926b13435f.png'
 ])
 
 // 添加滚动动画的函数
