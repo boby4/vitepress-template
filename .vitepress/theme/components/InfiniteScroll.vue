@@ -5,23 +5,24 @@
       <ul class="tag-list scroller__inner">
         <li>HTML</li>
         <li>CSS</li>
-        <li>JavaScript</li>
         <li>SASS</li>
-        <li>Iconfont</li>
+        <li>Wechat Mini Program</li>
         <li>Vue</li>
-        <li>Nodejs</li>
-        <li>TypeScript</li>
-        <li>Threejs</li>
-        <li>Illustrator</li>
-        <li>Photoshop</li>
-        <li>Webpack</li>
         <li>Vite</li>
-        <li>Docker</li>
+        <li>Nodejs</li>
+        <li>Threejs</li>
+        <li>JavaScript</li>
+        <li>TypeScript</li>
         <li>Nginx</li>
+        <li>Webpack</li>
+        <li>Docker</li>
         <li>Jenkins</li>
         <li>Kubernets</li>
-        <li>Wechat Mini Program</li>
         <li>Echarts</li>
+        <li>Iconfont</li>
+        <li>Gitlab</li>
+        <li>Illustrator</li>
+        <li>Photoshop</li>
       </ul>
     </div>
 
@@ -52,14 +53,12 @@ onMounted(() => {
 })
 
 const imageList = ref([
-  'https://i.mji.rip/2023/09/21/bfc560470393e9b56bb09da9a1ef6408.png',
-  'https://i.mji.rip/2023/09/21/5998f3961581623105eddf47160decc5.png',
-  'https://i.mji.rip/2023/09/21/43aaa64f71aa6aabba9055368de1357c.png',
-  'https://i.mji.rip/2023/09/21/05afea2fe0c016aa070f6be50af3311c.png',
-  'https://i.mji.rip/2023/09/21/7ca328af82a2f2d64f896c5d0d4ce1a8.png',
   'https://i.mji.rip/2023/09/21/0c0f27bfcff9db8c68006e70d092af87.png',
-  'https://i.mji.rip/2023/09/21/07e2fb0096800311572f4163b9e070f0.png',
+  'https://i.mji.rip/2023/09/21/05afea2fe0c016aa070f6be50af3311c.png',
   'https://i.mji.rip/2023/09/21/62c953e47517461fe802b9daa19ded56.png',
+  'https://i.mji.rip/2023/09/21/43aaa64f71aa6aabba9055368de1357c.png',
+  'https://i.mji.rip/2023/09/21/7ca328af82a2f2d64f896c5d0d4ce1a8.png',
+  'https://i.mji.rip/2023/09/21/07e2fb0096800311572f4163b9e070f0.png',
   'https://i.mji.rip/2023/09/21/66f7e42e5963da1981322da6b6b500aa.png',
   'https://i.mji.rip/2023/09/21/0e5f71674e9b7380d2d08d10cbf6ea89.png',
   'https://i.mji.rip/2023/09/21/360e24517f2d66a77235e5b93dce3727.png',
@@ -71,7 +70,10 @@ const imageList = ref([
   'https://i.mji.rip/2023/10/25/9e1e3afa41e601cff15400ecf02775de.png',
   'https://i.mji.rip/2023/10/25/33a2ac5d37af8eb6bccff3687d9cfa56.png',
   'https://i.mji.rip/2023/10/25/1e9524d9cd9634a15561ae763748be6e.png',
-  'https://i.mji.rip/2023/10/26/a83a7fc1f00999108c627b926b13435f.png'
+  'https://i.mji.rip/2023/10/26/a83a7fc1f00999108c627b926b13435f.png',
+  'https://i.mji.rip/2023/10/26/c20116ef12326d410671714ddd362b4e.png',
+  'https://i.mji.rip/2023/09/21/bfc560470393e9b56bb09da9a1ef6408.png',
+  'https://i.mji.rip/2023/09/21/5998f3961581623105eddf47160decc5.png',
 ])
 
 // 添加滚动动画的函数
