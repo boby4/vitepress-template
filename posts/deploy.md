@@ -3,7 +3,9 @@ date: 2023-09-01
 title: 前端项目部署学习
 tags:
 - 部署
-- vue
+- Vue
+- Nginx
+- Docker
 description: 静态网站部署-Docker部署-CI/CD自动化部署
 ---
 

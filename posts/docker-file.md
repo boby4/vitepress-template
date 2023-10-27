@@ -2,7 +2,7 @@
 date: 2023-10-08
 title: Dockerfile 示例
 tags:
-- Dockerfile
+- Docker
 description: 前后端 Dockerfile 配置文件示例。
 ---
 

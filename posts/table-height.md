@@ -2,7 +2,7 @@
 date: 2023-08-23
 title: elelment table表格高度自适应
 tags:
-- vue
+- Vue
 description: vue elelment table表格自定义高度，同时根据当前元素高度自适应表格高度
 ---
 

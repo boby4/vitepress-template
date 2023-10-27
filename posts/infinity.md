@@ -3,7 +3,7 @@ date: 2023-10-13
 title: 在vue3中使用两种方案实现无限水平滚动
 tags:
 - 组件
-- vue
+- Vue
 description: 使用SwiperJs 的Autoplay/使用CSS+Js两种方案在vue3中实现元素水平无限滚动。
 ---
 
