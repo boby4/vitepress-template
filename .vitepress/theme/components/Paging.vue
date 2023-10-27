@@ -1,34 +1,34 @@
 <template>
-  <a
-    class="blog-card"
-    v-for="(post, indexs) in datas"
-    :class="{ alt: indexs % 2 === 1 }"
-    :key="indexs"
-    :href="withBase(post.regularPath)"
-  >
-    <div class="meta">
-      <img class="photo" v-lazy="randomImage()" alt="">
-      <ul class="details">
-        <li class="author"><a href="#">前端日记</a></li>
-        <li class="date">{{ post.frontMatter.date }}</li>
-        <li class="tags">
-          <ul>
-            <li v-for="(tags, keys) in post.frontMatter.tags" :key="keys">
-              <a :href="withBase(`/pages/tags?tag=${tags}`)">{{ tags }} </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="description">
-      <h1>{{ post.frontMatter.title }}</h1>
-      <h2>Opening a door to the future</h2>
-      <p class="dis_content">{{ post.frontMatter.description }}</p>
-      <p class="read_more">
-        <a :href="withBase(post.regularPath)">Read More</a>
-      </p>
-    </div>
-  </a>
+  <div v-for="(post, indexs) in datas" :key="indexs">
+    <a
+      class="blog-card"
+      :class="{ alt: indexs % 2 === 1 }"
+      :href="withBase(post.regularPath)"
+    >
+      <div class="meta">
+        <img class="photo" v-lazy="randomImage()" alt="" />
+        <ul class="details">
+          <li class="author"><a href="#">前端日记</a></li>
+          <li class="date">{{ post.frontMatter.date }}</li>
+          <li class="tags">
+            <ul>
+              <li v-for="(tags, keys) in post.frontMatter.tags" :key="keys">
+                <a :href="withBase(`/pages/tags?tag=${tags}`)">{{ tags }} </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="description">
+        <h1>{{ post.frontMatter.title }}</h1>
+        <h2>Opening a door to the future</h2>
+        <p class="dis_content">{{ post.frontMatter.description }}</p>
+        <p class="read_more">
+          <a :href="withBase(post.regularPath)">Read More</a>
+        </p>
+      </div>
+    </a>
+  </div>
 </template>
 
 <script setup>
