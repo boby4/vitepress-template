@@ -6,10 +6,9 @@ tags:
 description: Docker提供了很多功能和选项，可以根据需要使用不同的命令来管理容器化应用程序，整理了一下docker的常用命令。
 ---
 
-# Docker常用命令
+## Docker常用命令
 
 Docker提供了很多功能和选项，可以根据需要使用不同的命令来管理容器化应用程序，整理了一下docker的常用命令。
-
 
 查看完整的Docker命令列表以及各个命令的选项和用法
 
@@ -69,6 +68,7 @@ docker images
 ```
 
 创建并启动容器
+
 ```bash
 docker run <image>[:<tag>]
 # 例如后台启动名称为xzm-blog端口为8080镜像名为xzm-blog-image的容器

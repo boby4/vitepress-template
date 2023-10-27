@@ -35,14 +35,14 @@
       </div>
     </div> -->
 
-    <!-- <div class="card-widget card-announcement">
+    <div class="card-widget card-announcement">
       <div class="card-content">
         <div class="item-headline">
           <span><i class="iconfont jinengzhangwo"></i> 技能</span>
         </div>
         <InfiniteScroll />
       </div>
-    </div> -->
+    </div>
 
     <div class="card-widget card-announcement">
       <div class="card-content">
