@@ -17,7 +17,7 @@ onMounted(() => {
 
 const widgetConfig = {
   "CONFIG": {
-    "modules": "12034",
+    "modules": "01234",
     "background": "5",
     "tmpColor": "FFFFFF",
     "tmpSize": "16",
@@ -39,11 +39,18 @@ const widgetConfig = {
 }
 </script>
 
-<style>
+<style scope>
 .weather{
   position: absolute;
   top: 10px;
   left: 10px;
   z-index: 99;
+}
+#weather-view-he{
+  height: 290px !important;
+}
+.s-sticker-cond img {
+  width: 18px;
+  max-width: 18px;
 }
 </style>
