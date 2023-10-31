@@ -17,11 +17,12 @@
       </div>
     </div>
     <h3>友情链接</h3>
+    <p style="color:#409eff;font-size:.8rem;">*友链排列顺序为随机展示</p>
     <div class="Friendship">
       <a
         class="ships"
         :href="item.link"
-        v-for="(item, index) in FriendshipData"
+        v-for="(item, index) in shuffledFriendshipData"
         :key="index + item.link"
         target="_blank"
         rel="noopener noreferrer"
@@ -42,7 +43,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const FriendshipData = ref([
   {
@@ -90,6 +91,22 @@ const FriendshipData = ref([
     introduce: '老生杂谈，后继有人。',
   },
 ])
+
+const shuffledFriendshipData = ref([]);
+
+// 随机展示友链顺序方法
+const shuffleArray = (array) => {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+};
+
+onMounted(() => {
+  shuffledFriendshipData.value = shuffleArray(FriendshipData.value);
+});
 
 const notification = ref('')
 const copyToClipboard = () => {
