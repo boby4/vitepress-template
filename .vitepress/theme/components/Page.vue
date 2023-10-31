@@ -1,6 +1,6 @@
 <template>
   <Banner></Banner>
-  <!-- <TextScroll /> -->
+  <TextScroll />
   <div class="layout_page">
     <Aside />
     <div class="f_main">

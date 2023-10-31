@@ -1,81 +1,73 @@
 <template>
   <div class="marquee-wrap">
-    <ul class="marquee-list" :class="{'animate-up': animateUp}">
+    <span>😎</span>
+    <ul class="marquee-list" :class="{ 'animate-up': animateUp }">
       <li v-for="(item, index) in listData" :key="index">{{ item.name }}</li>
     </ul>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      animateUp: false,
-      listData: [
-        {
-          name: '120件/行政案件',
-          type: 0,
-        },
-        {
-          name: '150件/民事案件',
-          type: 1,
-        },
-        {
-          name: '110件/刑事案件',
-          type: 2,
-        },
-        // Add more items as needed
-      ],
-      timer: null,
-    };
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const animateUp = ref(false)
+const listData = ref([
+  {
+    name: '欢迎来交换友链',
   },
-  mounted() {
-    this.timer = setInterval(this.scrollAnimate, 2000);
+  {
+    name: '欢迎来交换友链',
   },
-  methods: {
-    scrollAnimate() {
-      this.animateUp = true;
-      setTimeout(() => {
-        this.listData.push(this.listData.shift());
-        this.animateUp = false;
-      }, 500);
-    },
+  {
+    name: '欢迎来交换友链',
   },
-  beforeDestroy() {
-    clearInterval(this.timer);
-  },
-};
+])
+let timer = null
+
+const scrollAnimate = () => {
+  animateUp.value = true
+  setTimeout(() => {
+    listData.value.push(listData.value.shift())
+    animateUp.value = false
+  }, 800)
+}
+
+onMounted(() => {
+  timer = setInterval(scrollAnimate, 1500)
+})
+
+onBeforeUnmount(() => {
+  clearInterval(timer)
+})
 </script>
 
 <style lang="scss" scoped>
 .marquee-wrap {
   overflow: hidden;
-  border-radius: .5rem;
-  border: 1px solid #e0e3ed;
-  box-sizing: border-box;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
   cursor: pointer;
   width: 100%;
-  max-width: 1180px;
-  height: 50px;
-  background: var(--zhsher-card-bg);
+  height: 2rem;
+  line-height: 2rem;
   overflow: hidden;
-  margin: auto;
-  margin-top: 20px;
+  display: flex;
+  span {
+    margin-left: 0.5rem;
+  }
 
   .marquee-list {
-    margin: 0;
-    padding: 0;
-
     li {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
       list-style: none;
-      height: 50px;
-      line-height: 50px;
-      text-align: center;
-      color: #919191;
-      font-size: 18px;
+      text-align: left;
+      color: #fff;
+      font-size: 1rem;
+      margin-left: .5rem;
       font-weight: 500;
     }
   }
