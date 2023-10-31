@@ -1,6 +1,6 @@
 <template>
   <div class="home_bg">
-    <img alt="background Image" v-lazy="randomImage()">
+    <img v-lazy="randomImage()">
     <div class="content_bg">
       <h1>
         xuzhiming

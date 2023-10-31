@@ -23,6 +23,16 @@
     </div>
 
     <Clock></Clock>
+    <div class="card-widget card-announcement">
+      <div class="card-content">
+        <div class="item-headline">
+          <span>🥳 公告</span>
+        </div>
+        <div class="webinfo-site-jinrishici">
+          <TextScroll />
+        </div>
+      </div>
+    </div>
 
     <!-- <div class="card-widget card-announcement">
       <div class="card-content">
@@ -110,6 +120,7 @@ import Clock from './Clock.vue'
 import { useData } from 'vitepress'
 import { onMounted, ref } from 'vue'
 import { calculateUptime, initTagsParams } from '../../utils/functions'
+import TextScroll from './TextScroll.vue'
 import axios from 'axios'
 
 const ipUrl = 'https://ipinfo.io/json'
