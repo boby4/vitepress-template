@@ -13,26 +13,28 @@
           </p>
           <p><strong>描述:</strong> <span>前端切图仔一枚</span></p>
         </div>
-        <div class="copy-btn" @click="copyToClipboard">复制</div>
+        <div class="copy-btn" @click="copyToClipboard">© 复制</div>
       </div>
     </div>
     <h3>友情链接</h3>
-    <p style="color:#409eff;font-size:.8rem;">*友链排列顺序为随机展示</p>
+    <div class="position_refresh"><p style="flex:1;">*友链排列顺序为随机展示</p> <p @click="refresh" style="text-align:right;">⟳ 刷新</p></div>
     <div class="Friendship">
-      <a
-        class="ships"
-        :href="item.link"
-        v-for="(item, index) in shuffledFriendshipData"
-        :key="index + item.link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img class="img-div" :src="item.imgUrl" />
-        <div class="introduce">
-          <p class="nickName">{{ item.nickName }}</p>
-          <p class="discript">{{ item.introduce }}</p>
-        </div>
-      </a>
+      <transition-group name="shuffle" mode="out-in">
+        <a
+          class="ships"
+          :href="item.link"
+          v-for="(item, index) in shuffledFriendshipData"
+          :key="index + item.link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img class="img-div" :src="item.imgUrl" />
+          <div class="introduce">
+            <p class="nickName">{{ item.nickName }}</p>
+            <p class="discript">{{ item.introduce }}</p>
+          </div>
+        </a>
+      </transition-group>
     </div>
     <blockquote>
       🔗 交换友情链接可以在评论里留言。提供名称，网站链接，描述，头像即可。
@@ -93,6 +95,9 @@ const FriendshipData = ref([
 ])
 
 const shuffledFriendshipData = ref([]);
+onMounted(() => {
+  refresh()
+});
 
 // 随机展示友链顺序方法
 const shuffleArray = (array) => {
@@ -104,9 +109,9 @@ const shuffleArray = (array) => {
   return shuffledArray;
 };
 
-onMounted(() => {
+const refresh = () => {
   shuffledFriendshipData.value = shuffleArray(FriendshipData.value);
-});
+}
 
 const notification = ref('')
 const copyToClipboard = () => {
@@ -126,6 +131,22 @@ const copyToClipboard = () => {
 }
 </script>
 <style lang="scss">
+.position_refresh{
+  color:#409eff;
+  font-size:.8rem;
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+}
+.shuffle-enter-active,
+.shuffle-leave-active {
+  transition: transform 1.5s ease-in-out;
+}
+
+.shuffle-enter, .shuffle-leave-to /* .shuffle-leave-active 在Vue 3中被命名为 .shuffle-leave-to */ {
+  transform: translate(0);
+}
+
 .friend_ship {
   max-width: 100%;
   overflow-x: hidden;
