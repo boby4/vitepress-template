@@ -1,6 +1,6 @@
 <template>
   <vue3-word-cloud
-    style="height: 200px; width: 100%;"
+    style="height: 150px; width: 100%;"
     :words="generateRandomColors(data)"
     animation-easing="ease-in-out"
     animation-duration="3000"

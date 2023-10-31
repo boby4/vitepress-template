@@ -1,4 +1,5 @@
 <template>
+  <ExternalWidget></ExternalWidget>
   <Banner></Banner>
   <div class="layout_page">
     <Aside />
@@ -19,6 +20,8 @@ import { computed, ref, onMounted } from 'vue'
 import { withBase, useData } from 'vitepress'
 import Aside from './Aside.vue'
 import Banner from './Banner.vue'
+import ExternalWidget from './ExternalWidget.vue'
+
 
 const { theme } = useData()
 const data = computed(() => theme.value.posts)
