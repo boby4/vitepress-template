@@ -525,6 +525,7 @@ watch(
       .yi {
         float: left;
         width: 50%;
+        height: 100%;
 
         div {
           font-size: 0.75rem;
@@ -535,6 +536,7 @@ watch(
       .ji {
         float: right;
         width: 50%;
+        height: 100%;
 
         div {
           font-size: 0.75rem;
@@ -582,12 +584,10 @@ watch(
       }
     }
   }
-  .side{
+  .side .yiji{
     height: 100%;
-    position: relative;
-    .yiji {
-      height: 20rem !important;
-    }
+    max-height: 15rem;
+    overflow: hidden;
   }
 }
 </style>

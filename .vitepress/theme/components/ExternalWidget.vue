@@ -44,7 +44,7 @@ const widgetConfig = {
   position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 99;
+  z-index: 2;
 }
 #weather-view-he{
   height: 290px !important;
