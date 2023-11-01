@@ -19,6 +19,8 @@ import PhotoCloud from './components/photoCloud.vue'
 import Pagination from './components/Pagination.vue'
 import InfiniteScroll from './components/InfiniteScroll.vue'
 import InfiniteScrollContainer from './components/InfiniteScrollContainer.vue'
+import PerpetualCalendar from './components/PerpetualCalendar.vue'
+import HuangLi from './components/HuangLi.vue'
 import VueLazyload from 'vue3-lazyload'
 import './style/index.scss'
 import type { VNode } from 'vue'
@@ -65,5 +67,7 @@ export default {
     app.component("Pagination", Pagination);
     app.component("SparkModel", SparkModel);
     app.component("Message", Message);
+    app.component("PerpetualCalendar", PerpetualCalendar);
+    app.component("HuangLi", HuangLi);
   }
 }
