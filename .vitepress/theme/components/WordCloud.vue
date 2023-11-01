@@ -3,13 +3,13 @@
     style="height: 150px; width: 100%;"
     :words="generateRandomColors(data)"
     animation-easing="ease-in-out"
-    animation-duration="3000"
+    :animation-duration="3000"
     font-family="pingfang"
     rotation-unit="deg"
-    font-size-ratio="0.5"
-    spacing="0.1"
-    animation-overlap="0.4"
-    rotation="360"
+    :font-size-ratio="0.5"
+    :spacing="0.8"
+    :animation-overlap="0.5"
+    :rotation="360"
   >
     <template v-slot="{text, word}">
       <a :title="`#${text}: ${word.value}`" style="cursor: pointer;" :href="withBase(`/pages/tags?tag=${text}`)">

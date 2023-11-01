@@ -34,7 +34,7 @@
       <p @click="refresh" style="text-align: right">⟳ 刷新</p>
     </div>
     <div class="Friendship">
-      <transition-group name="shuffle" mode="out-in">
+      <transition-group name="shuffle">
         <a
           class="ships"
           :href="item.link"
@@ -272,7 +272,7 @@ const copyToClipboard = () => {
   .copy-section {
     display: flex;
     .copy-btn {
-      font-size: 0.88rem;
+      font-size: 0.8rem;
       color: #3a8ee6;
       cursor: pointer;
       transition: background-color 0.3s;
