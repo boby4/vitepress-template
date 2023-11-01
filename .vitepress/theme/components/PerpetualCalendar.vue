@@ -196,7 +196,7 @@ watch(
   <div class="calendar">
     <div class="container">
       <div class="bar">
-        <div><input v-model="state.year" />年</div>
+        <div><input v-model="state.year" /><span>年</span></div>
         <div>
           <select v-model="state.month">
             <option :value="i" v-for="i in 12">{{ i }}月</option>
@@ -311,6 +311,12 @@ watch(
       div {
         position: relative;
         flex: 1;
+        span{
+          position: absolute;
+          right: 36px;
+          top: 3px;
+          font-size: .8rem;
+        }
       }
 
       div.button {
@@ -547,6 +553,40 @@ watch(
         font-size: 1.5rem;
         color: #fff;
       }
+    }
+  }
+}
+@media (max-width: 900px) {
+  .calendar{
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+  .container{
+    width: 100%;
+    padding: 0.4rem !important;
+    overflow: scroll;
+    .bar{
+      input{
+        width: 4rem !important;
+        text-align: left !important;
+      }
+      width: 100%;
+      padding: 0 !important;
+      div span{
+        top: 2px !important;
+        right: 15px !important;
+      }
+      div.button{
+        left: 7rem;
+      }
+    }
+  }
+  .side{
+    height: 100%;
+    position: relative;
+    .yiji {
+      height: 20rem !important;
     }
   }
 }
