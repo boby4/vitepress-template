@@ -339,7 +339,7 @@ watch(
         box-sizing: border-box;
         padding: 0.4375rem;
         border-radius: 0.375rem;
-        line-height: 1;
+        line-height: 1rem;
         cursor: pointer;
         position: relative;
         background: #ffffff;
@@ -566,18 +566,14 @@ watch(
     width: 100%;
   }
   .container{
-    width: 100%;
-    padding: 0.4rem !important;
     overflow: scroll;
     .bar{
       input{
         width: 4rem !important;
         text-align: left !important;
       }
-      width: 100%;
-      padding: 0 !important;
       div span{
-        top: 2px !important;
+        top: 3px !important;
         right: 15px !important;
       }
       div.button{
