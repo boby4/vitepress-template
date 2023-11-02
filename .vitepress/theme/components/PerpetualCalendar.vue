@@ -521,6 +521,7 @@ watch(
       padding-top: 0.75rem;
       background: rgba(255, 255, 255, 0.15);
       height: 60%;
+      overflow: scroll;
 
       .yi {
         float: left;
