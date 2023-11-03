@@ -21,7 +21,10 @@ import InfiniteScroll from './components/InfiniteScroll.vue'
 import InfiniteScrollContainer from './components/InfiniteScrollContainer.vue'
 import PerpetualCalendar from './components/PerpetualCalendar.vue'
 import HuangLi from './components/HuangLi.vue'
+// import Process from './components/Process.vue'
 import VueLazyload from 'vue3-lazyload'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import './style/index.scss'
 import type { VNode } from 'vue'
 
@@ -49,6 +52,7 @@ export default {
     app.use(VueLazyload, {
       loading: '/src/img/loading.gif',
     });
+    app.use(ElementPlus);
     app.component('Comment', Comment);
     app.component('InfiniteScroll', InfiniteScroll);
     app.component('InfiniteScrollContainer', InfiniteScrollContainer);
@@ -69,5 +73,6 @@ export default {
     app.component("Message", Message);
     app.component("PerpetualCalendar", PerpetualCalendar);
     app.component("HuangLi", HuangLi);
+    // app.component("Process", Process);
   }
 }

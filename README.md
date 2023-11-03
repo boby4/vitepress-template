@@ -7,7 +7,6 @@
 ## ✨ 特性
 
 - 📌 开箱即用
-- 🚀 和 [fighting-design](https://github.com/FightingDesign/fighting-design) 完美结合
 - 💪 使用 Vue.js 最新特性开发
 - 🐆 全面基于 Vite，速度够快
 - 🖍️ markdown 中直接使用 vue 组件
@@ -19,24 +18,18 @@
 
 ```shell
 # 安装依赖
-pnpm i
+yarn install
+cnpm install
 
 # 启动
-pnpm dev
+yarn run dev
+cnpm run dev
 
 # 打包
-pnpm build
+yarn run build
+cnpm run build
 
 # 预览打包
-pnpm serve
+yarn run preview
+cnpm run preview
 ```
-
-## 🕵️‍♀️ 更新日志
-
-参考 [CHANGELOG.md](https://github.com/Tyh2001/vitepress-template/blob/master/CHANGELOG.md)
-
-## 🙏 贡献者
-
-该仓库由 [Tyh2001](https://github.com/Tyh2001) 提供。
-
-![](https://tianyuhao.cn/images/auto/weixin.png)

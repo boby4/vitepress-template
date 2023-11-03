@@ -58,10 +58,10 @@ $color_dark: rgba(60, 60, 67, 0.92);
 .blog-card {
   font-size: 1rem;
   display: flex;
-  flex-direction: column;
-  margin: 0.5rem auto;
+  margin: 0 auto;
+  margin-top: .6rem;
+  margin-bottom: 1.5rem;
   box-shadow: 0 3px 4px -1px rgba(#000, 0.2);
-  margin-bottom: 1.6%;
   background: $color_white;
   line-height: 1.4;
   font-family: sans-serif;
