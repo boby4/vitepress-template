@@ -71,14 +71,14 @@
           <span>📈 站点信息</span>
         </div>
         <div class="webinfo">
-          <div class="webinfo-item">
+          <a class="webinfo-item item-hover" :href="withBase('pages/timeline')">
             <div class="webinfo-site-uv-name">文章总数 :</div>
             <div class="webinfo-site-uv-count">{{ articleNum }}</div>
-          </div>
-          <div class="webinfo-item">
+          </a>
+          <a class="webinfo-item item-hover" :href="withBase('pages/tags')">
             <div class="webinfo-site-uv-name">标签 :</div>
             <div class="webinfo-site-uv-count">{{ tags.length }}</div>
-          </div>
+          </a>
           <!-- <div class="webinfo-item">
             <div class="webinfo-site-uv-name">IP :</div>
             <div class="webinfo-site-uv-count">
@@ -117,7 +117,7 @@
 <script setup>
 import WordCloud from './WordCloud.vue'
 import Clock from './Clock.vue'
-import { useData } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 import { onMounted, ref } from 'vue'
 import { calculateUptime, initTagsParams } from '../../utils/functions'
 import TextScroll from './TextScroll.vue'
@@ -243,6 +243,9 @@ const articleNum = theme.value.posts.length
 #aside_content .card-webinfo .webinfo .webinfo-item div:last-child {
   display: inline-block;
   float: right;
+}
+.item-hover:hover{
+  color:#5d80f4;
 }
 
 @media screen and (min-width: 768px) {
