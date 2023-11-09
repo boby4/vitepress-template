@@ -22,10 +22,10 @@ const listData = ref([
     name: '😍 查看今日黄历！！',
     link: '/pages/calendar',
   },
-  // {
-  //   name: '😍 欢迎来交换友链！！！',
-  //   link: '',
-  // },
+  {
+    name: '😍 去设计一个流程图！！',
+    link: '/pages/process',
+  },
 ])
 let timer = null
 

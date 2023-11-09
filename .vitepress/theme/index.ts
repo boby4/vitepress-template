@@ -21,7 +21,7 @@ import InfiniteScroll from './components/InfiniteScroll.vue'
 import InfiniteScrollContainer from './components/InfiniteScrollContainer.vue'
 import PerpetualCalendar from './components/PerpetualCalendar.vue'
 import HuangLi from './components/HuangLi.vue'
-// import Process from './components/Process.vue'
+import Process from './components/Process.vue'
 import VueLazyload from 'vue3-lazyload'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
@@ -73,6 +73,6 @@ export default {
     app.component("Message", Message);
     app.component("PerpetualCalendar", PerpetualCalendar);
     app.component("HuangLi", HuangLi);
-    // app.component("Process", Process);
+    app.component("Process", Process);
   }
 }
