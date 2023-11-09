@@ -46,7 +46,7 @@ export const imageNodeSetting = (type: string, position: object) => {
 			fontWeight: 'bold',
 			backgroundColor: '#5F95FF',
 			borderColor: '#3c3c43',
-			xlinkHref: '/public/src/img/svg.png',
+			xlinkHref: '/src/img/svg.png',
 			width: '80px',
 			height: '80px',
 			border: '1px solid #3c3c43',
