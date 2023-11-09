@@ -89,12 +89,23 @@ const handlerDel = () => {
           ></el-color-picker>
         </el-form-item>
         <el-form-item label="图片地址">
-          <el-input
-            style="margin-bottom: 10px;"
-            v-model="editData.data.xlinkHref"
-            size="small"
-            placeholder="图片地址"
-          ></el-input>
+          <el-select style="margin-bottom:10px;" v-model="editData.data.xlinkHref">
+            <el-option
+              v-for="item in ['/src/img/emoji1.png',
+                    '/src/img/emoji2.png',
+                    '/src/img/emoji3.png',
+                    '/src/img/emoji4.png',
+                    '/src/img/emoji5.png',
+                    '/src/img/emoji6.png',
+                    '/src/img/emoji7.png',
+                    '/src/img/emoji8.png',
+                    '/src/img/emoji9.png'
+              ]"
+              :key="item"
+              :label="item"
+              :value="item"
+            />
+          </el-select>
           <el-image
             :src="editData.data.xlinkHref"
             :style="`width: 80px; height: 80px; background: ${editData.data.backgroundColor}`"
