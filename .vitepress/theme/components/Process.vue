@@ -163,8 +163,10 @@ function nodeClick(e) {
 }
 
 function deSelect() {
-  const oldNode = findNode(flagId)
-  oldNode.data.selected = false
+  if (flagId) {
+    const oldNode = findNode(flagId)
+    oldNode.data.selected = false
+  }
 }
 
 function selectNode(nodeId) {

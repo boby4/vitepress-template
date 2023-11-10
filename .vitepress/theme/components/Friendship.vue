@@ -20,9 +20,7 @@
           <p><strong>名称:</strong> <span>前端日记</span></p>
           <p>
             <strong>头像:</strong>
-            <span
-              >https://i.miji.bid/2023/08/09/eb59257ffc307103e5907a09eb10cefb.md.webp</span
-            >
+            <span> https://i.miji.bid/2023/08/09/eb59257ffc307103e5907a09eb10cefb.md.webp</span>
           </p>
           <p><strong>描述:</strong> <span>前端切图仔一枚</span></p>
         </div>

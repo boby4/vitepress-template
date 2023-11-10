@@ -67,7 +67,6 @@ const sendMsg = async () => {
   // 获取输入框中的内容
   // 每次发送问题 都是一个新的websocket请求
   let socket = new WebSocket(myUrl)
-
   // 监听websocket的各阶段事件 并做相应处理
   socket.addEventListener('open', (event) => {
     console.log('开启连接！！', event)
@@ -99,7 +98,7 @@ const sendMsg = async () => {
   })
   socket.addEventListener('message', (event) => {
     let data = JSON.parse(event.data)
-    // console.log('收到消息！！',data);
+    console.log('收到消息！！', data)
     requestObj.sparkResult += data.payload.choices.text[0].content
     if (data.header.code !== 0) {
       console.log('出错了', data.header.code, ':', data.header.message)
@@ -211,10 +210,12 @@ const addMsgToTextarea = (text) => {
     transition: all 0.3s;
   }
 
-  .slide-up-enter-active, .slide-up-leave-active {
+  .slide-up-enter-active,
+  .slide-up-leave-active {
     transition: transform 0.3s ease-in-out;
   }
-  .slide-up-enter, .slide-up-leave-to {
+  .slide-up-enter,
+  .slide-up-leave-to {
     transform: translateY(100%);
   }
 
