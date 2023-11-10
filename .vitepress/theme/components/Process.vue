@@ -77,16 +77,29 @@
 </template>
 
 <script setup>
-import '@vue-flow/core/dist/style.css'
-import '@vue-flow/core/dist/theme-default.css'
 import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
-import { nextTick, watch, ref } from 'vue'
+import { nextTick, watch, ref, onMounted } from 'vue'
 import NodeBox from './NodeBox.vue'
 import ProcessEditDrawer from './ProcessEditDrawer.vue'
 import { Picture } from '@element-plus/icons-vue'
 import { connectSetting, choiceNode, imageNodeSetting, nodeSetting } from '../../utils/flowChatSetting'
+import { ElMessageBox } from 'element-plus'
 
+onMounted(() => {
+  if(innerWidth < 768){
+    ElMessageBox.confirm(
+    '当前页面不支持适配移动端，请在pc端网页打开！',
+    'Warning',
+    {
+      confirmButtonText: 'OK',
+      showCancelButton: false,
+      type: 'warning',
+      center: true,
+    }
+  ).then(() => {}).catch(() => {})
+  }
+})
 function onDragStart(event, nodeType) {
   if (event.dataTransfer) {
     event.dataTransfer.setData('application/vueflow', nodeType)
@@ -104,7 +117,7 @@ function getId() {
   return `dndnode_${id++}`
 }
 
-const { toObject, findNode, onConnect, addEdges, addNodes, project, vueFlowRef, nodes, edges, getNode, getEdge, viewportRef,
+const { toObject, findNode, onConnect, addEdges, addNodes, project, vueFlowRef, nodes, edges, getNode, getEdge,
 removeEdges, removeNodes,
 } = useVueFlow({
   nodes: [],
@@ -251,12 +264,20 @@ function handleDown() {
 </script>
 
 <style lang="scss" scoped>
+@import 'https://cdn.jsdelivr.net/npm/@vue-flow/core@1.25.2/dist/style.css';
+@import 'https://cdn.jsdelivr.net/npm/@vue-flow/core@1.25.2/dist/theme-default.css';
+
+.vue-flow__minimap {
+  transform: scale(75%);
+  transform-origin: bottom right;
+}
 .dndout{
   position: fixed;
   width: 100%;
   left: 0;
 }
 .dndflow {
+  padding-top: 15px;
   margin: 2rem;
   display: flex;
   flex-direction: row;

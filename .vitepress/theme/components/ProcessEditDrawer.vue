@@ -89,17 +89,18 @@ const handlerDel = () => {
           ></el-color-picker>
         </el-form-item>
         <el-form-item label="图片地址">
-          <el-select style="margin-bottom:10px;" v-model="editData.data.xlinkHref">
+          <el-select size="small" style="margin-bottom:10px;" v-model="editData.data.xlinkHref">
             <el-option
-              v-for="item in ['/src/img/emoji1.png',
-                    '/src/img/emoji2.png',
-                    '/src/img/emoji3.png',
-                    '/src/img/emoji4.png',
-                    '/src/img/emoji5.png',
-                    '/src/img/emoji6.png',
-                    '/src/img/emoji7.png',
-                    '/src/img/emoji8.png',
-                    '/src/img/emoji9.png'
+              v-for="item in [
+                '/src/img/emoji1.png',
+                '/src/img/emoji2.png',
+                '/src/img/emoji3.png',
+                '/src/img/emoji4.png',
+                '/src/img/emoji5.png',
+                '/src/img/emoji6.png',
+                '/src/img/emoji7.png',
+                '/src/img/emoji8.png',
+                '/src/img/emoji9.png'
               ]"
               :key="item"
               :label="item"
@@ -221,7 +222,8 @@ const handlerDel = () => {
 .edit-main {
   width: 400px;
   height: 100%;
-  border: 1px solid #dfdfdf;
+  // border: 1px solid #eeeeee;
+  box-shadow: 0 4px 6px #e0e0e0;
   padding: 0 20px;
   background: #ffffff;
   box-sizing: border-box;
