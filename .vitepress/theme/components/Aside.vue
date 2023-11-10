@@ -79,6 +79,12 @@
             <div class="webinfo-site-uv-name">标签 :</div>
             <div class="webinfo-site-uv-count">{{ tags.length }}</div>
           </a>
+          <div class="webinfo-item">
+            <div class="webinfo-site-uv-name">文章总字数 :</div>
+            <div class="webinfo-site-uv-count">
+              {{wordsAccount}}
+            </div>
+          </div>
           <!-- <div class="webinfo-item">
             <div class="webinfo-site-uv-name">IP :</div>
             <div class="webinfo-site-uv-count">
@@ -131,6 +137,7 @@ onMounted(async() => {
 })
 
 onMounted(() => {
+  wordAccount()
   setTime() // 初始化
   setInterval(setTime, 1000) // 每秒钟刷新
 })
@@ -139,10 +146,17 @@ const setTime = () => {
   const currentTime = calculateUptime() // 调用公用方法
   currentTimeHtml.value = currentTime
 }
-
 const { theme } = useData()
 const tags = initTagsParams(theme.value.posts)
 const articleNum = theme.value.posts.length
+
+let wordsAccount = ref(0)
+const wordAccount = () => {
+  let posts = theme.value.posts
+  posts.map(ele => {
+    wordsAccount.value += ele.frontMatter.wordCount
+  });
+}
 </script>
 <style lang="scss">
 @import '../style/iconfont.css';
