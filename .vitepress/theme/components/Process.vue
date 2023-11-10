@@ -85,6 +85,8 @@ import ProcessEditDrawer from './ProcessEditDrawer.vue'
 import { Picture } from '@element-plus/icons-vue'
 import { connectSetting, choiceNode, imageNodeSetting, nodeSetting } from '../../utils/flowChatSetting'
 import { ElMessageBox } from 'element-plus'
+import '@vue-flow/core/dist/style.css';
+import '@vue-flow/core/dist/theme-default.css';
 
 onMounted(() => {
   if(innerWidth < 768){
@@ -266,8 +268,6 @@ function handleDown() {
 </script>
 
 <style lang="scss" scoped>
-@import 'https://cdn.jsdelivr.net/npm/@vue-flow/core@1.25.2/dist/style.css';
-@import 'https://cdn.jsdelivr.net/npm/@vue-flow/core@1.25.2/dist/theme-default.css';
 
 .vue-flow__minimap {
   transform: scale(75%);
