@@ -4,9 +4,8 @@ import { PluginTable } from './plugin';
 import type MarkdownIt from 'markdown-it';
 import { getPosts } from './utils/serverUtils.js'
 
-
 //每页的文章数量
-const pageSize = 5
+const pageSize:number = 5
 const asyncConfig = async () => {
   const posts = await getPosts(pageSize);
 	return defineConfig({

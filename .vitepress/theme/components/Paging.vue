@@ -21,7 +21,7 @@
       </div>
       <div class="description">
         <h1>{{ post.frontMatter.title }}</h1>
-        <h2>Opening a door to the future</h2>
+        <h2>字数:{{post.frontMatter.wordCount}}  预计阅读:{{post.frontMatter.readingTime}}分钟</h2>
         <p class="dis_content">{{ post.frontMatter.description }}</p>
         <p class="read_more">
           <a :href="withBase(post.regularPath)">Read More</a>
@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { randomImage } from '../../utils/functions'
 const props = defineProps({
