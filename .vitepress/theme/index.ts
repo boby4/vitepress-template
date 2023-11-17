@@ -1,4 +1,4 @@
-import { h } from 'vue'
+import { App } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import Comment from "./components/Comment.vue";
 import Friendship from "./components/Friendship.vue";
@@ -39,7 +39,7 @@ export default {
   //     'nav-bar-content-before': (): VNode => h(vpSearch)
   //   })
   // },
-  enhanceApp({ app }) {
+  enhanceApp({ app }:{ app: App }) {
     // if (typeof window !== 'undefined') {
     //   // 仅在浏览器环境中加载 VConsole
     //   const script = document.createElement('script');
