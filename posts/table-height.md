@@ -59,7 +59,42 @@ autotableheight: {
     });
   },
 },
+```
 
+* 上面的实现方案有bug，下面是更新后的代码
+
+```js
+autotableheight: {
+  // 当该指令插入到 DOM 中时执行
+  inserted: function (el:any, binding:any, vnode:any) {
+    // 在指令容器内查找主要的表格元素
+    let tableMain = el.querySelector('.el-table-page_body');
+    // 观察并更新容器高度的函数
+    const observeContainerHeight = () => {
+      // 获取主表格元素的边界矩形
+      let tableClient = tableMain.getBoundingClientRect();
+      // 查找表格主体元素
+      let tableBody = el.querySelector('.el-table');
+      // 如果表格主体元素存在
+      if (tableBody) {
+        // 设置表格主体元素的高度，以调整容器的高度
+        tableBody.style.height = (window.innerHeight - 80 - tableClient.top) + 'px';
+      }
+    };
+    // 创建 MutationObserver 以监测容器属性的变化
+    const mutationObserver = new MutationObserver((mutationsList, observer) => {
+      // 延迟观察，以确保变化已经稳定
+      setTimeout(() => {
+        observeContainerHeight();
+      }, 300);
+    });
+    // 开始观察容器及其子树的变化
+    mutationObserver.observe(el, {
+      subtree: true,
+      attributes: true,
+    });
+  },
+},
 ```
 
 ## **表格使用自定义指令**
