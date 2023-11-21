@@ -114,4 +114,11 @@ autotableheight: {
   </div>
 ```
 
+## **实现效果**
+
+<a data-fancybox="gallery" href="https://i.mji.rip/2023/11/21/970d454b4e9d57ad7b0e89552e999ec9.gif" data-caption="表格动态高度">
+    <img v-lazy="'https://i.mji.rip/2023/11/21/970d454b4e9d57ad7b0e89552e999ec9.gif'"/>
+</a>
+
+<Fancybox />
 <Comment />
