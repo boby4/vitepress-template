@@ -207,3 +207,16 @@ export function calculateUptime() {
 
   return `${days}天${hours}小时${minutes}分钟${seconds}秒`;
 }
+
+export function remoteImport(url:string) {
+  return new Promise((resolve:any) => {
+    var head = document.getElementsByTagName("head")[0];
+    var script = document.createElement("script");
+    script.setAttribute("type", "text/javascript");
+    script.setAttribute("src", url);
+    head.appendChild(script);
+    script.onload = function () {
+      resolve();
+    };
+  });
+}
