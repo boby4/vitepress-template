@@ -20,7 +20,7 @@ onMounted(() => {
   // }
   init({
     el: '#waline',
-    serverURL: 'https://waline-seven-ochre.vercel.app/',
+    serverURL: 'https://waline-test-phi-roan.vercel.app/',
   });
 })
 </script>
