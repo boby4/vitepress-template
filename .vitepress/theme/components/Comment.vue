@@ -1,25 +1,27 @@
 <script setup>
+import { init } from '@waline/client';
+import '@waline/client/dist/waline.css';
 import { onMounted, ref, watch } from 'vue'
-import { useData } from 'vitepress'
-const utterancesRef = ref()
-const { theme, isDark } = useData()
+// import { useData } from 'vitepress'
+// const utterancesRef = ref()
+// const { theme, isDark, params } = useData()
 onMounted(() => {
-  let { repo, issueTerm = 'pathname' } = theme.value.comment
-  if (repo) {
-    let utterances = document.createElement('script')
-    utterances.async = true
-    utterances.setAttribute('src', 'https://utteranc.es/client.js')
-    utterances.setAttribute('repo', repo)
-    utterances.setAttribute('issue-term', issueTerm)
-    // utterances.setAttribute('theme', isDark.value ? 'github-dark' : 'github-light')
-    utterances.setAttribute('theme', 'github-light')
-    utterances.setAttribute('crossorigin', 'anonymous')
-    utterancesRef.value.appendChild(utterances)
-  }
-  //hack method to change utterances theme when change site theme
-  // watch(isDark, (newVal, oldVal) => {
-  //     if (newVal !== oldVal) window.location.replace(window.location?.href)
-  // })
+  // let { repo, issueTerm = 'pathname' } = theme.value.comment
+  // if (repo) {
+  //   let utterances = document.createElement('script')
+  //   utterances.async = true
+  //   utterances.setAttribute('src', 'https://utteranc.es/client.js')
+  //   utterances.setAttribute('repo', repo)
+  //   utterances.setAttribute('issue-term', issueTerm)
+  //   // utterances.setAttribute('theme', isDark.value ? 'github-dark' : 'github-light')
+  //   utterances.setAttribute('theme', 'github-light')
+  //   utterances.setAttribute('crossorigin', 'anonymous')
+  //   utterancesRef.value.appendChild(utterances)
+  // }
+  init({
+    el: '#waline',
+    serverURL: 'https://waline-seven-ochre.vercel.app/',
+  });
 })
 </script>
 
@@ -28,8 +30,10 @@ onMounted(() => {
     <div class="line">
       <div class="line_name">评论</div>
     </div>
-    <div ref="utterancesRef"></div>
+    <!-- <div ref="utterancesRef"></div> -->
+    <div id="waline"></div>
   </div>
+
 </template>
 
 <style>
