@@ -34,7 +34,7 @@ const initValine = () => {
     avatarForce: true,
     recordIP: true,
     avatar: 'monsterid',
-    placeholder: '在这里留言，填写邮箱还能及时收到邮件回复哦，点击头像跳转填写的地址',
+    placeholder: '在这里留言，点击头像跳转填写的地址',
   })
 }
 
@@ -52,7 +52,7 @@ onMounted(() => {
 
 <style lang="scss">
 #veditor {
-  background-image: url(https://cdn.jsdelivr.net/gh/drew233/cdn/20200409110727.webp);
+  background-image: url(https://pic.imgdb.cn/item/655dd56fc458853aef7b4274.webp);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
@@ -60,19 +60,22 @@ onMounted(() => {
   resize: vertical;
 }
 #vcomments .vheader .vnick {
-  width: 29%;
+  width: 30%;
   border: 2px solid #dedede;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 5px;
 }
 #vcomments .vheader .vmail {
-  width: 29%;
+  width: 30%;
   border: 2px solid #dedede;
   margin-left: 15px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 5px;
+}
+#vcomments .vpanel .vwrap{
+  border: 2px solid #f0f0f0;
 }
 #vcomments .vheader .vlink {
   width: 30%;
