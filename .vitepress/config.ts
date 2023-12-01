@@ -29,6 +29,7 @@ const asyncConfig = async () => {
 			['link', { rel: 'prefetch', href: 'https://xzmblog.onrender.com' }], // 预取回 Prefetch
 			['link', { rel: 'preconnect', href: 'https://xzmblog.onrender.com' }], // 预连接 Preconnect
 			['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css' }],
+			['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' }],
 			['script', { src: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js' }],
 			['script', { src: 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js' }],
 			['script', { src: 'https://html2canvas.hertzen.com/dist/html2canvas.min.js' }],
