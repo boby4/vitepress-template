@@ -1,4 +1,4 @@
-name: 自动签到 # 脚本名称
+name: 掘金自动签到 # 脚本名称
 
 on:
   schedule:
@@ -28,16 +28,13 @@ jobs:
         with:
           node-version: 16.17.1
 
-      - name: 安装pnpm
-        run: npm install -g pnpm@7.12.2
-
       # 安装依赖
       - name: 安装依赖
-        run: pnpm install
+        run: npm install
 
       # 执行签到脚本 -> 打包执行结束之后，我们的代码会有更新，目标是将这部分代码提交到仓库
       - name: 打包
-        run: pnpm run juejin
+        run: npm run juejin
 
         # 推送信息到微信
       - name: 推送信息到微信
