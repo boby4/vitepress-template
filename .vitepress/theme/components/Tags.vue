@@ -108,9 +108,18 @@ const toggleTag = (tag) => {
     transition: 0.2s;
     margin-bottom: 10px;
   }
-  .tag:hover {
-    transition: 0.3s;
+  .tag:hover, .tag:focus, .tag:active {
     color: #7c7c7c;
+    animation-name: hvr-pulse-grow;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  @keyframes hvr-pulse-grow {
+    100% {
+      transform: scale(1.1);
+    }
   }
   .tag-header {
     display: block;
