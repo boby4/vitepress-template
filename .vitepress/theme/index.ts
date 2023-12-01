@@ -62,6 +62,19 @@ export default {
 				}
 			});
 		};
+    const getRandomAnimationClass = () => {
+      const animationClasses = ['animate__fadeInUp', 'animate__fadeInLeft', 'animate__fadeInDown'];
+      const probabilities = [0.5, 0.3, 0.2];
+      let cumulativeProbability = 0;
+      const randomValue = Math.random();
+      for (let i = 0; i < animationClasses.length; i++) {
+        cumulativeProbability += probabilities[i];
+        if (randomValue <= cumulativeProbability) {
+          return animationClasses[i];
+        }
+      }
+      return animationClasses[animationClasses.length - 1];
+    };
 		// 核心脚本
 		const animateFn = () => {
 			const main = document.querySelector('.vp-doc>div') || [];
@@ -71,7 +84,7 @@ export default {
 					entries.forEach((entry) => {
 						if (entry.isIntersecting && !checkHasAttribute(item)) {
 							// 元素进入视口
-              item.classList.add('animate__animated', 'animate__fadeInUp');
+              item.classList.add('animate__animated', getRandomAnimationClass());
 							item.setAttribute('snow_is_show', true);
 						}
 					});
@@ -79,7 +92,6 @@ export default {
 				observer.observe(item);
 				observers.push(observer);
 			});
-      console.log(main)
 		};
 		// 清空所有 observer 的函数
 		const destructionObserver = () => {
