@@ -39,6 +39,7 @@ const asyncConfig = async () => {
 			// ['script', { src: 'https://cdn.jsdelivr.net/npm/vue3-toastify@0.1.13/dist/index.min.js' }], // vue3-toastify
 			// ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/vue3-toastify@0.1.13/dist/index.min.css' }],
 		],
+		lastUpdated: true,
 		// 主题配置
 		themeConfig: {
 			logo: '/favicon.ico',
@@ -49,6 +50,10 @@ const asyncConfig = async () => {
 				repo: 'boby4/blog-comments',
 				themes: 'github-light',
 				issueTerm: 'pathname'
+			},
+			editLink: {
+				pattern: 'https://github.com/boby4/vitepress-template/tree/master/:path',
+				text: '在 GitHub 上编辑此页'
 			},
 			outlineTitle: '文章摘要',
 			// 配置导航栏图表
@@ -75,6 +80,5 @@ const asyncConfig = async () => {
 		},
 	});
 }
-
 
 export default asyncConfig()
