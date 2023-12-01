@@ -51,10 +51,10 @@ const asyncConfig = async () => {
 				themes: 'github-light',
 				issueTerm: 'pathname'
 			},
-			editLink: {
-				pattern: 'https://github.com/boby4/vitepress-template/tree/master/:path',
-				text: '在 GitHub 上编辑此页'
-			},
+			// editLink: {
+			// 	pattern: 'https://github.com/boby4/vitepress-template/tree/master/:path',
+			// 	text: '在 GitHub 上编辑此页'
+			// },
 			outlineTitle: '文章摘要',
 			// 配置导航栏图表
 			socialLinks: [
