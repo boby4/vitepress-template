@@ -1,0 +1,62 @@
+name: 自动签到 # 脚本名称
+
+on:
+  schedule:
+    # 这个是国际标准时间 非北京时间 北京时间比国际时间早8小时 所以要减去8小时 为 国际时间的1点
+    # schedule 的 cron 任务可能会延迟，短则几小时长则甚至可能一天
+    - cron: '30 1 * * *'
+  #  配置了 workflow_dispatch 我们就可以手动执行了
+  workflow_dispatch:
+
+# 推送之后执行一系列的任务
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 获取代码
+      - name: 迁出代码
+        # 使用action库 action/checkout获取代码
+        uses: actions/checkout@master
+        with:
+          # personal access token 这个就是 Github-token
+          token: ${{ secrets.TOKEN }}
+      # 安装Node10
+
+      - name: 安装node.js
+        # 使用action库  actions/setup-node安装node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.17.1
+
+      - name: 安装pnpm
+        run: npm install -g pnpm@7.12.2
+
+      # 安装依赖
+      - name: 安装依赖
+        run: pnpm install
+
+      # 执行签到脚本 -> 打包执行结束之后，我们的代码会有更新，目标是将这部分代码提交到仓库
+      - name: 打包
+        run: pnpm run juejin
+
+        # 推送信息到微信
+      - name: 推送信息到微信
+        uses: easychen/github-action-server-chan@main
+        with:
+          sendkey: ${{ secrets.PRIVATE_FANGTANG_KEY }}
+          title: '掘金自动签到完成'
+
+      - name: Display Git status
+        run: git status
+
+      # 配置你的 git 信息
+      - name: Commit changes
+        run: |
+          git config --local user.email "1002661758@qq.com"
+          git config --local user.name "jimmyxuexue"
+          git add .
+          git commit -m "action commit : auto commit"
+
+      # 提交 git 代码
+      - name: push code to master
+        run: git push origin master
