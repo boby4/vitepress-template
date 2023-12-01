@@ -49,8 +49,8 @@ jobs:
       # 配置你的 git 信息
       - name: Commit changes
         run: |
-          git config --local user.email "1002661758@qq.com"
-          git config --local user.name "jimmyxuexue"
+          git config --local user.email "1924117768@qq.com"
+          git config --local user.name "xzm"
           git add .
           git commit -m "action commit : auto commit"
 
