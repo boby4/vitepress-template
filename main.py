@@ -86,9 +86,9 @@ for i in range(len(user_ids)):
         # "weather": {"value": wea, "color": get_random_color()},
         # "temperature": {"value": tem, "color": get_random_color()},
         "love_days": {"value": get_count(start_dates[i]), "color": get_random_color()},
-        "birthday_fang": {"value": "距离小芳的生日还有{}天".format(get_birthday(birthdayf[i])), "color": get_random_color()},
-        "birthday_rui": {"value": "距离小瑞的生日还有{}天".format(get_birthday(birthdayr[i])), "color": get_random_color()},
-        "birthday_ming": {"value": "距离小明的生日还有{}天".format(get_birthday(birthdaym[i])), "color": get_random_color()},
+        "birthday_fang": {"value": get_birthday(birthdayf[i]), "color": get_random_color()},
+        "birthday_rui": {"value": get_birthday(birthdayr[i]), "color": get_random_color()},
+        "birthday_ming": {"value": get_birthday(birthdaym[i]), "color": get_random_color()},
         "solary": {"value": get_solary(solarys[i]), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}
     }
