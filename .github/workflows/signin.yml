@@ -1,19 +1,10 @@
-name: 'build-test'
-on: # rebuild any PRs and main branch changes
-  push:
-    branches:
-      - master
-jobs:
-  test: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: josStorer/get-current-time@v2.1.0
-        id: current-time
-        with:
-          format: YYYYMMDD-HH
-          utcOffset: "+08:00"
-      - uses: ./
-        with:
-          sendkey: ${{ secrets.sendkey }}
-          title: "更新啦 ${{ steps.current-time.outputs.formattedTime }}"
+- uses: josStorer/get-current-time@v2.0.2
+  id: current-time
+  with:
+    format: YYYYMMDD-HH
+    utcOffset: "+08:00"
+- uses: easychen/github-action-server-chan@v1.0.0
+  with:
+    sendkey: ${{ secrets.sendkey }}
+    title: "server酱Action更新啦 ${{ steps.current-time.outputs.formattedTime }}"
+    desp: "可以为空。支持Markdown"
