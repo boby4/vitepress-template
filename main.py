@@ -57,12 +57,12 @@ def get_solary(solary):
 
 # 距离过生日还有多少天
 def get_birthday(birthday):
+    print('sda', birthday)
     try:
         datetime.strptime(birthday, "%Y-%m-%d")
     except ValueError:
         print(f"Invalid birthday format: {birthday}. It should be in the format '%Y-%m-%d'")
         return None
-    print('sda', birthday)
     today = date.today()
     next_birthday = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
     if next_birthday < datetime.now():
