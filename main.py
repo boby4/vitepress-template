@@ -15,14 +15,14 @@ app_secret = os.environ["APP_SECRET"]
 
 # 可把os.environ结果替换成字符串在本地调试
 user_ids = os.environ["USER_ID"].split(',')
-template_ids = os.environ["TEMPLATE_ID"].split(',')
-citys = os.environ["CITY"].split(',')
-solarys = os.environ["SOLARY"].split(',')
-start_dates = os.environ["START_DATE"].split(',')
+template_ids = os.environ["TEMPLATE_ID"]
+citys = os.environ["CITY"]
+solarys = os.environ["SOLARY"]
+start_dates = os.environ["START_DATE"]
 # birthdays = os.environ["BIRTHDAY"].split(',')
-birthdayf = os.environ["BIRTHDAY_FANG"].split(',')
-birthdayr = os.environ["BIRTHDAY_RUI"].split(',')
-birthdaym = os.environ["BIRTHDAY_MING"].split(',')
+birthdayf = os.environ["BIRTHDAY_FANG"]
+birthdayr = os.environ["BIRTHDAY_RUI"]
+birthdaym = os.environ["BIRTHDAY_MING"]
 weather_key = os.environ["WEATHER_KEY"]
 
 
@@ -86,26 +86,26 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 
 for i in range(len(user_ids)):
-    wea, tem = get_weather(citys[i])
-    cit, dat = get_city_date(citys[i])
-    birthday_fang_days = get_birthday(birthdayf[i])
-    birthday_rui_days = get_birthday(birthdayr[i])
-    birthday_ming_days = get_birthday(birthdaym[i])
+    wea, tem = get_weather(citys)
+    cit, dat = get_city_date(citys)
+    birthday_fang_days = get_birthday(birthdayf)
+    birthday_rui_days = get_birthday(birthdayr)
+    birthday_ming_days = get_birthday(birthdaym)
     data = {
         "date": {"value": dat, "color": get_random_color()},
         "city": {"value": cit, "color": get_random_color()},
         "weather": {"value": wea, "color": get_random_color()},
         "temperature": {"value": tem, "color": get_random_color()},
-        "love_days": {"value": get_count(start_dates[i]), "color": get_random_color()},
+        "love_days": {"value": get_count(start_dates), "color": get_random_color()},
         "birthday_fang": {"value": birthday_fang_days, "color": get_random_color()},
         "birthday_rui": {"value": birthday_rui_days, "color": get_random_color()},
         "birthday_ming": {"value": birthday_ming_days, "color": get_random_color()},
-        "solary": {"value": get_solary(solarys[i]), "color": get_random_color()},
+        "solary": {"value": get_solary(solarys), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}
     }
     # if get_birthday(birthdays[i]) == 0:
     #     data["birthday_left"]['value'] = "今天是她的生日哦，快去一起甜蜜吧"
-    if get_solary(solarys[i]) == 0:
+    if get_solary(solarys) == 0:
         data["solary"]['value'] = "今天发工资啦，快去犒劳一下自己吧"
-    res = wm.send_template(user_ids[i], template_ids[i], data)
+    res = wm.send_template(user_ids[i], template_ids, data)
     print(res)
