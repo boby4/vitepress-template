@@ -30,7 +30,7 @@ weather_key = os.environ["WEATHER_KEY"].split(',')
 def get_weather(city):
     url = "https://api.seniverse.com/v3/weather/now.json?key={weather_key}&location={city}&language=zh-Hans&unit=c"
     res = requests.get(url).json()
-    print res
+    print(res)
     weather = res['results'][0]['now']
     return weather['text'], weather['temperature']
 
