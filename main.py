@@ -20,9 +20,9 @@ citys = os.environ["CITY"].split(',')
 solarys = os.environ["SOLARY"].split(',')
 start_dates = os.environ["START_DATE"].split(',')
 # birthdays = os.environ["BIRTHDAY"].split(',')
-birthdayf = os.environ["BIRTHDAY_FANG"]
-birthdayr = os.environ["BIRTHDAY_RUI"]
-birthdaym = os.environ["BIRTHDAY_MING"]
+birthdayf = os.environ["BIRTHDAY_FANG"].split(',')
+birthdayr = os.environ["BIRTHDAY_RUI"].split(',')
+birthdaym = os.environ["BIRTHDAY_MING"].split(',')
 weather_key = os.environ["WEATHER_KEY"]
 
 
