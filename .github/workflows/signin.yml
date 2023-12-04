@@ -1,59 +1,20 @@
-name: 打包应用并上传服务器
-
-on:
+name: 'build-test'
+on: # rebuild any PRs and main branch changes
   push:
-    # push 代码的时候 哪个分支会受到影响 这里是 master 主分支
     branches:
       - master
 
-# 推送之后执行一系列的任务
 jobs:
-  build:
+  test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
-      # 获取代码
-      - name: 迁出代码
-        # 使用action库 action/checkout获取大妈
-        uses: actions/checkout@master
-      # 安装Node10
-
-      - name: 安装node.js
-        # 使用action库  actions/setup-node安装node
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: josStorer/get-current-time@v2.1.0
+        id: current-time
         with:
-          node-version: 16.13.2
-
-      - name: 安装yarn
-        run: npm install -g yarn
-
-      # 安装依赖
-      - name: 安装依赖
-        run: yarn
-
-      # 打包
-      - name: 打包
-        run: yarn docs:build
-
-      # 上传到阿里云
-      - name: 发布到阿里云
-        uses: easingthemes/ssh-deploy@v2.1.1
-        env:
-          # 私钥
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          # SCP参数
-          ARGS: '-avzr --delete'
-          # 源目录
-          SOURCE: 'docs/.vitepress/dist'
-          # 服务器ip
-          REMOTE_HOST: ${{ secrets.PRIVATE_HOST }}
-          # 用户
-          REMOTE_USER: 'root'
-          # 目标地址
-          TARGET: '/www/server/nginx/html/blog'
-
-        # 推送信息到微信
-      - name: 推送信息到微信
-        uses: easychen/github-action-server-chan@main
+          format: YYYYMMDD-HH
+          utcOffset: "+08:00"
+      - uses: ./
         with:
-          sendkey: ${{ secrets.PRIVATE_FANGTANG_KEY }}
-          title: '网站更新完毕'
+          sendkey: ${{ secrets.token }}
+          title: "Action更新啦 ${{ steps.current-time.outputs.formattedTime }}"
