@@ -88,15 +88,18 @@ wm = WeChatMessage(client)
 for i in range(len(user_ids)):
     wea, tem = get_weather(citys[i])
     cit, dat = get_city_date(citys[i])
+    birthday_fang_days = get_birthday(birthdayf[i])
+    birthday_rui_days = get_birthday(birthdayr[i])
+    birthday_ming_days = get_birthday(birthdaym[i])
     data = {
         "date": {"value": dat, "color": get_random_color()},
         "city": {"value": cit, "color": get_random_color()},
         "weather": {"value": wea, "color": get_random_color()},
         "temperature": {"value": tem, "color": get_random_color()},
         "love_days": {"value": get_count(start_dates[i]), "color": get_random_color()},
-        "birthday_fang": {"value": get_birthday('2023-02-14'), "color": get_random_color()},
-        "birthday_rui": {"value": get_birthday('2023-09-04'), "color": get_random_color()},
-        "birthday_ming": {"value": get_birthday('2023-04-20'), "color": get_random_color()},
+        "birthday_fang": {"value": birthday_fang_days, "color": get_random_color()},
+        "birthday_rui": {"value": birthday_rui_days, "color": get_random_color()},
+        "birthday_ming": {"value": birthday_ming_days, "color": get_random_color()},
         "solary": {"value": get_solary(solarys[i]), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}
     }
