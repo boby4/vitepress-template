@@ -57,7 +57,7 @@ def get_solary(solary):
 
 # 距离过生日还有多少天
 def get_birthday(birthday):
-    print(birthday)
+    print('sda', birthday)
     next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
     if next < datetime.now():
         next = next.replace(year=next.year + 1)
@@ -89,9 +89,9 @@ for i in range(len(user_ids)):
         "weather": {"value": wea, "color": get_random_color()},
         "temperature": {"value": tem, "color": get_random_color()},
         "love_days": {"value": get_count(start_dates[i]), "color": get_random_color()},
-        "birthday_fang": {"value": get_birthday(birthdayf), "color": get_random_color()},
-        "birthday_rui": {"value": get_birthday(birthdayr), "color": get_random_color()},
-        "birthday_ming": {"value": get_birthday(birthdaym), "color": get_random_color()},
+        "birthday_fang": {"value": get_birthday(birthdayf[i]), "color": get_random_color()},
+        # "birthday_rui": {"value": get_birthday(birthdayr[i]), "color": get_random_color()},
+        # "birthday_ming": {"value": get_birthday(birthdaym[i]), "color": get_random_color()},
         "solary": {"value": get_solary(solarys[i]), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}
     }
