@@ -79,13 +79,13 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 
 for i in range(len(user_ids)):
-    wea, tem = get_weather(citys[i])
+    # wea, tem = get_weather(citys[i])
     cit, dat = get_city_date(citys[i])
     data = {
         "date": {"value": "今日日期：{}".format(dat), "color": get_random_color()},
         "city": {"value": "当前城市：{}".format(cit), "color": get_random_color()},
         # "weather": {"value": "今日天气：{}".format(wea), "color": get_random_color()},
-        "temperature": {"value": "当前温度：{}".format(tem), "color": get_random_color()},
+        # "temperature": {"value": "当前温度：{}".format(tem), "color": get_random_color()},
         "love_days": {"value": "今天是你们在一起的第{}天".format(get_count(start_dates[i])), "color": get_random_color()},
         "birthday_fang": {"value": "距离小芳的生日还有{}天".format(get_birthday(birthdayf[i])), "color": get_random_color()},
         "birthday_rui": {"value": "距离小瑞的生日还有{}天".format(get_birthday(birthdayr[i])), "color": get_random_color()},
