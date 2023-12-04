@@ -58,10 +58,17 @@ def get_solary(solary):
 # 距离过生日还有多少天
 def get_birthday(birthday):
     print('sda', birthday)
-    next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
-    if next < datetime.now():
-        next = next.replace(year=next.year + 1)
-    return (next - today).days
+    try:
+        datetime.strptime(birthday, "%Y-%m-%d")
+    except ValueError:
+        print(f"Invalid birthday format: {birthday}. It should be in the format '%Y-%m-%d'")
+        return None
+    print('sda', birthday)
+    today = date.today()
+    next_birthday = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
+    if next_birthday < datetime.now():
+        next_birthday = next_birthday.replace(year=next_birthday.year + 1)
+    return (next_birthday - datetime.now()).days
 
 # 每日一句
 def get_words():
