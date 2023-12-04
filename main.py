@@ -63,7 +63,7 @@ def get_birthday(birthday):
         print(f"Invalid birthday format: {birthday}. It should be in the format '%Y-%m-%d'")
         return None
     today = date.today()
-    next_birthday = datetime.strptime(today.year + "-" + birthday, "%Y-%m-%d")
+    next_birthday = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
     if next_birthday < datetime.now():
         next_birthday = next_birthday.replace(year=next_birthday.year + 1)
     print('sda', (next_birthday - datetime.now()).days)
