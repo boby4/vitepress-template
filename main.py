@@ -27,9 +27,9 @@ weather_key = os.environ["WEATHER_KEY"]
 
 
 # 获取天气和温度
-def get_weather(city):
-    print(weather_key)
-    url = "https://api.seniverse.com/v3/weather/now.json?key={weather_key}&location={city}&language=zh-Hans&unit=c"
+def get_weather(city,key):
+    print(key)
+    url = "https://api.seniverse.com/v3/weather/now.json?key={key}&location={city}&language=zh-Hans&unit=c"
     res = requests.get(url).json()
     weather = res['results'][0]['now']
     return weather['text'], weather['temperature']
@@ -80,7 +80,7 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 
 for i in range(len(user_ids)):
-    wea, tem = get_weather(citys[i])
+    wea, tem = get_weather(citys[i],weather_key)
     cit, dat = get_city_date(citys[i])
     data = {
         "date": {"value": dat, "color": get_random_color()},
