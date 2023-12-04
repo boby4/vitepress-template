@@ -28,7 +28,7 @@ weather_key = os.environ["WEATHER_KEY"]
 
 # 获取天气和温度
 def get_weather(city):
-    url = "https://api.seniverse.com/v3/weather/now.json?key=SMdgJzHuxy2jubPOj&location={city}&language=zh-Hans&unit=c"
+    url = f"https://api.seniverse.com/v3/weather/now.json?key={weather_key}&location={city}&language=zh-Hans&unit=c"
     res = requests.get(url).json()
     print(res)
     weather = res[0]['now']
