@@ -40,9 +40,13 @@ def get_city_date(city):
 
 # 距离设置的日期过了多少天
 def get_count(start_date):
-    delta = today - datetime.strptime(start_date, "%Y-%m-%d")
-    return delta.days
-
+    try:
+        next_birthday = datetime.strptime(start_date, "%Y-%m-%d")
+        delta = next_birthday - today
+        return delta.days
+    except ValueError as e:
+        print(f"解析生日时发生错误：{e}")
+        return 0
 
 # 距离发工资还有多少天
 def get_solary(solary):
