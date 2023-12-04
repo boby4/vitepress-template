@@ -23,14 +23,15 @@ start_dates = os.environ["START_DATE"].split(',')
 birthdayf = os.environ["BIRTHDAY_FANG"].split(',')
 birthdayr = os.environ["BIRTHDAY_RUI"].split(',')
 birthdaym = os.environ["BIRTHDAY_MING"].split(',')
+weather_key = os.environ["WEATHER_KEY"]
 
 
 # 获取天气和温度
-# def get_weather(city):
-#     url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
-#     res = requests.get(url).json()
-#     weather = res['data']['list'][0]
-#     return weather['weather'], math.floor(weather['temp'])
+def get_weather(city):
+    url = "https://api.seniverse.com/v3/weather/now.json?key={weather_key}&location={city}&language=zh-Hans&unit=c"
+    res = requests.get(url).json()
+    weather = res['results'][0]['now']
+    return weather['text'], weather['temperature']
 
 
 # 当前城市、日期
@@ -78,13 +79,13 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 
 for i in range(len(user_ids)):
-    # wea, tem = get_weather(citys[i])
+    wea, tem = get_weather(citys[i])
     cit, dat = get_city_date(citys[i])
     data = {
         "date": {"value": dat, "color": get_random_color()},
         "city": {"value": cit, "color": get_random_color()},
-        # "weather": {"value": wea, "color": get_random_color()},
-        # "temperature": {"value": tem, "color": get_random_color()},
+        "weather": {"value": wea, "color": get_random_color()},
+        "temperature": {"value": tem, "color": get_random_color()},
         "love_days": {"value": get_count(start_dates[i]), "color": get_random_color()},
         "birthday_fang": {"value": get_birthday(birthdayf[i]), "color": get_random_color()},
         "birthday_rui": {"value": get_birthday(birthdayr[i]), "color": get_random_color()},

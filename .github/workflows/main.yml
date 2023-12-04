@@ -34,3 +34,4 @@ jobs:
       BIRTHDAY_FANG: ${{ secrets.BIRTHDAY_FANG }}
       BIRTHDAY_RUI: ${{ secrets.BIRTHDAY_RUI }}
       BIRTHDAY_MING: ${{ secrets.BIRTHDAY_MING }}
+      WEATHER_KEY: ${{ secrets.WEATHER_KEY }}
