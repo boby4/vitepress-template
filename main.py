@@ -58,16 +58,10 @@ def get_solary(solary):
 # 距离过生日还有多少天
 def get_birthday(birthday):
     print('sda', birthday)
-    nowday = date.today()
-    next_birthday = datetime.strptime(f"{nowday.year}-{birthday}", "%Y-%m-%d").date()
-
-    if next_birthday < nowday:
-        # 如果生日在今年已经过去，将年份调整为下一年
-        next_birthday = next_birthday.replace(year=nowday.year + 1)
-
-    days_until_birthday = (next_birthday - nowday).days
-    return days_until_birthday
-
+    next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
+    if next < datetime.now():
+        next = next.replace(year=next.year + 1)
+    return (next - today).days
 
 # 每日一句
 def get_words():
@@ -95,8 +89,8 @@ for i in range(len(user_ids)):
         "temperature": {"value": tem, "color": get_random_color()},
         "love_days": {"value": get_count(start_dates[i]), "color": get_random_color()},
         "birthday_fang": {"value": get_birthday('1999-02-14'), "color": get_random_color()},
-        "birthday_rui": {"value": get_birthday('2022-09-04'), "color": get_random_color()},
-        "birthday_ming": {"value": get_birthday('1997-04-20'), "color": get_random_color()},
+        # "birthday_rui": {"value": get_birthday('2022-09-04'), "color": get_random_color()},
+        # "birthday_ming": {"value": get_birthday('1997-04-20'), "color": get_random_color()},
         "solary": {"value": get_solary(solarys[i]), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}
     }
