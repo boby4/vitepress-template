@@ -1,0 +1,17 @@
+name: '通知'
+description: 'Send wechat notice via serverchan'
+author: 'EasyChen'
+icon: 'message-square'
+color: 'blue'
+inputs:
+  sendkey: 
+    required: true
+    description: 'SendKey 可在 sct.ftqq.com 免费申请'
+  title:
+    required: true
+    description: '消息标题'
+  desp:
+    description: '消息详细说明，支持markdown'
+runs:
+  using: 'node16'
+  main: '.vitepress/dist/index.js'
