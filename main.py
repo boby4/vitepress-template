@@ -23,13 +23,14 @@ start_dates = os.environ["START_DATE"].split(',')
 birthdayf = os.environ["BIRTHDAY_FANG"].split(',')
 birthdayr = os.environ["BIRTHDAY_RUI"].split(',')
 birthdaym = os.environ["BIRTHDAY_MING"].split(',')
-weather_key = os.environ["WEATHER_KEY"]
+weather_key = os.environ["WEATHER_KEY"].split(',')
 
 
 # 获取天气和温度
 def get_weather(city):
     url = "https://api.seniverse.com/v3/weather/now.json?key={weather_key}&location={city}&language=zh-Hans&unit=c"
     res = requests.get(url).json()
+    print res
     weather = res['results'][0]['now']
     return weather['text'], weather['temperature']
 
