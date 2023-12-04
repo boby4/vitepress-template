@@ -31,7 +31,7 @@ jobs:
       CITY: ${{ secrets.CITY }}
       START_DATE: ${{ secrets.START_DATES }}
       SOLARY: ${{ secrets.SOLARY }}
-      BIRTHDAY_FANG: 2023-02-14
-      BIRTHDAY_RUI: 2023-09-04
-      BIRTHDAY_MING: 2023-04-20
+      BIRTHDAY_FANG: ['2023-02-14']
+      BIRTHDAY_RUI: ['2023-09-04']
+      BIRTHDAY_MING: ['2023-04-20']
       WEATHER_KEY: ${{ secrets.WEATHER_KEY }}

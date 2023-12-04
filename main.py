@@ -20,9 +20,9 @@ citys = os.environ["CITY"].split(',')
 solarys = os.environ["SOLARY"].split(',')
 start_dates = os.environ["START_DATE"].split(',')
 # birthdays = os.environ["BIRTHDAY"].split(',')
-birthdayf = os.environ["BIRTHDAY_FANG"].split(',')
-birthdayr = os.environ["BIRTHDAY_RUI"].split(',')
-birthdaym = os.environ["BIRTHDAY_MING"].split(',')
+birthdayf = os.environ["BIRTHDAY_FANG"]
+birthdayr = os.environ["BIRTHDAY_RUI"]
+birthdaym = os.environ["BIRTHDAY_MING"]
 weather_key = os.environ["WEATHER_KEY"]
 
 
@@ -63,7 +63,7 @@ def get_birthday(birthday):
         print(f"Invalid birthday format: {birthday}. It should be in the format '%Y-%m-%d'")
         return None
     today = date.today()
-    next_birthday = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
+    next_birthday = datetime.strptime(birthday, "%Y-%m-%d")
     if next_birthday < datetime.now():
         next_birthday = next_birthday.replace(year=next_birthday.year + 1)
     print('sda', (next_birthday - datetime.now()).days)
