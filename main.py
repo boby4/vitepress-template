@@ -57,7 +57,6 @@ def get_solary(solary):
 
 # 距离过生日还有多少天
 def get_birthday(birthday):
-    print('sda', birthday)
     try:
         datetime.strptime(birthday, "%Y-%m-%d")
     except ValueError:
@@ -67,6 +66,7 @@ def get_birthday(birthday):
     next_birthday = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
     if next_birthday < datetime.now():
         next_birthday = next_birthday.replace(year=next_birthday.year + 1)
+    print('sda', (next_birthday - datetime.now()).days)
     return (next_birthday - datetime.now()).days
 
 # 每日一句
