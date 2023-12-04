@@ -89,9 +89,9 @@ for i in range(len(user_ids)):
         "weather": {"value": wea, "color": get_random_color()},
         "temperature": {"value": tem, "color": get_random_color()},
         "love_days": {"value": get_count(start_dates[i]), "color": get_random_color()},
-        "birthday_fang": {"value": get_birthday(birthdayf[i]), "color": get_random_color()},
-        # "birthday_rui": {"value": get_birthday(birthdayr[i]), "color": get_random_color()},
-        # "birthday_ming": {"value": get_birthday(birthdaym[i]), "color": get_random_color()},
+        "birthday_fang": {"value": get_birthday('1999-02-14'), "color": get_random_color()},
+        "birthday_rui": {"value": get_birthday('2022-09-04'), "color": get_random_color()},
+        "birthday_ming": {"value": get_birthday('1997-04-20'), "color": get_random_color()},
         "solary": {"value": get_solary(solarys[i]), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}
     }
