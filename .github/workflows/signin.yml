@@ -16,5 +16,5 @@ jobs:
           utcOffset: "+08:00"
       - uses: ./
         with:
-          sendkey: ${{ secrets.token }}
-          title: "Action更新啦 ${{ steps.current-time.outputs.formattedTime }}"
+          sendkey: ${{ secrets.sendkey }}
+          title: "更新啦 ${{ steps.current-time.outputs.formattedTime }}"
