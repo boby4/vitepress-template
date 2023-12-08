@@ -40,7 +40,7 @@ const asyncConfig = async () => {
 			// ['script', { src: 'https://cdn.jsdelivr.net/npm/vue3-toastify@0.1.13/dist/index.min.js' }], // vue3-toastify
 			// ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/vue3-toastify@0.1.13/dist/index.min.css' }],
 		],
-		lastUpdated: true,
+		// lastUpdated: true,
 		// 主题配置
 		themeConfig: {
 			logo: '/favicon.ico',
