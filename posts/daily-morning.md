@@ -1,3 +1,30 @@
+---
+date: 2023-12-13
+title: github-action接入微信公众平台测试号实现每日早安推送
+tags:
+- 日常
+description: 基于python脚本实现利用github-action接入微信公众平台测试号实现每日早安推送
+---
+
+# 每日早安推送给你的女朋友
+
+这个东西其实前段时间不忙的时候逛github看到的，原创地址<a href="https://github.com/13812851221/-rxrw-daily_morning" style="color:blue;">点这里</a>，主要实现就是两个python脚本，python我本身是不懂的，但是看到这个项目，觉得挺有意思的，就打算自己实现一下，然后就搞出来了。也在上面做了一些小改动，天气数据来源是和风天气，因为天气数据是免费的，所以就直接用了，然后就实现了每日早安推送。python脚本的话有点开发基础基本上都能看懂，然后就是github-action的配置。实现方法原创作者讲的很清楚了，我这里就不再赘述了
+
+## 先看一下我修改后的实现效果
+
+<a data-fancybox="gallery" href="https://i.miji.bid/2023/12/13/88dfa575538339fdb03943186ed90796.png" data-caption="早安晚安午安">
+<img v-lazy="'https://i.miji.bid/2023/12/13/88dfa575538339fdb03943186ed90796.png'"/>
+</a>
+
+## 代码实现
+
+### 获取天气数据
+
+我这里直接用的和风天气的api，因为作者提供的那个api失效了，和风虽然有请求限制但是我每天只发一次肯定是够了，免费的
+
+* 加了一个距离发工资时间 *
+
+```python
 import os
 import math
 import random
@@ -101,3 +128,7 @@ for i in range(len(user_ids)):
         data["solary"]['value'] = "今天发工资啦，快去犒劳一下自己吧"
     res = wm.send_template(user_ids[i], template_ids, data)
     print(res)
+```
+
+<Fancybox />
+<Comment />
