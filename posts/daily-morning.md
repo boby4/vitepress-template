@@ -1,5 +1,5 @@
 ---
-date: 2023-12-13
+date: 2023-12-10
 title: github-action接入微信公众平台测试号实现每日早安推送
 tags:
 - 日常
