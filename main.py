@@ -65,9 +65,9 @@ def get_birthday(birthday):
 
 # 每日一句
 def get_words():
-    words = requests.get("https://api.shadiao.pro/chp")
+    words = requests.get("https://v1.hitokoto.cn/")
     print(words)
-    return words.json()['data']['text']
+    return words.json()['hitokoto']
 
 # 字体随机颜色
 def get_random_color():
