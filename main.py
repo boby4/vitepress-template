@@ -29,7 +29,6 @@ weather_key = os.environ["WEATHER_KEY"]
 def get_weather(city):
     url = f"https://api.seniverse.com/v3/weather/now.json?key={weather_key}&location={city}&language=zh-Hans&unit=c"
     res = requests.get(url).json()
-    print(res)
     weather = res['results'][0]['now']
     return weather['text'], weather['temperature']
 
@@ -49,7 +48,7 @@ def get_solary(solary):
         if next.month == 12:
             next = next.replace(year=next.year + 1)
         next = next.replace(month=(next.month + 1) % 12)
-    return (next - today).days
+    return (next - today).days + 1
 
 # 距离过生日还有多少天
 def get_birthday(birthday):
@@ -62,12 +61,12 @@ def get_birthday(birthday):
     next_birthday = datetime.strptime(birthday, "%Y-%m-%d")
     if next_birthday < datetime.now():
         next_birthday = next_birthday.replace(year=next_birthday.year + 1)
-    print('sda', (next_birthday - datetime.now()).days)
     return (next_birthday - datetime.now()).days
 
 # 每日一句
 def get_words():
     words = requests.get("https://api.shadiao.pro/chp")
+    print(words)
     return words.json()['data']['text']
 
 # 字体随机颜色
