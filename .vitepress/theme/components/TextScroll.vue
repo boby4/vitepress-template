@@ -26,6 +26,10 @@ const listData = ref([
     name: '😍 去设计一个流程图！！',
     link: '/pages/process',
   },
+  {
+    name: '😍 最近在了解vue源码',
+    link: 'https://vue-js.com/learn-vue/',
+  },
 ])
 let timer = null
 
