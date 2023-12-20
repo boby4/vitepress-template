@@ -3056,7 +3056,7 @@
 						u
 							? a && a()
 							: r.default.sdkLoader(
-									'//unpkg.com/leancloud-storage@3/dist/av-min.js',
+									'/js/av.js',
 									'AV',
 									function (e) {
 										var t,
