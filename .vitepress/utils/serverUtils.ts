@@ -22,7 +22,6 @@ async function getPosts(pageSize: number) {
 		})
 	);
 	posts.sort(_compareDate);
-	console.log(posts)
 	return posts;
 }
 
