@@ -1,7 +1,7 @@
 (function () {
   var a_idx = 0;
   window.onclick = function (event) {
-    var a = new Array("❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤", "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤", "❤爱国❤", "❤敬业❤", "❤诚信❤", "❤友善❤");
+    var a = new Array("❤跟着我❤", "❤左手❤", "❤右手❤", "❤一个慢动作❤", "❤右手❤", "❤左手❤", "❤慢动作❤", "❤重播❤", "❤这首歌❤", "❤给你快乐❤", "❤你有没有爱上我❤");
     var heart = document.createElement("b"); //创建b元素
     heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
     document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
