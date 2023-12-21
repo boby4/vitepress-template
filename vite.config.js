@@ -22,16 +22,9 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return id.toString().split('node_modules/')[1].split('/')[0].toString();
-          }
-        },
-        chunkFileNames: (chunkInfo) => {
-          const facadeModuleId = chunkInfo.facadeModuleId ? chunkInfo.facadeModuleId.split('/') : [];
-          const fileName = facadeModuleId[facadeModuleId.length - 2] || '[name]';
-          return `js/${fileName}/[name].[hash].js`;
-        }
+        chunkFileNames: 'js/[hash].js', // 引入文件名的名称
+        entryFileNames: 'js/[hash].js', // 包的入口文件名称
+        assetFileNames: '[ext]/[hash].[ext]', // 资源文件像 字体，图片等
       }
     }
   },

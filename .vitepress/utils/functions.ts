@@ -220,3 +220,70 @@ export function remoteImport(url:string) {
     };
   });
 }
+
+const observers: any[] = []; // 用于存储所有观察者 -> 收集起来主要是为了当路由变化时效果之前的观察者。
+// 元素是否在视口
+const isElementInViewport = (element: HTMLElement) => {
+	var rect = element.getBoundingClientRect();
+	const isInViewport =
+		rect.top >= 0 &&
+		rect.bottom <=
+			(window.innerHeight || document.documentElement.clientHeight);
+	return isInViewport;
+};
+
+// 检查是否有自定义属性
+const checkHasAttribute = (element: HTMLElement) => {
+	return !!element.getAttribute('snow_is_show');
+};
+
+// 初始化函数
+export const initFirstScreen = () => {
+	const main = document.querySelector('.vp-doc>div') || [];
+	const paragraphs = [...(main?.children || [])];
+	paragraphs.forEach((item) => {
+		if (isElementInViewport(item)) {
+			item.classList.add('animate__animated', 'animate__fadeInUp');
+			item.setAttribute('snow_is_show', true);
+		}
+	});
+};
+const getRandomAnimationClass = () => {
+	const animationClasses = ['animate__fadeInUp', 'animate__fadeInLeft', 'animate__fadeInDown'];
+	const probabilities = [0.5, 0.3, 0.2];
+	let cumulativeProbability = 0;
+	const randomValue = Math.random();
+	for (let i = 0; i < animationClasses.length; i++) {
+		cumulativeProbability += probabilities[i];
+		if (randomValue <= cumulativeProbability) {
+			return animationClasses[i];
+		}
+	}
+	return animationClasses[animationClasses.length - 1];
+};
+// 核心脚本
+export const animateFn = () => {
+	const main = document.querySelector('.vp-doc>div') || [];
+	const paragraphs = [...(main?.children || [])];
+	paragraphs.forEach((item) => {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting && !checkHasAttribute(item)) {
+					// 元素进入视口
+					item.classList.add('animate__animated', getRandomAnimationClass());
+					item.setAttribute('snow_is_show', true);
+				}
+			});
+		});
+		observer.observe(item);
+		observers.push(observer);
+	});
+};
+// 清空所有 observer 的函数
+export const destructionObserver = () => {
+	observers.forEach((observe) => {
+		observe.disconnect();
+	});
+	observers.length = 0;
+};
+
