@@ -56,7 +56,6 @@ export default {
   computed: {},
   methods: {
     showModalClick(url) {
-      console.log(url);
       this.modalUrl = url;
       this.showModal = true;
     },
