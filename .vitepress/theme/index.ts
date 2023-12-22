@@ -44,7 +44,7 @@ export default {
 			() => route.path,
 			() =>
 				nextTick(() => {
-					autoRefresh() // 检测是否有更新
+					// autoRefresh() // 检测是否有更新
 					destructionObserver(); // 先清空所有的观察者
 					initFirstScreen(); // 再初始化一次 类似onMounted
 					animateFn(); // 再次执行核心函数

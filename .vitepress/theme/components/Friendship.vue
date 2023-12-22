@@ -4,7 +4,12 @@
     <div class="out_scroll">
       <div class="scroller" data-direction="right" data-speed="slow">
         <div class="scroller__inner">
-          <a :href="item.link" v-for="(item, index) in FriendshipData" :key="index" target="_blank">
+          <a
+            :href="item.link"
+            v-for="(item, index) in FriendshipData"
+            :key="index"
+            target="_blank"
+          >
             <img :src="item.imgUrl" alt="" />
           </a>
         </div>
@@ -20,7 +25,9 @@
           <p><strong>名称:</strong> <span>前端日记</span></p>
           <p>
             <strong>头像:</strong>
-            <span> https://i.miji.bid/2023/08/09/eb59257ffc307103e5907a09eb10cefb.md.webp</span>
+            <span>
+              https://i.miji.bid/2023/08/09/eb59257ffc307103e5907a09eb10cefb.md.webp</span
+            >
           </p>
           <p><strong>描述:</strong> <span>前端切图仔一枚</span></p>
         </div>
@@ -59,14 +66,36 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+const { VITE_PUBLIC_API_BASE, VITE_API_ID, VITE_API_KEY } = import.meta.env
+const baseUrl = VITE_PUBLIC_API_BASE
+const header = {
+  'x-avoscloud-application-id': VITE_API_ID,
+  'x-avoscloud-session-token': VITE_API_ID,
+  'x-avoscloud-application-key': VITE_API_KEY,
+}
+const FriendshipData = ref([])
+const FriendshipCache = ref([])
+const shuffledFriendshipData = ref([])
 
 onMounted(() => {
-  refresh()
+  getFirendship()
   // 检查用户是否启用了“减少动画”选项
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     addAnimation()
   }
 })
+
+const getFirendship = () => {
+  const apiUrl = baseUrl + 'classes/Firends?limit=50&&order=-updatedAt&&'
+  fetch(apiUrl, { headers: header, }).then((response) => response.json()).then((res) => {
+    FriendshipData.value = [...res.results, ...res.results]
+    FriendshipCache.value = res.results
+    refresh()
+  })
+  .catch((err) => {
+    console.log('err', err)
+  })
+}
 
 const scrollers = ref([])
 const animationTimeout = ref(null)
@@ -87,55 +116,6 @@ const addAnimation = () => {
   })
 }
 
-const FriendshipData = ref([
-  {
-    link: 'https://blog.zhheo.com/',
-    imgUrl: 'https://bu.dusays.com/2022/12/28/63ac2812183aa.png',
-    nickName: '张洪Heo',
-    introduce: '分享设计与科技生活',
-  },
-  {
-    link: 'https://www.isolitude.cn/',
-    imgUrl:
-      'https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac?s=100&r=G&d=https://pic.isolitude.cn/2022/01/28/75a6d779e1bc8.png',
-    nickName: 'Leo',
-    introduce: '是谁说生活生来就要活。',
-  },
-  {
-    link: 'https://xiaoger.top',
-    imgUrl: 'https://image.xiaoger.top/xiaoger/config/xiaoger.jpg',
-    nickName: 'xiaoger',
-    introduce: '个人学习和分享壁纸的博客',
-  },
-  {
-    link: 'https://blog.kobal.top/',
-    imgUrl:
-      'https://gcore.jsdelivr.net/gh/kebuAAA/Picloud@main/img/avatar.webp',
-    nickName: '爱编程的小明',
-    introduce: '不要温和地走进那个良夜',
-  },
-  {
-    link: 'https://blog.hikki.site',
-    imgUrl: 'https://bu.dusays.com/2022/11/04/636511250b21b.jpg',
-    nickName: '小码同学',
-    introduce: '喜欢的东西就努力去追求，万一成功了呢!',
-  },
-  {
-    link: 'https://likepoems.com',
-    imgUrl: 'https://likepoems.com/wp-content/uploads/2021/01/favicon.jpg',
-    nickName: '如诗',
-    introduce: '学习笔记',
-  },
-  {
-    link: 'https://www.oldit.cn',
-    imgUrl: 'https://image.oldit.cn/image/author.webp',
-    nickName: '老生杂谈的IT人',
-    introduce: '老生杂谈，后继有人。',
-  },
-])
-
-const shuffledFriendshipData = ref([])
-
 // 随机展示友链顺序方法
 const shuffleArray = (array) => {
   const shuffledArray = [...array]
@@ -147,7 +127,7 @@ const shuffleArray = (array) => {
 }
 
 const refresh = () => {
-  shuffledFriendshipData.value = shuffleArray(FriendshipData.value)
+  shuffledFriendshipData.value = shuffleArray(FriendshipCache.value)
 }
 
 const notification = ref('')
