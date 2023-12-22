@@ -3,7 +3,8 @@
     <!-- 创建一个滚动容器，包含两个滚动元素 -->
     <div class="scroller" data-direction="left" data-speed="slow">
       <ul class="tag-list scroller__inner">
-        <li>HTML</li>
+        <li v-for="item in skillList" :key="item.objectId">{{item.title}}</li>
+        <!-- <li>HTML</li>
         <li>CSS</li>
         <li>SASS</li>
         <li>Wechat Mini Program</li>
@@ -22,16 +23,16 @@
         <li>Iconfont</li>
         <li>Gitlab</li>
         <li>Illustrator</li>
-        <li>Photoshop</li>
+        <li>Photoshop</li> -->
       </ul>
     </div>
 
     <div class="scroller" data-direction="right" data-speed="slow">
       <div class="scroller__inner">
         <img
-          v-for="(item, index) in imageList"
-          :key="index"
-          :src="item"
+          v-for="(item) in skillList"
+          :key="item.objectId"
+          :src="item.image"
           alt=""
         />
       </div>
@@ -41,40 +42,24 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { request } from '../../utils/request'
 
+const skillList = ref([])
 const scrollers = ref([])
 const animationTimeout = ref(null)
 
 onMounted(() => {
+  getFirendship()
   // 检查用户是否启用了“减少动画”选项
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     startAnimation()
   }
 })
 
-const imageList = ref([
-  'https://i.mji.rip/2023/09/21/0c0f27bfcff9db8c68006e70d092af87.png',
-  'https://i.mji.rip/2023/09/21/05afea2fe0c016aa070f6be50af3311c.png',
-  'https://i.mji.rip/2023/09/21/62c953e47517461fe802b9daa19ded56.png',
-  'https://i.mji.rip/2023/09/21/43aaa64f71aa6aabba9055368de1357c.png',
-  'https://i.mji.rip/2023/09/21/7ca328af82a2f2d64f896c5d0d4ce1a8.png',
-  'https://i.mji.rip/2023/09/21/07e2fb0096800311572f4163b9e070f0.png',
-  'https://i.mji.rip/2023/09/21/66f7e42e5963da1981322da6b6b500aa.png',
-  'https://i.mji.rip/2023/09/21/0e5f71674e9b7380d2d08d10cbf6ea89.png',
-  'https://i.mji.rip/2023/09/21/360e24517f2d66a77235e5b93dce3727.png',
-  'https://i.mji.rip/2023/09/21/15572a23669a960eb619329a04d8e829.png',
-  'https://i.mji.rip/2023/09/21/90b84c4ef7107b0589b84f9619dd321f.png',
-  'https://i.mji.rip/2023/09/21/391c3b6bef88f1b5874b8dab75fcfba7.png',
-  'https://i.mji.rip/2023/09/21/a74cf93efcc1b5e07e1b7bca46123671.png',
-  'https://i.mji.rip/2023/09/21/73335ed420db8284382766fdb2952213.png',
-  'https://i.mji.rip/2023/10/25/9e1e3afa41e601cff15400ecf02775de.png',
-  'https://i.mji.rip/2023/10/25/33a2ac5d37af8eb6bccff3687d9cfa56.png',
-  'https://i.mji.rip/2023/10/25/1e9524d9cd9634a15561ae763748be6e.png',
-  'https://i.mji.rip/2023/10/26/a83a7fc1f00999108c627b926b13435f.png',
-  'https://i.mji.rip/2023/10/26/c20116ef12326d410671714ddd362b4e.png',
-  'https://i.mji.rip/2023/09/21/bfc560470393e9b56bb09da9a1ef6408.png',
-  'https://i.mji.rip/2023/09/21/5998f3961581623105eddf47160decc5.png',
-])
+const getFirendship = async() => {
+  let res = await request('/classes/Skills')
+  skillList.value = res.results
+}
 
 // 添加滚动动画的函数
 const addAnimation = () => {

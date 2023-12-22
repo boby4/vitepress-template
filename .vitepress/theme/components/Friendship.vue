@@ -9,6 +9,7 @@
             v-for="(item, index) in FriendshipData"
             :key="index"
             target="_blank"
+            :title="item.nickName"
           >
             <img :src="item.imgUrl" alt="" />
           </a>
@@ -51,7 +52,7 @@
           <img class="img-div" :src="item.imgUrl" />
           <div class="introduce">
             <p class="nickName">{{ item.nickName }}</p>
-            <p class="discript">{{ item.introduce }}</p>
+            <p class="discript" :title="item.introduce">{{ item.introduce }}</p>
           </div>
         </a>
       </transition-group>
@@ -66,13 +67,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-const { VITE_PUBLIC_API_BASE, VITE_API_ID, VITE_API_KEY } = import.meta.env
-const baseUrl = VITE_PUBLIC_API_BASE
-const header = {
-  'x-avoscloud-application-id': VITE_API_ID,
-  'x-avoscloud-session-token': VITE_API_ID,
-  'x-avoscloud-application-key': VITE_API_KEY,
-}
+import { request } from '../../utils/request'
+
 const FriendshipData = ref([])
 const FriendshipCache = ref([])
 const shuffledFriendshipData = ref([])
@@ -85,16 +81,11 @@ onMounted(() => {
   }
 })
 
-const getFirendship = () => {
-  const apiUrl = baseUrl + 'classes/Firends?limit=50&&order=-updatedAt&&'
-  fetch(apiUrl, { headers: header, }).then((response) => response.json()).then((res) => {
-    FriendshipData.value = [...res.results, ...res.results]
-    FriendshipCache.value = res.results
-    refresh()
-  })
-  .catch((err) => {
-    console.log('err', err)
-  })
+const getFirendship = async() => {
+  let res = await request('/classes/Firends')
+  FriendshipData.value = [...res.results, ...res.results]
+  FriendshipCache.value = res.results
+  refresh()
 }
 
 const scrollers = ref([])

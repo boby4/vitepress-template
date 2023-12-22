@@ -1,7 +1,7 @@
 <template>
   <div class="marquee-wrap">
     <ul class="marquee-list" :class="{ 'animate-up': animateUp }">
-      <a v-for="(item, index) in listData" :key="index" :href="withBase(item.link)">
+      <a v-for="(item, index) in listData" :key="index" _blank :href="withBase(item.link)">
         {{ item.name }}
       </a>
     </ul>
@@ -11,27 +11,21 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { withBase } from 'vitepress'
+import { request } from '../../utils/request'
 
 const animateUp = ref(false)
-const listData = ref([
-  {
-    name: '😍 欢迎来交换友链！',
-    link: '/pages/link',
-  },
-  {
-    name: '😍 查看今日黄历！！',
-    link: '/pages/calendar',
-  },
-  {
-    name: '😍 去设计一个流程图！！',
-    link: '/pages/process',
-  },
-  {
-    name: '😍 最近在了解vue源码',
-    link: 'https://vue-js.com/learn-vue/',
-  },
-])
+const listData = ref([])
 let timer = null
+
+onMounted(() => {
+  timer = setInterval(scrollAnimate, 4500)
+  getNotice()
+})
+
+const getNotice = async () => {
+  const res = await request('/classes/Notice')
+  listData.value = res.results
+}
 
 const scrollAnimate = () => {
   animateUp.value = true
@@ -40,10 +34,6 @@ const scrollAnimate = () => {
     animateUp.value = false
   }, 3000)
 }
-
-onMounted(() => {
-  timer = setInterval(scrollAnimate, 4500)
-})
 
 onBeforeUnmount(() => {
   clearInterval(timer)
