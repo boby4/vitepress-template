@@ -178,7 +178,7 @@ const addMsgToTextarea = (text) => {
     margin: 0.3rem;
     position: fixed;
     bottom: 10%;
-    right: 5px;
+    left: 5px;
     background: white;
     border-radius: 100px !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -204,7 +204,7 @@ const addMsgToTextarea = (text) => {
     position: fixed;
     color: #4c4948;
     bottom: 10rem;
-    right: 1.5rem;
+    left: 1.5rem;
     width: 25%;
     border-radius: 1.1rem;
     transition: all 0.3s;
