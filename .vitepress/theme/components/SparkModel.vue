@@ -177,7 +177,7 @@ const addMsgToTextarea = (text) => {
   .bto {
     margin: 0.3rem;
     position: fixed;
-    bottom: 5%;
+    bottom: 10%;
     right: 5px;
     background: white;
     border-radius: 100px !important;
@@ -203,8 +203,8 @@ const addMsgToTextarea = (text) => {
     z-index: 3;
     position: fixed;
     color: #4c4948;
-    bottom: 9rem;
-    right: 1rem;
+    bottom: 10rem;
+    right: 1.5rem;
     width: 25%;
     border-radius: 1.1rem;
     transition: all 0.3s;
