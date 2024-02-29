@@ -21,7 +21,7 @@ import Pagination from './components/Pagination.vue';
 import InfiniteScroll from './components/InfiniteScroll.vue';
 import InfiniteScrollContainer from './components/InfiniteScrollContainer.vue';
 import PerpetualCalendar from './components/PerpetualCalendar.vue';
-import ImgDesign from './components/ImgDesign.vue';
+// import ImgDesign from './components/ImgDesign.vue';
 import HuangLi from './components/HuangLi.vue';
 import Process from './components/Process.vue';
 import VueLazyload from 'vue3-lazyload';
@@ -99,6 +99,6 @@ export default {
 		app.component('PerpetualCalendar', PerpetualCalendar);
 		app.component('HuangLi', HuangLi);
 		app.component('Process', Process);
-		app.component('ImgDesign', ImgDesign);
+		// app.component('ImgDesign', ImgDesign);
 	},
 };

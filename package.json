@@ -23,7 +23,6 @@
     "three": "^0.155.0",
     "vitepress": "1.0.0-alpha.47",
     "vue": "^3.2.47",
-    // "vue3-draggable-resizable": "^1.6.5",
     "vue3-lazyload": "^0.3.8",
     "vue3-word-cloud": "^1.0.4"
   },

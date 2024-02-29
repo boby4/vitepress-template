@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="design">
     <div class="leftBox">
       <div class="leftSide">
@@ -318,4 +318,4 @@ const rightClick = (e, item, index) => {
     position: absolute;
     top: -5px;
   }
-}</style>
+}</style> -->
