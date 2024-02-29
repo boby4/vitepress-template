@@ -20,6 +20,10 @@ const asyncConfig = async () => {
 					hm.src = "https://hm.baidu.com/hm.js?4a88589ecdf72275a34f08d9d5681a96";
 					var s = document.getElementsByTagName("script")[0];
 					s.parentNode.insertBefore(hm, s);
+				})();
+			`],
+			["script", {}, `
+				(function(d,t) {
 					var BASE_URL="https://app.chatwoot.com";
 					var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 					g.src=BASE_URL+"/packs/js/sdk.js";
@@ -32,24 +36,8 @@ const asyncConfig = async () => {
 							baseUrl: BASE_URL
 						})
 					}
-				})();
+				})(document,"script");
 			`],
-			// ["script", {}, `
-			// 	(function(d,t) {
-			// 		var BASE_URL="https://app.chatwoot.com";
-			// 		var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-			// 		g.src=BASE_URL+"/packs/js/sdk.js";
-			// 		g.defer = true;
-			// 		g.async = true;
-			// 		s.parentNode.insertBefore(g,s);
-			// 		g.onload=function(){
-			// 			window.chatwootSDK.run({
-			// 				websiteToken: '6Arch8oyeok91jWJ7dwA9LVV',
-			// 				baseUrl: BASE_URL
-			// 			})
-			// 		}
-			// 	})(document,"script");
-			// `],
 			['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' }],
 			['meta', { name: 'keywords', content: '前端日记,xuzhiming,blog' }],
 			['link', { rel: 'icon', href: '/favicon.ico' }],
