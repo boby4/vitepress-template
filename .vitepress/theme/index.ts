@@ -21,6 +21,7 @@ import Pagination from './components/Pagination.vue';
 import InfiniteScroll from './components/InfiniteScroll.vue';
 import InfiniteScrollContainer from './components/InfiniteScrollContainer.vue';
 import PerpetualCalendar from './components/PerpetualCalendar.vue';
+import ImgDesign from './components/ImgDesign.vue';
 import HuangLi from './components/HuangLi.vue';
 import Process from './components/Process.vue';
 import VueLazyload from 'vue3-lazyload';
@@ -28,6 +29,8 @@ import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import './style/index.scss';
 import { initFirstScreen, animateFn, destructionObserver } from '../utils/functions';
+import ContextMenu from '@imengyu/vue3-context-menu'
+import '@imengyu/vue3-context-menu/lib/vue3-context-menu.css'
 import { autoRefresh } from '../utils/auto-update';
 // import type { VNode } from 'vue'
 
@@ -73,6 +76,7 @@ export default {
 		app.use(VueLazyload, {
 			loading: '/src/img/loading.gif',
 		});
+		app.use(ContextMenu);
 		app.use(ElementPlus);
 		app.component('Comment', Comment);
 		app.component('InfiniteScroll', InfiniteScroll);
@@ -95,5 +99,6 @@ export default {
 		app.component('PerpetualCalendar', PerpetualCalendar);
 		app.component('HuangLi', HuangLi);
 		app.component('Process', Process);
+		app.component('ImgDesign', ImgDesign);
 	},
 };

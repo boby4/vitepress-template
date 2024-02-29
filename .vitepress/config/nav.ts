@@ -16,6 +16,7 @@ export const nav = [
   // { text: '🌄 Github图床', link: '/pages/cloud' },
   { text: '💌 友情链接', link: '/pages/link' },
   { text: '📅 日历', link: '/pages/calendar' },
+  // { text: '🌄 图片设计', link: '/pages/design' },
   { text: '⛵ 流程图设计', link: '/pages/process' },
   // { text: '👋 示例', link: '/pages/model' }
 ]
