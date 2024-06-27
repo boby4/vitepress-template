@@ -1,4 +1,5 @@
 import { App, onMounted, watch, nextTick } from 'vue';
+import { createPinia } from 'pinia'
 import { useRoute } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import Comment from './components/Comment.vue';
@@ -23,6 +24,7 @@ import InfiniteScrollContainer from './components/InfiniteScrollContainer.vue';
 import PerpetualCalendar from './components/PerpetualCalendar.vue';
 // import ImgDesign from './components/ImgDesign.vue';
 import HuangLi from './components/HuangLi.vue';
+import Video from './components/Video.vue';
 import Process from './components/Process.vue';
 import VueLazyload from 'vue3-lazyload';
 import ElementPlus from 'element-plus';
@@ -33,7 +35,7 @@ import ContextMenu from '@imengyu/vue3-context-menu'
 import '@imengyu/vue3-context-menu/lib/vue3-context-menu.css'
 import { autoRefresh } from '../utils/auto-update';
 // import type { VNode } from 'vue'
-
+const pinia = createPinia()
 
 export default {
 	...DefaultTheme,
@@ -73,6 +75,7 @@ export default {
 		//   };
 		//   document.body.appendChild(script);
 		// }
+		app.use(pinia)
 		app.use(VueLazyload, {
 			loading: '/src/img/loading.gif',
 		});
@@ -98,6 +101,7 @@ export default {
 		app.component('Message', Message);
 		app.component('PerpetualCalendar', PerpetualCalendar);
 		app.component('HuangLi', HuangLi);
+		app.component('Video', Video);
 		app.component('Process', Process);
 		// app.component('ImgDesign', ImgDesign);
 	},
