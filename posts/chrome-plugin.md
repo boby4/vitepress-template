@@ -205,3 +205,6 @@ iframe {
 * 没有谷歌账号去注册一个，进入<a href="https://chrome.google.com/webstore/devconsole/register" style="color:blue;">谷歌开发者控制台</a>，支付5美金即可上传你的浏览器插件，一次性收费，永久使用。
 
 以上
+
+<Fancybox />
+<Comment />
