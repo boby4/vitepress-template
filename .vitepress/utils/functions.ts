@@ -74,15 +74,19 @@ export function useYearSort(post: Post[]) {
 
 export function randomImage() {
 	const imageArray = [
-		'https://ice.frostsky.com/2023/09/07/4d348831ab4ef88112a19f5efc2741c3.jpeg',
-		'https://ice.frostsky.com/2023/09/07/4fc03088862d4256b6df81c9f61a8cf9.jpeg',
-		'https://ice.frostsky.com/2023/09/07/94565255cc9e8439decb0dbaf683b565.jpeg',
-		'https://ice.frostsky.com/2023/09/07/827c01c1219949cc6f649947f3876dc2.jpeg',
-		'https://ice.frostsky.com/2023/09/07/f3ff873adc3d7d095389a092e42f503d.jpeg',
-		'https://ice.frostsky.com/2023/09/07/6a8f65ac5f90226096fbea2a8839ee85.jpeg',
-		'https://ice.frostsky.com/2023/09/07/ef439fb9ebc4f6704cc0b4dd8d221125.jpeg',
-		'https://ice.frostsky.com/2023/09/07/8ed527cc40ab38723cfb339cc2f873d3.jpeg',
-		'https://ice.frostsky.com/2023/09/07/0a5c2fedda66a8ed766483596fe20ba4.jpeg',
+		'https://github.com/boby4/picx-images-hosting/raw/master/1b91d753cbb64883aee1dacb31bea7bd.8ojpw0ssco.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/5c23d52f880511ebb6edd017c2d2eca2.7egspptub0.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/724a141e9ffd4a519b9d582151f1c54d.8l03ybivbe.png',
+		'https://github.com/boby4/picx-images-hosting/raw/master/1536a1ad880511ebb6edd017c2d2eca2.wikwej4t9.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/433387c3882211ebb6edd017c2d2eca2.969rkmdowq.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/a6fec42e882111ebb6edd017c2d2eca2.7sn8gl2t4j.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/a202c44c2075478dbfac39baeb800046.60u9lojlfz.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/b29f2454efdc4ccb84ce2feb7fa24b83.41y2vce7h2.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/ba41a32b219e4b40ad055bbb52935896.13lsru62yn.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/bbc58c3d998d4f389fdae649334873f7.13lsru6baj.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/c0dd2053b27e4957af8aedd5fe3ca485.4xukasoi33.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/c53c811f880411ebb6edd017c2d2eca2.4xukasonb7.webp',
+		'https://github.com/boby4/picx-images-hosting/raw/master/cb6a04e0c76f42828ab173cf0555a6a4.83a29qj87g.webp',
 	];
 	// 生成随机索引
 	const randomIndex = Math.floor(Math.random() * imageArray.length);
