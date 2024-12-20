@@ -22,7 +22,6 @@ import Aside from './Aside.vue'
 import Banner from './Banner.vue'
 import ExternalWidget from './ExternalWidget.vue'
 
-
 const { theme } = useData()
 const data = computed(() => theme.value.posts)
 const currentPage = ref(1)

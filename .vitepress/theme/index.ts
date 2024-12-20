@@ -6,6 +6,7 @@ import Friendship from './components/Friendship.vue';
 import Archives from './components/Archives.vue';
 import TimeLine from './components/TimeLine.vue';
 import NewTimeLine from './components/NewTimeLine.vue';
+import Game from './components/Game.vue';
 import Paging from './components/Paging.vue';
 import SparkModel from './components/SparkModel.vue';
 import Message from './components/Message.vue';
@@ -85,6 +86,7 @@ export default {
 		app.component('Archives', Archives);
 		app.component('TimeLine', TimeLine);
 		app.component('NewTimeLine', NewTimeLine);
+		app.component('Game', Game);
 		app.component('Paging', Paging);
 		app.component('Tags', Tags);
 		app.component('Model', Model);
