@@ -79,7 +79,7 @@ const sendMsg = async () => {
       parameter: {
         chat: {
           // "domain": "general",
-          domain: 'generalv2',
+          domain: '4.0Ultra',
           temperature: 0.5,
           max_tokens: 1024,
         },
@@ -126,7 +126,7 @@ const sendMsg = async () => {
     inputVal.value = ''
     console.log('连接关闭！！', event)
     // 对话完成后socket会关闭，将聊天记录换行处理
-    requestObj.sparkResult = requestObj.sparkResult + '\n\n'
+    requestObj.sparkResult = '\n\n' + requestObj.sparkResult
     addMsgToTextarea(requestObj.sparkResult)
     btnDisable.value = false
     // 清空输入框
@@ -143,14 +143,14 @@ const sendMsg = async () => {
 const getWebsocketUrl = () => {
   return new Promise((resovle, reject) => {
     // let url = "wss://spark-api.xf-yun.com/v1.1/chat";
-    let url = 'wss://spark-api.xf-yun.com/v3.1/chat'
+    let url = 'wss://spark-api.xf-yun.com/v4.0/chat'
     let host = 'spark-api.xf-yun.com'
     let apiKeyName = 'api_key'
     let date = new Date().toGMTString()
     let algorithm = 'hmac-sha256'
     let headers = 'host date request-line'
     // let signatureOrigin = `host: ${host}\ndate: ${date}\nGET /v1.1/chat HTTP/1.1`;
-    let signatureOrigin = `host: ${host}\ndate: ${date}\nGET /v3.1/chat HTTP/1.1`
+    let signatureOrigin = `host: ${host}\ndate: ${date}\nGET /v4.0/chat HTTP/1.1`
     let signatureSha = CryptoJs.HmacSHA256(
       signatureOrigin,
       requestObj.APISecret

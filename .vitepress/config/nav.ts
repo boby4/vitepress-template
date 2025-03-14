@@ -18,6 +18,6 @@ export const nav = [
   { text: '📅 日历', link: '/pages/calendar' },
   // { text: '🌄 图片设计', link: '/pages/design' },
   { text: '⛵ 流程图设计', link: '/pages/process' },
-  { text: '🎮 小游戏', link: '/pages/game' },
+  { text: '🎮 大模型', link: '/pages/game' },
   // { text: '👋 示例', link: '/pages/model' }
 ]

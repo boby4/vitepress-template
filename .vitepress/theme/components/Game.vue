@@ -1,472 +1,357 @@
-<script setup lang="ts">
-/**
- * 消灭行星小游戏
- */
-import { ref, onMounted, onUnmounted } from "vue";
-import SphereCollision from "sphere-collision";
-import type { SphereCollisionC, GlobuleC } from "sphere-collision/types";
-
-const canvasBgColor = "rgba(0, 0, 0, .2)"; // 动画时背景颜色
-const playerRadius = 20; // 玩家小球半径
-const bulletRadius = 5; // 子弹半径
-const bulletV = 5; // 子弹速度
-const planetInitV = 2.5; // 行星的初始速度
-let planetV = planetInitV; // 行星的速度
-let canvasWidth = 0; // 画布宽度
-let canvasHeight = 0; // 画布高度
-let boxOffetLeft = 0; // 该组件离窗口左边的距离
-let boxOffetTop = 0; // 该组件离窗口上边的距离
-
-enum GameStaus {
-  "toPlay",
-  "playing",
-  "pause",
-  "gameover",
-}
-enum Role {
-  "player",
-  "bullet",
-  "planet",
-  "particle",
-}
-
-const boxRef = ref<HTMLDivElement>();
-let sphereCollisionRef: SphereCollisionC | null = null;
-let timer: number | null = null;
-let incrementVTimer: number | null = null;
-
-const gameStatus = ref<GameStaus>(GameStaus.toPlay); // 当前游戏状态
-const score = ref<number>(0); // 当前得分
-
-// 绘制整个画布的背景色
-const drawBg = (ctx: CanvasRenderingContext2D) => {
-  ctx.fillStyle = canvasBgColor;
-  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-};
-
-// 每一帧绘制所有球体之前执行的函数
-const beforeDrawGlobules = (sphereCollision: SphereCollisionC) => {
-  const { ctx } = sphereCollision;
-  drawBg(ctx);
-};
-
-// 每一帧绘制所有球体之后执行的函数
-const afterDrawGlobules = (sphereCollision: SphereCollisionC) => {
-  const { globuleList } = sphereCollision;
-
-  // 做清除工作
-  const newGlobuleList = globuleList.filter((global: GlobuleC) => {
-    const { id, alpha, x, y, radius } = global;
-
-    // 清除透明度为0的粒子
-    if (id.role === Role.particle && alpha === 0) {
-      return false;
-    }
-
-    // 清除已出界的子弹
-    if (id.role === Role.bullet) {
-      if (
-        x < -radius ||
-        y < -radius ||
-        x > canvasWidth + radius ||
-        y > canvasHeight + radius
-      ) {
-        return false;
-      }
-    }
-    return true;
-  });
-
-  sphereCollision.updateGlobuleList(newGlobuleList);
-};
-
-// 检查玩家的小球是否与行星发生碰撞
-const checkoutPlayerCollision = (nextFrameGlobule: GlobuleC) => {
-  const { inCollisionGlobule, inCollisionGlobuleList } = nextFrameGlobule;
-  if (inCollisionGlobule) {
-    for (let i = 0, l = inCollisionGlobuleList.length; i < l; i++) {
-      const otherGlobule = inCollisionGlobuleList[i];
-      if (otherGlobule.id.role === Role.planet) {
-        sphereCollisionRef?.stop();
-        gameStatus.value = GameStaus.gameover;
-        return;
-      }
-    }
-  }
-};
-
-// 检查子弹是否与行星发生碰撞
-const checkoutBulletCollision = (nextFrameGlobule: GlobuleC) => {
-  const { inCollisionGlobule, inCollisionGlobuleList } = nextFrameGlobule;
-  if (sphereCollisionRef && inCollisionGlobule) {
-    for (let i = 0, l = inCollisionGlobuleList.length; i < l; i++) {
-      const otherGlobule = inCollisionGlobuleList[i];
-      const { id, x, y, vx, vy, radius, color } = otherGlobule;
-      if (id.role === Role.planet) {
-        // 计算分数
-        let shouldAddPlanet = false;
-        if (radius - 16 > 10) {
-          shouldAddPlanet = true;
-          score.value += 100;
-        } else {
-          score.value += 250;
-        }
-
-        // 将子弹和行星清掉
-        const newGlobuleList = sphereCollisionRef.globuleList.filter(
-          (global: GlobuleC) => {
-            if (global === nextFrameGlobule || global === otherGlobule) {
-              return false;
-            }
-            return true;
-          }
-        );
-
-        // 添加个新的更小的行星
-        if (shouldAddPlanet) {
-          const newPlanet = sphereCollisionRef.createGlobule({
-            id: { role: Role.planet },
-            initX: x,
-            initY: y,
-            radius: radius - 16,
-            color,
-            vx,
-            vy,
-            receiveOutForce: false,
-            receiveWallForce: false,
-          });
-          newGlobuleList.unshift(newPlanet);
-        }
-
-        // 添加粒子实例
-        for (let i = 0; i < radius * 8; i++) {
-          const vx = (Math.random() - 0.5) * (Math.random() * 8);
-          const vy = (Math.random() - 0.5) * (Math.random() * 8);
-          const particle = sphereCollisionRef.createGlobule({
-            id: { role: Role.particle },
-            initX: x,
-            initY: y,
-            radius: Math.random() * 4,
-            color,
-            alphaChangeV: -0.02,
-            vx,
-            vy,
-            moveLossV: 0.03,
-            receiveOutForce: false,
-            receiveWallForce: false,
-          });
-          newGlobuleList.unshift(particle);
-        }
-
-        sphereCollisionRef.updateGlobuleList(newGlobuleList);
-        return;
-      }
-    }
-  }
-};
-
-// 初始化游戏
-const initGame = () => {
-  canvasWidth = 0;
-  canvasHeight = 0;
-  boxOffetLeft = 0;
-  boxOffetTop = 0;
-  const canvas = document.getElementById("myCanvas2") as HTMLCanvasElement;
-  if (canvas) {
-    if (score.value !== 0) {
-      score.value = 0;
-    }
-    planetV = planetInitV;
-    if (boxRef.value) {
-      const { offsetWidth, offsetHeight, offsetLeft, offsetTop } = boxRef.value;
-      canvasWidth = offsetWidth;
-      canvasHeight = offsetHeight;
-      boxOffetLeft = offsetLeft;
-      boxOffetTop = offsetTop;
-    } else {
-      return;
-    }
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
-
-    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-    drawBg(ctx);
-
-    // 实例化SphereCollision对象，先添加一个玩家的球体
-    sphereCollisionRef = new SphereCollision(
-      ctx,
-      canvas,
-      [
-        {
-          id: { role: Role.player },
-          initX: canvasWidth / 2,
-          initY: canvasHeight / 2,
-          radius: playerRadius,
-          color: "#ffffff",
-          fixedPos: true,
-          receiveOutForce: false,
-          onlyCheckCollision: true,
-          afterCalculateNextFrameGlobule: checkoutPlayerCollision,
-        },
-      ],
-      {
-        beforeDrawGlobules,
-        afterDrawGlobules,
-      }
-    );
-  }
-};
-
-// 监听鼠标按下
-const onMouseDown = (e: MouseEvent) => {
-  if (gameStatus.value !== GameStaus.playing || !sphereCollisionRef) return;
-  const angle = Math.atan2(
-    e.clientY - boxOffetTop - canvasHeight / 2,
-    e.clientX - boxOffetLeft - canvasWidth / 2
-  );
-  const vx = Math.cos(angle) * bulletV;
-  const vy = Math.sin(angle) * bulletV;
-
-  // 产生子弹实例并添加到列表中
-  const bullet: GlobuleC = sphereCollisionRef.createGlobule({
-    id: { role: Role.bullet },
-    initX: canvasWidth / 2,
-    initY: canvasHeight / 2,
-    radius: bulletRadius,
-    color: "#ffffff",
-    vx,
-    vy,
-    receiveWallForce: false,
-    receiveOutForce: false,
-    onlyCheckCollision: true,
-    afterCalculateNextFrameGlobule: checkoutBulletCollision,
-  });
-  sphereCollisionRef.globuleList.unshift(bullet);
-};
-
-// 点击开始游戏
-const startGame = () => {
-  gameStatus.value = GameStaus.playing;
-  if (sphereCollisionRef) {
-    sphereCollisionRef.start();
-
-    // 产生行星
-    if (timer) {
-      clearInterval(timer);
-      timer = 0;
-    }
-    timer = window.setInterval(() => {
-      if (gameStatus.value !== GameStaus.playing || !sphereCollisionRef) return;
-      // 随机大小
-      const radius = Math.random() * (35 - 15) + 15;
-      // 随机颜色
-      const color = `hsl(${Math.random() * 360}, 50%, 50%)`;
-      let initX, initY;
-      // 随机位置
-      if (Math.random() < 0.5) {
-        initX = Math.random() < 0.5 ? 0 - radius : canvasWidth + radius;
-        initY = Math.random() * canvasHeight + radius;
-      } else {
-        initX = Math.random() * canvasWidth + radius;
-        initY = Math.random() < 0.5 ? 0 - radius : canvasHeight + radius;
-      }
-      const angle = Math.atan2(
-        canvasHeight / 2 - initY,
-        canvasWidth / 2 - initX
-      );
-      const vx = Math.cos(angle) * planetV;
-      const vy = Math.sin(angle) * planetV;
-      const planet = sphereCollisionRef.createGlobule({
-        id: { role: Role.planet },
-        initX,
-        initY,
-        radius,
-        color,
-        vx,
-        vy,
-        receiveOutForce: false,
-        receiveWallForce: false,
-      });
-      sphereCollisionRef.globuleList.unshift(planet);
-    }, 1500);
-
-    // 每过20秒行星的速度增加1
-    if (incrementVTimer) {
-      clearInterval(incrementVTimer);
-      incrementVTimer = 0;
-    }
-    incrementVTimer = window.setInterval(function () {
-      planetV += 1;
-    }, 1000 * 20);
-  }
-};
-
-// 点击暂停
-const pauseGame = () => {
-  if (gameStatus.value !== GameStaus.playing) return;
-  gameStatus.value = GameStaus.pause;
-  sphereCollisionRef?.stop();
-};
-
-// 点击继续游戏
-const continueGame = () => {
-  gameStatus.value = GameStaus.playing;
-  sphereCollisionRef?.start();
-};
-
-// 点击重新开始
-const restartGame = () => {
-  gameStatus.value = GameStaus.toPlay;
-  initGame();
-};
-
-onMounted(() => {
-  initGame();
-});
-onUnmounted(() => {
-  sphereCollisionRef?.stop();
-  if (timer) {
-    clearInterval(timer);
-  }
-  if (incrementVTimer) {
-    clearInterval(incrementVTimer);
-  }
-});
-</script>
-
 <template>
-  <div
-    class="container"
-    ref="boxRef"
-    @mousedown="onMouseDown"
-    :style="{
-      width: '100%',
-      height: '100%',
-      backgroundColor: [GameStaus.toPlay].includes(gameStatus)
-        ? '#000'
-        : 'transparent',
-    }"
-  >
-    <canvas id="myCanvas2" width="100%" height="100%">
-      您的浏览器版本过低，请更新浏览器
-    </canvas>
-    <button
-      class="startBtn"
-      v-if="gameStatus === GameStaus.toPlay"
-      @click="startGame"
-    >
-      开 始 游 戏
+  <div class="chats_container">
+    <div class="chat_main">
+      <!-- <div class="header">
+        <div>
+          <i class="iconfont jiqiren" style="font-size: 16px"></i>星火认知大模型
+        </div>
+      </div> -->
+      <div id="results">
+        <div id="result" v-html="formattedResult"></div>
+      </div>
+    </div>
+  </div>
+  <div id="sendVal">
+    <input
+      v-model="inputVal"
+      @keydown.enter="sendMsg"
+      type="text"
+      id="question"
+      placeholder="输入你想问的问题"
+    />
+    <button v-if="!btnDisable" @click.stop="sendMsg" id="btn">
+      <i class="iconfont chat"></i>发送
     </button>
-    <div class="scoreBox" v-else>
-      <span> 分数： </span>
-      <span class="score">{{ score }}</span>
-    </div>
-    <div
-      class="pauseBtn"
-      v-if="[GameStaus.playing, GameStaus.pause].includes(gameStatus)"
-      @click="pauseGame"
-    >
-      暂停
-    </div>
-    <div class="gamepause" v-if="gameStatus === GameStaus.pause">
-      <h1>
-        游戏已暂停
-      </h1>
-      <button class="continueBtn" @click="continueGame">
-        继 续 游 戏
-      </button>
-    </div>
-    <div class="gameover" v-if="gameStatus === GameStaus.gameover">
-      <h1>
-        分数
-        ：<span class="finallyScore">{{ score }}</span>
-      </h1>
-      <button class="restartBtn" @click="restartGame">
-        重 新 开 始
-      </button>
-    </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-.container {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  position: fixed;
-  left: 0;
-  top: 65px;
+<script setup>
+import { ref, onMounted, computed } from 'vue'
+import * as base64 from 'base-64'
+import CryptoJs from 'crypto-js'
+import { marked } from 'marked'
 
-  .startBtn,
-  .continueBtn,
-  .restartBtn {
-    min-width: 200px;
-    height: 60px;
-    padding: 0 10px;
-    background-color: black;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    outline: none;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    transition: all 0.2s linear;
-  }
+let isRobotVisible = ref(false)
+let btnDisable = ref(false)
 
-  .startBtn {
-    background-color: white;
-    color: black;
-  }
+const toggleRobot = () => {
+  isRobotVisible.value = !isRobotVisible.value
+}
 
-  .continueBtn,
-  .restartBtn {
-    margin-top: 50px;
-    font-size: 22px;
-  }
+const formattedResult = computed(() => {
+  return marked(sparkResult.value, { breaks: true })
+})
 
-  .gamepause,
-  .gameover {
-    padding: 50px;
-    width: 500px;
-    height: 300px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    text-align: center;
-    border-radius: 20px;
+const sparkResult = ref('')
+const inputVal = ref('')
+const notification = ref('')
+const requestObj = {
+  APPID: '6d3b1171',
+  APISecret: 'OWVjYWVmNmRjZGUxNzM3ZjI0MDUxNDA4',
+  APIKey: 'cb7d4dd17aca7142c6aa785e5a8e51d0',
+  Uid: 'xzm',
+  sparkResult: '',
+}
 
-    h1 {
-      color: black;
-      font-size: 24px;
+// 发送消息
+const sendMsg = async () => {
+  if (!inputVal.value)
+    return notification.value.show({
+      message: '请输入你的问题',
+      duration: 3000,
+      type: 'warning',
+    })
+  btnDisable.value = true
+  // 获取请求地址
+  const myUrl = await getWebsocketUrl()
+  // 获取输入框中的内容
+  // 每次发送问题 都是一个新的websocket请求
+  let socket = new WebSocket(myUrl)
+  // 监听websocket的各阶段事件 并做相应处理
+  socket.addEventListener('open', (event) => {
+    console.log('开启连接！！', event)
+    // 发送消息
+    let params = {
+      header: {
+        app_id: requestObj.APPID,
+        uid: requestObj.Uid,
+      },
+      parameter: {
+        chat: {
+          // "domain": "general",
+          domain: '4.0Ultra',
+          temperature: 0.5,
+          max_tokens: 1024,
+        },
+      },
+      payload: {
+        message: {
+          // 如果想获取结合上下文的回答，需要开发者每次将历史问答信息一起传给服务端，如下示例
+          // 注意：text里面的所有content内容加一起的tokens需要控制在8192以内，开发者如有较长对话需求，需要适当裁剪历史信息
+          text: [
+            { role: 'user', content: inputVal.value }, //# 最新的一条问题，如无需上下文，可只传最新一条问题
+          ],
+        },
+      },
+    }
+    socket.send(JSON.stringify(params))
+  })
+  socket.addEventListener('message', (event) => {
+    let data = JSON.parse(event.data)
+    console.log('收到消息！！', data)
+    requestObj.sparkResult += data.payload.choices.text[0].content
+    if (data.header.code !== 0) {
+      console.log('出错了', data.header.code, ':', data.header.message)
+      notification.value.show({
+        message: '连接出错！',
+        duration: 3000,
+        type: 'warning',
+      })
+      // 出错了"手动关闭连接"
+      socket.close()
+    }
+    if (data.header.code === 0) {
+      // 对话已经完成
+      if (data.payload.choices.text && data.header.status === 2) {
+        requestObj.sparkResult += data.payload.choices.text[0].content
+        setTimeout(() => {
+          // "对话完成，手动关闭连接"
+          socket.close()
+        }, 3000)
+      }
+    }
+    addMsgToTextarea(requestObj.sparkResult)
+  })
+  socket.addEventListener('close', (event) => {
+    inputVal.value = ''
+    console.log('连接关闭！！', event)
+    // 对话完成后socket会关闭，将聊天记录换行处理
+    requestObj.sparkResult = '\n\n' + requestObj.sparkResult
+    addMsgToTextarea(requestObj.sparkResult)
+    btnDisable.value = false
+    // 清空输入框
+  })
+  socket.addEventListener('error', (event) => {
+    notification.value.show({
+      message: '连接发送错误！！',
+      duration: 3000,
+      type: 'warning',
+    })
+  })
+}
+// 鉴权url地址
+const getWebsocketUrl = () => {
+  return new Promise((resovle, reject) => {
+    // let url = "wss://spark-api.xf-yun.com/v1.1/chat";
+    let url = 'wss://spark-api.xf-yun.com/v4.0/chat'
+    let host = 'spark-api.xf-yun.com'
+    let apiKeyName = 'api_key'
+    let date = new Date().toGMTString()
+    let algorithm = 'hmac-sha256'
+    let headers = 'host date request-line'
+    // let signatureOrigin = `host: ${host}\ndate: ${date}\nGET /v1.1/chat HTTP/1.1`;
+    let signatureOrigin = `host: ${host}\ndate: ${date}\nGET /v4.0/chat HTTP/1.1`
+    let signatureSha = CryptoJs.HmacSHA256(
+      signatureOrigin,
+      requestObj.APISecret
+    )
+    let signature = CryptoJs.enc.Base64.stringify(signatureSha)
+    let authorizationOrigin = `${apiKeyName}="${requestObj.APIKey}", algorithm="${algorithm}", headers="${headers}", signature="${signature}"`
+    let authorization = base64.encode(authorizationOrigin)
+    // 将空格编码
+    url = `${url}?authorization=${authorization}&date=${encodeURI(
+      date
+    )}&host=${host}`
+    resovle(url)
+  })
+}
+const addMsgToTextarea = (text) => {
+  sparkResult.value = text
+}
+</script>
+
+<style lang="scss" scoped>
+@import url('../style/iconfont.css');
+
+.message {
+  display: flex;
+  margin: 1rem 0;
+  &.user {
+    justify-content: flex-end;
+    .message-content {
+      background: #007bff;
+      color: white;
     }
   }
-
-  .scoreBox {
-    font-size: 30px;
-    color: white;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+  &.assistant {
+    justify-content: flex-start;
+    .message-content {
+      background: #f1f3f5;
+    }
   }
+}
 
-  .pauseBtn {
-    font-size: 30px;
-    color: white;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
+.message-content {
+  max-width: 80%;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  line-height: 1.6;
+  pre {
+    white-space: pre-wrap;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.8rem;
+    border-radius: 0.5rem;
   }
+  code {
+    font-family: monospace;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.2em 0.4em;
+  }
+}
+
+.chats_container {
+  width: 100%;
+  position: absolute;
+  .chat_main {
+    background: #fff;
+  }
+  #results {
+    height: 60vh;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  #result {
+    line-height: 1.6;
+    font-size: 15px;
+
+    /* 新增标题样式 */
+    h1,
+    h2,
+    h3 {
+      margin: 1.5em 0 1em;
+      color: #2c3e50;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.3em;
+    }
+    h1 {
+      font-size: 1.8em;
+    }
+    h2 {
+      font-size: 1.6em;
+    }
+    h3 {
+      font-size: 1.4em;
+    }
+
+    /* 优化代码块样式 */
+    pre {
+      background: #f8f9fa;
+      padding: 1.2rem;
+      border-radius: 8px;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      overflow-x: auto;
+      code {
+        background: transparent;
+        padding: 0;
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
+          monospace;
+        font-size: 0.9em;
+        line-height: 1.6;
+        color: #364149;
+      }
+    }
+
+    /* 优化行内代码 */
+    code:not(pre code) {
+      background: rgba(175, 184, 193, 0.2);
+      color: #eb5757;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      border: 1px solid rgba(175, 184, 193, 0.2);
+    }
+
+    /* 优化引用块 */
+    blockquote {
+      border-left: 4px solid #5d7cff;
+      margin: 1.5em 0;
+      padding: 0.8em 1.2em;
+      background: #f8f9ff;
+      color: #4a5568;
+      border-radius: 0 4px 4px 0;
+      p {
+        margin: 0;
+      }
+    }
+    /* 优化列表样式 */
+    ul,
+    ol {
+      padding-left: 2em;
+      margin: 1em 0;
+      li {
+        margin: 0.5em 0;
+        &::marker {
+          color: #5d7cff;
+        }
+      }
+    }
+  }
+}
+#sendVal {
+  position: fixed;
+  width: 96%;
+  left: 2%;
+  padding: 1.5rem;
+  bottom: 180px;
+  /* 新增弹性布局 */
+  display: flex;
+  gap: 12px;
+}
+
+#question {
+  /* 输入框样式优化 */
+  flex: 1;
+  height: 48px;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  
+  /* 浏览器兼容性处理 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
+  
+  &:focus {
+    border-color: #5d7cff;
+    box-shadow: 0 0 0 3px rgba(93, 124, 255, 0.15);
+    outline: none;
+  }
+  &::placeholder {
+    color: #adb5bd;
+  }
+}
+
+#btn {
+  /* 按钮适配新高度 */
+  height: 48px;
+  width: 100px;
+  position: static;  // 移除绝对定位
+  background-color: #5d7cff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.3s ease;
+  i {
+    font-size: 16px;
+  }
+}
+
+#btn:hover {
+  background-color: #4a6cd4;
 }
 </style>
