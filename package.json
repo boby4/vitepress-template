@@ -5,6 +5,9 @@
     "build": "vitepress build",
     "serve": "vitepress serve"
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "license": "MIT",
   "dependencies": {
     "@fancyapps/ui": "^5.0.22",
