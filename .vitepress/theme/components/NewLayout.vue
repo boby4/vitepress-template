@@ -2,7 +2,7 @@
     <Layout />
     <Copyright />
     <Aplayer />
-    <SparkModel />
+    <!-- <SparkModel /> -->
 </template>
 <script setup>
 import DefaultTheme from 'vitepress/theme'

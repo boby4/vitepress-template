@@ -18,7 +18,9 @@
         </div>
         <div class="body">
           <p>{{ card.frontMatter.description }}</p>
-          <img v-lazy="randomImage()" alt="Graphic" />
+          <div class="img-wrap">
+            <img v-lazy="randomImage()" alt="Graphic" />
+          </div>
         </div>
       </a>
       <div v-for="n in emptyCardCount" :key="`empty_${n}`" class="demo-card demo-card-placeholder"></div>
@@ -119,9 +121,9 @@ const emptyCardCount = computed(() => {
   }
 }
 
-$background: #f7f7f7;
-$box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
-$border: 1px solid rgba(191, 191, 191, 0.4);
+$background: #0a0a0a;
+$box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.3);
+$border: 1px solid rgba(255, 255, 255, 0.08);
 $items: 5;
 $rows: ceil(calc($items / 2));
 
@@ -138,9 +140,9 @@ $marker-size: 9px;
 
 /* Colors */
 
-$steps: #46b8e9;
-$colors: #46b8e9, #3ee9d1, #ce43eb, #4d92eb;
-$timeline: #bdbdbd;
+$steps: #3b82f6;
+$colors: #3b82f6, #8b5cf6, #a78bfa, #67e8f9;
+$timeline: rgba(255, 255, 255, 0.15);
 
 /* Calculations */
 
@@ -321,28 +323,29 @@ $counter: $items - $rows + 2;
       }
     }
     .body {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.03);
       border: $border;
       border-top: 0;
-      padding: 1px 15px;
-      @include mq-lg {
-        height: $body-height;
-      }
+      padding: $inner-margin;
       p {
         font-size: 14px;
         line-height: 18px;
-        text-indent: 2em;
-        display: -webkit-box; /* 使用弹性盒子布局模型 */
-        -webkit-line-clamp: 3; /* 最大行数为3 */
-        -webkit-box-orient: vertical; /* 垂直方向排列 */
-        overflow: hidden;
         margin-bottom: $inner-margin;
+        color: rgba(255, 255, 255, 0.55);
       }
-      img {
-        display: block;
+      .img-wrap {
         width: 100%;
-        height: 210px;
-        object-fit: cover; /* 保持纵横比，裁剪多余部分 */
+        height: 180px;
+        overflow: hidden;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.03);
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
     @for $i from 1 through $items {

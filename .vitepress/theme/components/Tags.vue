@@ -7,7 +7,7 @@
         v-for="(item, key) in data"
         class="tag"
         :key="key"
-        >#{{ key }} <span style="color: #666">{{ data[key].length }}</span>
+        >#{{ key }} <span class="tag-count">{{ data[key].length }}</span>
       </span>
     </div>
 
@@ -64,67 +64,63 @@ const toggleTag = (tag) => {
 .tag_contain {
   h2 {
     font-size: 2.5rem;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     text-align: center;
     border-top: none;
+    color: #fff;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .tag-count {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 12px;
+    margin-left: 2px;
   }
   .tag_post {
     padding: 30px 0;
-    background-color: #fff;
-    border: 1px solid #e7eaf1;
-    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
     box-sizing: border-box;
-    box-shadow: 0 2px 3px rgba(0, 37, 55, 0.1);
     margin-bottom: 15px;
   }
   .tags {
     margin-top: 14px;
     display: flex;
     flex-wrap: wrap;
-    padding: 30px 20px;
-    background-color: #fff;
-    border: 1px solid #e7eaf1;
-    border-radius: 3px;
+    padding: 24px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
     box-sizing: border-box;
-    box-shadow: 0 2px 3px rgba(0, 37, 55, 0.1);
     margin-bottom: 30px;
   }
   .tag {
     display: inline-block;
     width: auto;
-    /* padding: 4px 8px; */
     margin: 4px;
-    padding: 4px;
-    font-size: 14px;
-    color: #a6abb2;
+    padding: 4px 10px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
     line-height: 22px;
     box-sizing: border-box;
-    font-family: -apple-system, Verdana, pingfang sc, helvetica neue, arial,
-      hiragino sans gb, microsoft yahei, wenquanyi micro hei, sans-serif;
-    border-radius: 2px;
-    background-color: #fafafa;
+    font-family: 'Inter', system-ui, sans-serif;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     cursor: pointer;
     margin-right: 10px;
     transition: 0.2s;
     margin-bottom: 10px;
   }
-  .tag:hover, .tag:focus, .tag:active {
-    color: #7c7c7c;
-    animation-name: hvr-pulse-grow;
-    animation-duration: 0.3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
-  @keyframes hvr-pulse-grow {
-    100% {
-      transform: scale(1.1);
-    }
+  .tag:hover {
+    color: #fff;
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
   }
   .tag-header {
     display: block;
     font-size: 20px;
-    color: #333;
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
     margin-bottom: 20px;
   }
@@ -132,10 +128,6 @@ const toggleTag = (tag) => {
   @media screen and (max-width: 768px) {
     .tag-header {
       font-size: 1rem;
-    }
-    .date {
-      font-size: 0.7rem;
-      width: 150px;
     }
   }
 }

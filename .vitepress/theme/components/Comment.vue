@@ -23,7 +23,7 @@ import { remoteImport } from '../../utils/functions'
 
 const route = useRoute()
 const initValine = () => {
-  let path = location.origin + location.pathname
+  let path = 'https://xzmblog.onrender.com' + location.pathname
   document.getElementsByClassName('leancloud-visitors')[0].id = path
   new Valine({
     el: '#vcomments',

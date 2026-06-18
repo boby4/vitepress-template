@@ -40,18 +40,44 @@ export default {
 	...DefaultTheme,
 	setup() {
 		const route = useRoute();
+		const extendAnimate = () => {
+			// 原有：观察 .vp-doc 下元素
+			initFirstScreen();
+			animateFn();
+
+			// 扩展：观察我们新组件的子元素
+			const containers = [
+				'.projects-page', '.about-page', '.lab-page', '.blog-page',
+				'.link-page', '.friend_ship', '.stats-section', '.projects-section', '.hero-content'
+			];
+			containers.forEach((sel) => {
+				const el = document.querySelector(sel);
+				if (!el) return;
+				const children = [...(el.children || [])];
+				children.forEach((child) => {
+					if (!child.getAttribute('snow_is_show')) {
+						const observer = new IntersectionObserver((entries) => {
+							entries.forEach((entry) => {
+								if (entry.isIntersecting && !child.getAttribute('snow_is_show')) {
+									child.classList.add('animate__animated', 'animate__fadeInUp');
+									child.setAttribute('snow_is_show', 'true');
+								}
+							});
+						});
+						observer.observe(child);
+					}
+				});
+			});
+		};
 		onMounted(() => {
-			initFirstScreen(); // 初始化 -> 给首次渲染就在视口的元素加上自定义属性，这些元素永远不用加动画类
-			animateFn(); // 执行核心脚本
+			extendAnimate();
 		});
 		watch(
 			() => route.path,
 			() =>
 				nextTick(() => {
-					// autoRefresh() // 检测是否有更新
-					destructionObserver(); // 先清空所有的观察者
-					initFirstScreen(); // 再初始化一次 类似onMounted
-					animateFn(); // 再次执行核心函数
+					destructionObserver();
+					extendAnimate();
 				})
 		);
 	},

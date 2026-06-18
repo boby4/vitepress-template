@@ -1,36 +1,126 @@
+/* ==============================
+   XZM AI Studio — 深色主题设计系统
+   参考: Vercel / Linear / Stripe / Raycast
+   ============================== */
+
 :root {
+  /* --- 品牌色 --- */
   --vp-c-green: #5d80f4;
   --vp-c-brand-dark: #5d80f4;
-  --date-color: var(--vp-c-text-2);
-  --date-font-family: Georgia, sans-serif;
-  --vp-c-bg-alt: #fff; // 侧边栏
-  --li-dot-color: var(--vp-c-brand);
+
+  /* --- 深色主题核心色 --- */
+  --xzm-bg-deepest: #0a0a0a;
+  --xzm-bg-surface: #1a1a1a;
+  --xzm-bg-surface-hover: #252525;
+  --xzm-border: rgba(255, 255, 255, 0.08);
+  --xzm-text-primary: #ffffff;
+  --xzm-text-secondary: rgba(255, 255, 255, 0.6);
+  --xzm-accent-start: #3b82f6;
+  --xzm-accent-end: #8b5cf6;
+  --xzm-accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+
+  /* --- VitePress 变量覆写 --- */
+  --vp-c-bg: var(--xzm-bg-deepest);
+  --vp-c-bg-alt: var(--xzm-bg-surface);
+  --vp-c-bg-elv: var(--xzm-bg-surface);
+  --vp-c-bg-soft: var(--xzm-bg-surface);
+  --vp-c-text-1: var(--xzm-text-primary);
+  --vp-c-text-2: var(--xzm-text-secondary);
+  --vp-c-brand: var(--xzm-accent-start);
+  --vp-c-brand-light: var(--xzm-accent-end);
+
+  /* --- 排版 --- */
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* --- 遗留变量 --- */
+  --date-color: var(--xzm-text-secondary);
+  --date-font-family: var(--font-body);
+  --li-dot-color: var(--xzm-accent-start);
 }
 
-*{
-  margin: 0px;
-  padding: 0px;
-}
-
+/* 强制深色模式 */
 .dark {
-  --vp-c-bg: #253854;
-  --vp-c-bg-alt: #242424; // 深色模式侧边栏
+  --vp-c-bg: var(--xzm-bg-deepest);
+  --vp-c-bg-alt: var(--xzm-bg-surface);
+  --vp-c-bg-elv: var(--xzm-bg-surface);
+  --vp-c-bg-soft: var(--xzm-bg-surface);
+}
+
+/* --- 全局重置 --- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--xzm-bg-deepest);
+  color: var(--xzm-text-primary);
+  font-family: var(--font-body);
+}
+
+/* --- 导航栏玻璃拟态 --- */
+.VPNav {
+  background: rgba(10, 10, 10, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: none !important;
+  z-index: 1000;
+}
+
+/* 玻璃效果用伪元素，避免干扰 fixed 子元素 */
+.VPNav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: -1;
+}
+
+/* 去掉 VitePress 默认 VPDoc 顶部白线 */
+.VPDoc { border-top: none !important; }
+
+/* 去掉导航栏底部分割线 */
+.divider { display: none !important; }
+.divider-line { display: none !important; }
+.VPNavBar { border-bottom: none !important; }
+
+.VPNavBarTitle .title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* 汉堡菜单按钮确保可点击 */
+.VPNavHamburger {
+  z-index: 10000 !important;
+  position: relative;
+}
+
+/* --- 侧边栏 --- */
+.VPSidebar {
+  background: var(--xzm-bg-surface) !important;
 }
 
 .sidebar-link-item.active {
-  background: rgba(82, 179, 94, 0.1);
-}
-.VPDoc{
-  // padding: 32px 32px !important;
-}
-.VPNav{
-  box-shadow: 0 0.5rem 1rem rgba(18,38,63,.05);
-  border: 1px solid rgba(17,24,39,.1);
+  background: rgba(59, 130, 246, 0.12);
+  border-radius: 6px;
 }
 
+/* --- 主页底部 --- */
 .VPHome{
   padding-bottom: 10px !important;
 }
+
+/* --- 代码块 --- */
+.vp-doc div[class*='language-'] {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+
+/* 隐藏主题切换按钮（本站固定深色主题） */
+// .VPSwitchAppearance { display: none !important; }
 
 @media screen and (min-width: 960px) {
   .content {
@@ -130,6 +220,7 @@
     list-style: disc;
     color: var(--vp-c-text-1);
     font-weight: 500;
+    text-decoration: none;
   }
 
   a:hover {
@@ -143,6 +234,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none !important;
 }
 
 .post-dot {
@@ -157,7 +249,7 @@
 
 .post-container {
   font-size: 16px;
-  color: #666;
+  color: var(--xzm-text-secondary);
   width: 30rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -172,7 +264,7 @@
 
 .date {
   font-size: 16px;
-  color: #666;
+  color: var(--xzm-text-secondary);
   width: 100px;
   font-family: var(--date-font-family);
 }
@@ -204,6 +296,28 @@
 // 菜单栏
 .VPSidebar.open {
   z-index: 99999;
+}
+
+// 移动端导航修复
+@media (max-width: 959px) {
+  .VPNavScreen {
+    background: rgba(10, 10, 10, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+  }
+
+  .VPNavScreen.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+  }
+
+  .VPNavScreenMenu .VPLink {
+    font-size: 16px;
+    padding: 10px 0;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
 }
 
 // 滚动条

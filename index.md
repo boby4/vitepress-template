@@ -1,8 +1,8 @@
 ---
-title: home
+title: 徐智明 | XZM AI Studio
 layout: home
 ---
 <script setup>
-import Page from "./.vitepress/theme/components/Page.vue";
+import NewPage from "./.vitepress/theme/components/NewPage.vue";
 </script>
-<Page />
+<NewPage />

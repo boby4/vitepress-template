@@ -1260,15 +1260,16 @@ function setLang(lang: string) {
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
-    color: #222222;
+    color: rgba(255, 255, 255, 0.85);
     width: 100%;
-    border: .05rem solid #F6D07B;
-    box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: none;
     display: flex;
     border-radius: 1rem;
     flex-direction: row;
     margin-top: 2rem;
     font-size: $base-font-size;
+    background: var(--xzm-bg-surface);
 
     > div {
       flex: 1;
@@ -1276,37 +1277,37 @@ function setLang(lang: string) {
     }
 
     div.lang {
-      position: absolute;
-      right: 1.25rem;
-      top: 1.25rem;
-      border: 0.0625rem solid #646cff;
-      border-radius: 0.375rem;
+        position: absolute;
+        right: 1.25rem;
+        top: 1.25rem;
+        border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+        border-radius: 0.375rem;
 
-      a {
-        padding: 0.3125rem;
-        cursor: pointer;
-      }
+        a {
+          padding: 0.3125rem;
+          cursor: pointer;
+        }
 
-      a.active {
-        background: #646cff;
-        color: #ffffff;
+        a.active {
+          background: var(--xzm-accent-start);
+          color: #ffffff;
+        }
       }
-    }
 
     .center {
       flex: 2;
     }
 
     .border-bottom {
-      border-bottom: 0.0625rem solid #F4C493;
+      border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.06);
     }
 
     .border-right {
-      border-right: 0.0625rem solid #F4C493;
+      border-right: 0.0625rem solid rgba(255, 255, 255, 0.06);
     }
 
     .bg {
-      background-color: #FCF8EF;
+      background-color: rgba(255, 255, 255, 0.02);
     }
 
     .lunar {
@@ -1332,7 +1333,7 @@ function setLang(lang: string) {
 
     div.label {
       font-weight: bold;
-      color: #BC2F3F;
+      color: rgba(255, 255, 255, 0.45);
       width: 4.2rem;
       text-align: left;
       flex: none;
@@ -1365,7 +1366,7 @@ function setLang(lang: string) {
         }
 
         div.label {
-          color: #000000;
+          color: rgba(255, 255, 255, 0.8);
         }
       }
     }
@@ -1460,7 +1461,7 @@ function setLang(lang: string) {
       justify-content: space-between;
       font-size: 6rem;
       font-weight: bold;
-      color: #BC2F3F;
+      color: var(--xzm-accent-start);
       line-height: 11.0625rem;
       align-items: center;
 
@@ -1473,11 +1474,11 @@ function setLang(lang: string) {
       }
 
       a.prev {
-        border-right-color: #BC2F3F;
+        border-right-color: rgba(255, 255, 255, 0.2);
       }
 
       a.next {
-        border-left-color: #BC2F3F;
+        border-left-color: rgba(255, 255, 255, 0.2);
       }
     }
 
@@ -1487,7 +1488,7 @@ function setLang(lang: string) {
       height: 7.5rem;
       color: #FFFFFF;
       text-align: center;
-      background: #BC2F3F;
+      background: var(--xzm-accent-start);
       display: flex;
       align-items: center;
       border-radius: 0.375rem;
@@ -1521,13 +1522,14 @@ function setLang(lang: string) {
       }
 
       input, select {
-        border: 0.0625rem solid #D7D9E0;
+        border: 0.0625rem solid rgba(255, 255, 255, 0.08);
         box-sizing: border-box;
         padding: 0.4375rem;
         border-radius: 0.375rem;
         line-height: 1;
         position: relative;
-        background: #FFFFFF;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.8);
         width: 5rem;
         margin-right: 0.375rem;
         text-align: center;

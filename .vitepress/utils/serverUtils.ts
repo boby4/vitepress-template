@@ -4,7 +4,7 @@ import fs from 'fs-extra';
 import readingTime from 'reading-time';
 
 async function getPosts(pageSize: number) {
-	let paths = await globby(['posts/**.md']);
+	let paths = await globby(['posts/**/*.md']);
 	let posts = await Promise.all(
 		paths.map(async (item) => {
 			const content = await fs.readFile(item, 'utf-8');

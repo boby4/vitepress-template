@@ -9,10 +9,14 @@ const pageSize:number = 5
 const asyncConfig = async () => {
   const posts = await getPosts(pageSize);
 	return defineConfig({
-		title: '前端日记',
+		title: '徐智明 | XZM AI Studio',
 		cacheDir: '../../node_modules',
-		description: '前端日记,xuzhiming,blog',
+		description: '徐智明个人品牌官网 - 构建AI产品 · 分享技术思考 · 打造个人品牌',
 		head: [
+			// Inter 字体
+			['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+			['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+			['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' }],
 			["script", {}, `
 				var _hmt = _hmt || [];
 				(function(d,t) {

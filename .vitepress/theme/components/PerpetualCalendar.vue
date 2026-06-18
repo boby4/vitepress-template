@@ -326,23 +326,24 @@ watch(
         height: 1.875rem;
         line-height: 1.875rem;
         text-align: center;
-        background: #f5f5f6;
+        background: rgba(255, 255, 255, 0.05);
         border-radius: 0.375rem;
-        color: #333;
+        color: rgba(255, 255, 255, 0.7);
         cursor: pointer;
         font-size: 0.8125rem;
       }
 
       input,
       select {
-        border: 0.0625rem solid #d7d9e0;
+        border: 0.0625rem solid rgba(255, 255, 255, 0.08);
         box-sizing: border-box;
         padding: 0.4375rem;
         border-radius: 0.375rem;
         line-height: 1rem;
         cursor: pointer;
         position: relative;
-        background: #ffffff;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.8);
         width: 5rem;
         margin-right: 0.375rem;
         text-align: center;
@@ -390,13 +391,13 @@ watch(
               font-weight: normal;
               height: 1.375rem;
               font-size: 1.125rem;
-              color: #000;
+              color: rgba(255, 255, 255, 0.85);
             }
 
             i {
               display: block;
               font-style: normal;
-              color: #333;
+              color: rgba(255, 255, 255, 0.4);
               font-size: 0.75rem;
             }
 
@@ -405,7 +406,7 @@ watch(
               text-decoration: none;
               left: 0.4375rem;
               top: 0.4375rem;
-              color: #626675;
+              color: rgba(255, 255, 255, 0.35);
               font-size: 0.75rem;
               line-height: 0.75rem;
             }
@@ -431,31 +432,31 @@ watch(
 
         li.holiday {
           div.inner {
-            background: #f5f5f6;
+            background: rgba(255, 255, 255, 0.04);
           }
         }
 
         li.holiday.rest {
           div.inner {
-            background: #fde3e4;
+            background: rgba(248, 113, 113, 0.12);
           }
         }
 
         li.rest {
           div.inner {
             b {
-              color: #f73131;
+              color: #f87171;
             }
 
             u {
-              color: #f73131;
+              color: #f87171;
             }
           }
         }
 
         li.today {
           div.inner {
-            border: 0.125rem solid #4e6ef2 !important;
+            border: 0.125rem solid var(--xzm-accent-start) !important;
           }
         }
       }
@@ -463,9 +464,9 @@ watch(
   }
 
   .side {
-    background: #4e6ef2;
+    background: var(--xzm-bg-surface);
     width: 100%;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
 
     .ymd {
